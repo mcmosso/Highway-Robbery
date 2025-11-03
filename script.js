@@ -2296,7 +2296,7 @@ const nycGen3Scenarios = [
             text: "Move to suburbs",
             requiresNoFlag: "movedToSuburbs",
             effects: { money: -18000, monthlyExpenses: 200, frustration: 35, carsOwned: 1 },
-            result: "You move to Jersey and buy a car. Rent drops to $1,400. You drive to PATH station twice a week. The other three days you work from home. Hybrid work made suburban life possible. Maybe you should get a dog. Moving and car: $18,000.",
+            result: "You move to Jersey and buy a car. Rent drops to $1,400. You drive to PATH station twice a week. The other three days you work from home. Hybrid work made suburban life possible. Maybe you should get a dog. Name him Snoopy. Moving and car: $18,000.",
             flags: { movedToSuburbs: true, hasCarGen3: true }
         },
         {
