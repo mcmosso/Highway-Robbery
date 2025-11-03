@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highway Robbery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <div class="title">HIGHWAY ROBBERY</div>
+            <div class="meters" id="game-meters" style="display: none;">
+                <div class="meter">
+                    <label>CASH: $</label>
+                    <span id="money">5000</span>
+                </div>
+                <div class="meter-frustration">
+                    <div class="frustration-labels">
+                        <span class="frustration-label">😌 CALM</span>
+                        <span class="frustration-label">😤 STRESSED</span>
+                    </div>
+                    <div class="frustration-bar">
+                        <div id="frustration-fill" class="frustration-fill"></div>
+                    </div>
+                </div>
+                <div class="meter">
+                    <label>CARS: </label>
+                    <span id="cars-owned">0</span>
+                </div>
+                <header class="game-header">
+        <button class="skip-button" id="skip-button" onclick="skipToEnd()" style="display: none;">
+        ⏭️ SKIP TO RESULTS
+    </button>
+    <div class="meters" id="game-meters" style="display: none;">
+    </div>
+</header>
+            </div>
+        </header>
+
+<div id="front-page" class="screen active">
+    <div class="front-page-content">
+        <div class="animated-road">
+            <div class="road-stripe"></div>
+            <div class="road-stripe"></div>
+            <div class="road-stripe"></div>
+            <div class="stuck-car">🚗</div>
+            <div class="stuck-car car-2">🚗</div>
+            <div class="stuck-car car-3">🚙</div>
+            <div class="walking-person">🚶</div>
+        </div>
+        
+        <div class="logo">
+            <h1 class="glitch-text">HIGHWAY ROBBERY</h1>
+            <div class="subtitle typing-text">A game about <span id="cycling-word">"choice"</span></div>
+            <div class="year-range">1950 → 2025 • 3 Generations • 75 Years</div>
+        </div>
+        
+        <div class="game-description pulse-box">
+            <p class="hook">What if your "choices" were never really yours?</p>
+            <p>Start in 1950 with $5,000 and a future full of possibilities.</p>
+            <p>Make decisions through three generations.</p>
+            
+            <div class="features">
+                <div class="feature">🏙️ Multiple Cities</div>
+                <div class="feature">💰 Real Economics</div>
+                <div class="feature">🚗 True History</div>
+                <div class="feature">😤 Tough Choices</div>
+            </div>
+            
+            <p class="warning">⚠️ Your "freedom" to choose might be an illusion.</p>
+        </div>
+
+        <button class="button main-button glow-button" onclick="startCharacterCreation()">
+            <span class="button-car">🚗</span>
+            START YOUR JOURNEY
+            <span class="button-shimmer"></span>
+        </button>
+    </div>
+</div>
+
+        <div id="character-creation" class="screen">
+            <div class="card">
+                <h2>CREATE YOUR CHARACTER</h2>
+                <div class="subtitle">Generation 1: 1950-1975</div>
+                
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" placeholder="John" maxlength="15">
+                </div>
+
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" placeholder="Doe" maxlength="15">
+                </div>
+
+                <div class="form-group">
+                    <label>Select Gender:</label>
+                    <div class="radio-group-horizontal">
+                        <div class="radio-option">
+                            <input type="radio" id="male" name="gender" value="male" checked>
+                            <label for="male">👨 Male</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">👩 Female</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="nonbinary" name="gender" value="nonbinary">
+                            <label for="nonbinary">🧑 Non-binary</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Select Starting Job:</label>
+                    <div class="radio-group-horizontal">
+                        <div class="radio-option">
+                            <input type="radio" id="factory" name="job" value="factory" checked>
+                            <label for="factory">🏭 Factory Worker</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="teacher" name="job" value="teacher">
+                            <label for="teacher">👨‍🏫 Teacher</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="public" name="job" value="public">
+                            <label for="public">🏛️ Public Worker</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-preview">
+                    <div class="pixel-character" id="character-sprite">👤</div>
+                    <div class="character-info">
+                        <div id="preview-name">John Doe</div>
+                        <div id="preview-job">Factory Worker</div>
+                    </div>
+                </div>
+
+                <button class="button" onclick="nextScreen()">CHOOSE YOUR CITY</button>
+            </div>
+        </div>
+
+        <div id="city-selection" class="screen">
+            <div class="card">
+                <h2>CHOOSE YOUR STARTING CITY</h2>
+                <div class="subtitle">Where will your story begin?</div>
+                
+                <div class="city-options">
+                    <div class="city-card" data-city="nyc" onclick="selectCity('nyc')">
+                        <div class="city-image">🏙️</div>
+                        <h3>NEW YORK CITY</h3>
+                        <div class="city-description">Subways run 24/7. Dense blocks. High costs.</div>
+                    </div>
+
+                    <div class="city-card" data-city="detroit" onclick="selectCity('detroit')">
+                        <div class="city-image">🏭</div>
+                        <h3>DETROIT</h3>
+                        <div class="city-description">Motor City. Union wages. Streetcars dying.</div>
+                    </div>
+
+                    <div class="city-card" data-city="la" onclick="selectCity('la')">
+                        <div class="city-image">🌴</div>
+                        <h3>LOS ANGELES</h3>
+                        <div class="city-description">Red Cars everywhere. Sun and car culture rising.</div>
+                    </div>
+                </div>
+
+                <div class="selected-city-info" id="city-info" style="display: none;">
+                    <h3>You selected: <span id="selected-city-name"></span></h3>
+                    <p id="selected-city-desc"></p>
+                    <button class="button" onclick="startGame()">BEGIN YOUR STORY</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div class="game-content-full">
+                <div class="story-panel-full">
+                    <div class="year-display">
+                        <span class="year" id="current-year">1950</span>
+                        <div class="generation" id="current-generation">Generation 1</div>
+                    </div>
+                    
+                    <div class="narrative-text" id="narrative">
+                        Welcome to your story...
+                    </div>
+                    
+                    <div id="fact-box" class="fact-box-inline" style="display: none;">
+                        <div class="fact-title">📚 DID YOU KNOW?</div>
+                        <div id="fact-content"></div>
+                        <a id="fact-link" href="#" target="_blank" class="fact-link">Read More →</a>
+                    </div>
+                    
+                    <div class="choices-section">
+                        <div class="choices" id="choices"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="end-screen" class="screen">
+            <div class="card">
+                <h2>GAME OVER</h2>
+                <div id="final-summary"></div>
+                
+                <button class="button" onclick="showResources()">LEARN THE FULL STORY</button>
+                <button class="button" onclick="location.reload()">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <div id="resources-screen" class="screen">
+            <div class="card">
+                <h2>THE REAL STORY</h2>
+                <div class="subtitle">Everything you played was based on real history</div>
+                
+                <div class="resource-section">
+                    <h4>The Financial Trap</h4>
+                    <a class="resource-link" href="https://usa.streetsblog.org/2024/03/25/study-how-car-ownership-is-keeping-americans-from-financial-stability" target="_blank">→ How Car Ownership Keeps Americans From Financial Stability</a>
+                    <a class="resource-link" href="https://www.fleetmanagementweekly.com/the-average-american-will-drive-10-cars-in-their-lifetime-and-spend-nearly-500k-on-them" target="_blank">→ Americans Spend $470K on Cars Over Lifetime</a>
+                    
+                    <h4>City Histories</h4>
+                    <a class="resource-link" href="https://www.detroithistorical.org/learn/online-research/blog/detroits-streetcars-past-and-present" target="_blank">→ Detroit's Streetcars: Past and Present</a>
+                    <a class="resource-link" href="https://www.segregationbydesign.com/the-bronx/the-cross-bronx-expressway" target="_blank">→ The Cross Bronx Expressway</a>
+                    <a class="resource-link" href="https://www.kcet.org/shows/lost-la/the-death-of-the-red-cars" target="_blank">→ LA's Last Red Car</a>
+                    <a class="resource-link" href="https://www.latimes.com/opinion/op-ed/la-oe-snell-what-really-killed-streetcars-20230312-story.html" target="_blank">→ What Really Killed LA's Streetcars</a>
+                    
+                    <h4>Modern Transit Failures</h4>
+                    <a class="resource-link" href="https://creativeloafing.com/content-214744-atlanta-olympics-were-an-unmitigated-transport" target="_blank">→ Atlanta Olympics Transportation Disaster</a>
+                    <a class="resource-link" href="https://www.nytimes.com/2012/11/01/nyregion/tunnels-may-be-hardest-part-of-transit-system-to-restore.html" target="_blank">→ Hurricane Sandy Floods NYC Subways</a>
+                    <a class="resource-link" href="https://allthatsinteresting.com/new-york-subways-1980s" target="_blank">→ NYC Subway Crisis of the 1980s</a>
+                    
+                    <h4>Policy and Systemic Failures</h4>
+                    <a class="resource-link" href="https://www.nytimes.com/1986/01/05/us/reagan-seeks-cut-of-40-in-funds-for-mass-transit.html" target="_blank">→ 1986 Transit Funding Cuts</a>
+                    <a class="resource-link" href="https://www.chicagotribune.com/2005/03/16/car-insurance-expensive-think-5162-in-detroit/" target="_blank">→ Detroit's Insurance Poverty Tax</a>
+                    
+                    <h4>What You Can Do</h4>
+                    <p style="margin-top: 15px; font-size: 9px;">Car dependency was designed by policy. Policy can be redesigned by people like you. Your local city council controls walkable streets, bike lanes, and transit funding. Show up to meetings. Demand better. Vote for candidates who prioritize people over cars.</p>
+                </div>
+                
+                <button class="button" onclick="location.reload()">PLAY AGAIN</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
