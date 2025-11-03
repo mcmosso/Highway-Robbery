@@ -59,7 +59,7 @@ const gameState = {
     currentYear: 1950,
     currentGeneration: 1,
     money: 5000,
-    monthlySalary: 0,
+    monthlySalary: 300,
     monthlyExpenses: 50,
     frustration: 0,
     carsOwned: 0,
@@ -396,7 +396,7 @@ const scenarios = {
                     choices: [
                     {
                         text: "Start Generation 2",
-                        effects: { monthlySalary: 3000, monthlyExpenses: 2000 },
+                        effects: { monthlySalary: 3000, monthlyExpenses: 1500 },
                         result: "You're starting adult life in the car-designed world your parents built. Time to see what choices you have left."
                     }
         ]
@@ -638,7 +638,7 @@ const scenarios = {
                 choices: [
                     {
                         text: "Start Generation 3",
-                        effects: { monthlySalary: 5800, monthlyExpenses: 3000 },
+                        effects: { monthlySalary: 5800, monthlyExpenses: 2000 },
                         result: "You're 22 years old with a college degree, a mountain of debt, and some big decisions ahead of you. Time to figure out where to live and how you're going to get around in the city your grandparents built."
                     }
             ]
