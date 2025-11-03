@@ -396,7 +396,7 @@ const scenarios = {
                     choices: [
                     {
                         text: "Start Generation 2",
-                        effects: { monthlySalary: 3000, monthlyExpenses: 800 },
+                        effects: { monthlySalary: 3000, monthlyExpenses: 2000 },
                         result: "You're starting adult life in the car-designed world your parents built. Time to see what choices you have left."
                     }
         ]
@@ -638,7 +638,7 @@ const scenarios = {
                 choices: [
                     {
                         text: "Start Generation 3",
-                        effects: { monthlySalary: 5800, monthlyExpenses: 2000 },
+                        effects: { monthlySalary: 5800, monthlyExpenses: 3000 },
                         result: "You're 22 years old with a college degree, a mountain of debt, and some big decisions ahead of you. Time to figure out where to live and how you're going to get around in the city your grandparents built."
                     }
             ]
@@ -1486,7 +1486,7 @@ const nycGen2Scenarios = [
         choices: [
             {
                 text: "Start Generation 2 in the city",
-                effects: { monthlySalary: 3800, monthlyExpenses: 1500 },
+                effects: { monthlySalary: 3800, monthlyExpenses: 2500 },
                 result: "You're entering adulthood during New York's darkest moment. The city that never sleeps feels like its on life support. But it's still your city and this is a fresh start. Time to see if it/ you survives."
             }
         ]
@@ -1677,13 +1677,6 @@ const nycGen2Scenarios = [
             result: "The subway crisis is the final straw. You move to Long Island. You need a car for local trips. The failing subway pushed you out of the city. You have to drive and pay $30 for parking at Shea Stadium now. Moving costs: $8,000.",
             flags: { movedToSuburbs: true, hasCarGen2: true }
         },
-        {
-            text: "Move to the suburbs to escape",
-            requiresNoFlag: "movedToSuburbs",
-            effects: { money: -8000, monthlyExpenses: 200, frustration: 20, carsOwned: 1 },
-            result: "The subway crisis is the final straw. You move to Long Island. You need a car for local trips. The failing subway pushed you out of the city. You have to drive and pay $30 for parking at Shea Stadium now. Moving costs: $8,000.",
-            flags: { movedToSuburbs: true, hasCarGen2: true }
-        }
     ]
 },
 {
@@ -1925,7 +1918,7 @@ const nycGen3Scenarios = [
         choices: [
             {
                 text: "Start Generation 3 in post-9/11 New York",
-                effects: { monthlySalary: 4200, monthlyExpenses: 1000 },
+                effects: { monthlySalary: 4200, monthlyExpenses: 2500 },
                 result: "You're 22 with a degree and debt. Your grandparents thrived here on factory wages, but times have drastically changed. You're trying to make it work in the recovering city. Welcome to 2002."
             }
         ]
