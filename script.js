@@ -1481,7 +1481,7 @@ const nycGen2Scenarios = [
         choices: [
             {
                 text: "Start Generation 2 in the city",
-                effects: { monthlySalary: 3800, monthlyExpenses: 2500 },
+                effects: { monthlySalary: 3800, monthlyExpenses: 1000 },
                 result: "You're entering adulthood during New York's darkest moment. The city that never sleeps feels like its on life support. But it's still your city and this is a fresh start. Time to see if it/ you survives."
             }
         ]
@@ -1913,7 +1913,7 @@ const nycGen3Scenarios = [
         choices: [
             {
                 text: "Start Generation 3 in post-9/11 New York",
-                effects: { monthlySalary: 4200, monthlyExpenses: 2500 },
+                effects: { monthlySalary: 5200, monthlyExpenses: 2500 },
                 result: "You're 22 with a degree and debt. Your grandparents thrived here on factory wages, but times have drastically changed. You're trying to make it work in the recovering city. Welcome to 2002."
             }
         ]
