@@ -149,7 +149,7 @@ const scenarios = {
                     {
                         text: "Take the bus",
                         requiresNoFlag: "hasCarGen1",
-                        effects: { money: -8, frustration: 40 },
+                        effects: { money: -8, frustration: 20 },
                         result: "Two buses, 90 minutes each way. You're exhausted before dinner even starts. The food's good but the travel stress ruined the night. On the way home you see an Cadillac ad featuring a happy couple. Your partner suggests maybe it's time to get a car so you can be like the couple in the ad."
                     },
                     {
@@ -196,7 +196,7 @@ const scenarios = {
                     },
                     {
                         text: "Ride the final streetcar",
-                        effects: {frustration: 45 },
+                        effects: {frustration: 15 },
                         result: "You pack onto the final car with everyone else. People are crying and cheering at the same time, mourning what's being lost. When you step off for the last time, the future feels hostile. The bus system is a skeleton of what the streetcars were.",
                         forceNext: true
                     },
@@ -353,17 +353,17 @@ const scenarios = {
                 choices: [
                     {
                         text: "Pay for the parking garage",
-                        effects: { money: -2, frustration: 10 },
+                        effects: { money: -2, frustration: -5 },
                         result: "You pay $2 for the garage. It's easy and your car is safe. But it adds up - every single downtown trip costs money now. Parking meters, parking garages, parking tickets. Your car costs money even when it's sitting still."
                     },
                     {
                         text: "Circle for 20 minutes hunting for free parking",
-                        effects: { money: -1, frustration: 35 },
+                        effects: { money: -1, frustration: 15 },
                         result: "You burn a dollar in gas just circling the blocks. You finally find a spot six blocks away from the office. You're late to your appointment and sweaty from the walk. You should have just paid for the garage."
                     },
                     {
                         text: "Park at a meter - feed it throughout",
-                        effects: { money: -7, frustration: 30 },
+                        effects: { money: -7, frustration: 25 },
                         result: "You feed quarters into the meter all afternoon. You have to run out in the middle of your appointment to add more coins. You come back to find a $5 parking ticket anyway - the meter expired while you were inside. Total cost: $7."
                     }
                 ]
@@ -414,7 +414,7 @@ const scenarios = {
                     },
                     {
                         text: "Keep the old car and install a car seat",
-                        effects: { money: -140, monthlyExpenses: 200, frustration: 30 },
+                        effects: { money: -140, monthlyExpenses: 200, frustration: 20 },
                         result: "You strap the car seat into the rust-bucket and pray it holds together. Every weird engine noise makes your stomach drop. Every time someone speeds past you on I-75, you grip the wheel tighter. But you don't want to buy a new car. Sometimes needs outweigh wants."
                     },
                     {
@@ -438,13 +438,13 @@ const scenarios = {
                     },
                     {
                         text: "Partner declines the job - stay one-car",
-                        effects: {frustration: 45 },
+                        effects: {frustration: 35 },
                         result: "They turn down the better opportunity. Your household income stays lower. The resentment is palpable. They look for work closer to home, but the options are limited. Your partner sleeps on the couch for a couple of days.",
                         forceNext: true
                     },
                     {
                         text: "You quit your job - become stay-at-home parent",
-                        effects: { monthlySalary: -1800, frustration: 50 },
+                        effects: { monthlySalary: -1800, frustration: 30 },
                         result: "You give up your career so your partner can take the better job. You become the stay-at-home parent. It wasn't the plan. The isolation is real. Your professional identity feels lost. All of this because of car logistics."
                     }
                 ]
@@ -551,13 +551,13 @@ const scenarios = {
                     },
                     {
                         text: "Drive them everywhere yourself",
-                        effects: { money: -150, frustration: 65 },
+                        effects: { money: -150, frustration: 35 },
                         result: "Two months of being their personal chauffeur and you're completely exhausted. Wake up, drive them to school, drive to work, leave work early to get them to their job, pick them up at 9pm, drive home, make dinner, collapse. You're both miserable. Your boss is annoyed you keep leaving early. This is absolutely not sustainable. Extra gas from all the driving: $150/mo.",
                         forceNext: true
                     },
                     {
                         text: "Split the cost - they pay half",
-                        effects: { money: -2250, monthlyExpenses: 225, frustration: 0, carsOwned: 1 },
+                        effects: { money: -2250, monthlyExpenses: 225, frustration: -5, carsOwned: 1 },
                         result: "They work all summer to save up their half. You match what they saved. The shared ownership makes them drive more carefully and appreciate it more because they earned it. Monthly costs: their payment $60, their insurance $180. You're now a three-car household.",
                         flags: { teenHasCar: true }
                     }
@@ -595,7 +595,7 @@ const scenarios = {
                     },
                     {
                         text: "Try to use MARTA and hope the transit works",
-                        effects: { money: -30, frustration: 55 },
+                        effects: { money: -30, frustration: 35 },
                         result: "You miss the opening ceremony entirely - the bus just never came. The train was so packed you physically couldn't board. Your kid is crying. Your spouse is furious. You wasted the entire day just trying to get to the venue. You should have just driven."
                     },
                     {
@@ -651,7 +651,7 @@ const scenarios = {
                 choices: [
                     {
                         text: "Move downtown",
-                        effects: { money: -2800, monthlyExpenses: 700, frustration: 20 },
+                        effects: { money: -2800, monthlyExpenses: 700, frustration: 10 },
                         result: "Renovated loft, exposed brick, huge windows. Half your entire paycheck is gone to rent. You can walk to work and walk to bars. No car payment to worry about. But you're eating ramen for dinner every single night. Your suburban friends have space, savings accounts, and cars. You have a good location. First and last month's rent ate $2,800 of your savings.",
                         flags: { livingDowntown: true }
                     },
@@ -663,7 +663,7 @@ const scenarios = {
                     },
                     {
                         text: "Live with your parents",
-                        effects: { money: -200, monthlyExpenses: 350, frustration: 45 },
+                        effects: { money: -200, monthlyExpenses: 350, frustration: 35 },
                         result: "You're 22 years old and living in your childhood bedroom again. Your parents are absolutely thrilled. You are decidedly not. You save thousands of dollars per month but you can't bring a date home. You can't host your friends. You can't feel like an actual adult. You keep promising yourself this is just temporary. You're giving your parents $200/month to help with groceries and utilities.",
                         flags: { livingWithParents: true }
                     }
@@ -684,7 +684,7 @@ const scenarios = {
                     },
                     {
                         text: "Move downtown",
-                        effects: { money: -2800, monthlyExpenses: 2700, frustration: 25 },
+                        effects: { money: -2800, monthlyExpenses: 2700, frustration: -15 },
                         result: "You find a studio apartment downtown and sign the lease that same day. First month, last month, and security deposit completely wipe out $2,800 of your savings. But now you can walk to work every morning. No car needed. You're broke but you're finally independent.",
                         flags: { livingWithParents: false, livingDowntown: true }
                     }
@@ -708,7 +708,7 @@ const scenarios = {
                     },
                     {
                         text: "Drop to minimum coverage",
-                        effects: { money: -2800, monthlyExpenses: 235, frustration: 50 },
+                        effects: { money: -2800, monthlyExpenses: 235, frustration: 40 },
                         result: "You switch to the bare minimum legal coverage. If you get in any kind of accident, you're financially destroyed. But you literally cannot afford full coverage AND rent AND student loans AND food all at the same time. The system has forced you into an impossible choice. You drive extra carefully now. Every single day. The rubber of your steering wheel is starting to come off from how hard you've been gripping it."
                     }
                 ]
@@ -738,12 +738,12 @@ const scenarios = {
                 choices: [
                     {
                         text: "Take a taxi",
-                        effects: { money: -50, frustration: 25 },
+                        effects: { money: -50, frustration: 15 },
                         result: "You taxi there and back for $110 total. The wedding is absolutely beautiful. But literally everyone else drove their own cars. They're all planning to meet up for brunch tomorrow morning in Ann Arbor. You can't justify spending more money on more taxis. You miss the whole after-party gathering."
                     },
                     {
                         text: "Call your parents and ask them to drive you",
-                        effects: { money: -50, frustration: 25 },
+                        effects: { money: -50, frustration: -5 },
                         result: "Your parents are happy to take you, but you still can't help feeling like a complete burden on them. They fall asleep at 10pm sharp and you end up having to call a taxi to get home from the reception."
                     },
                     {
@@ -770,17 +770,17 @@ const scenarios = {
         {
             text: "Downgrade to a beater",
             requiresFlag: "hasCar",
-            effects: { money: 3000, monthlyExpenses: -250, frustration: 30 },
+            effects: { money: 3000, monthlyExpenses: -250, frustration: 10 },
             result: "You sell your decent car for $8,000, and buy a complete piece of shit for $5,000. It's ugly and smells weird but it runs. Insurance drops. Gas drops. You're cutting costs while keeping wheels. Speaking of wheels you're a little worried the wheels on the car are going to fall off at any moment. Net cash: +$3,000."
         },
         {
             text: "Move to cheaper neighborhood",
-            effects: { money: -1510, monthlyExpenses: -350, frustration: 35 },
+            effects: { money: -1510, monthlyExpenses: -350, frustration: 25 },
             result: "You move from your decent place to somewhere way cheaper and rougher. Rent drops from $850 to $500. The neighborhood is not the best but you're saving $350/month which is MASSIVE during a recession. Sometimes your tap water is brown. Moving and a new Brita: $1,510."
         },
         {
             text: "Get a side hustle",
-            effects: { money: 350, monthlyExpenses: -350, frustration: 50 },
+            effects: { money: 350, monthlyExpenses: -350, frustration: 20 },
             result: "You get a weekend job at a restaurant that's still open. Extra $350/month. You're working 60 hours a week now. You're exhausted. Your social life is dead. But your budget is stable. You get free food too so can't complain too much. Monthly income: +$350."
         },
         {
@@ -790,7 +790,7 @@ const scenarios = {
         },
         {
             text: "Keep everything the same",
-            effects: { money: -400, frustration: 40 },
+            effects: { money: -400, frustration: 20 },
             result: "You keep the car, keep the apartment, keep everything exactly the same and just... hope. Your stress builds. Your car needs repairs you can barely afford. You're playing financial chicken with a recession. Emergency expenses: $400."
         }
     ]
@@ -804,31 +804,31 @@ const scenarios = {
                     {
                         text: "Drive to Costco monthly",
                         requiresFlag: "hasCar",
-                        effects: { monthlyExpenses: -150, money: -50, frustration: 10 },
+                        effects: { monthlyExpenses: -150, money: -50, frustration: -10 },
                         result: "You drive out to Costco once a month for a big shopping trip. You're saving about $150 per month on groceries compared to the corner store prices. But the gas to get out there costs about $25/month. Plus the annual membership is $50. Your car is enabling you to save money while simultaneously creating total dependency on it. Your trunk isn't even that big - maybe you should get a bigger car?"
                     },
                     {
                         text: "Drive to Greenfield Market instead",
                         requiresFlag: "hasCar",
-                        effects: { money: -100, frustration: 10 },
+                        effects: { money: -100, frustration: -10 },
                         result: "The market has everything you actually need and the parking lot is pretty easy to navigate. It starts raining on your drive home. Through the window you see someone walking who just dropped their grocery bags all over the wet street. You're really glad you have a car. Monthly grocery costs: $100."
                     },
                     {
                         text: "Walk to the grocery store near you",
                         requiresNoFlag: "hasCar",
-                        effects: { money: -60, frustration: 60 },
+                        effects: { money: -60, frustration: 5 },
                         result: "You walk to the Whole Foods near your apartment. It's only about a 15-minute walk. You buy way too much because everything looks good. The bags are HEAVY on the walk back. Halfway home it starts pouring rain and the cheap brown paper bags start to completely rip apart. You drop half your groceries right there in the middle of the street."
                     },
                     {
                         text: "Get your groceries delivered every week",
                         requiresNoFlag: "hasCar",
-                        effects: { monthlyExpenses: 80, money: -80, frustration: 30 },
+                        effects: { monthlyExpenses: 80, money: -80, frustration: -10 },
                         result: "Grocery delivery is expensive and your delivery driver seems genuinely annoyed that you ordered two full cases of water bottles. Like, who actually needs that much water in single-use plastic bottles?? This doesn't feel sustainable long-term. The monthly delivery fees really add up fast."
                     },
                     {
                         text: "Ask a friend to drive you to the store",
                         requiresNoFlag: "hasCar",
-                        effects: { money: -60, frustration: 40 },
+                        effects: { money: -60, frustration: -10 },
                         result: "You and your friend do a grocery run together, but the whole time you're anxious about how much can actually fit in their car since both of you are buying groceries. This constant low-level anxiety about space causes you to completely forget to buy milk, which was literally the main thing you needed. You feel like such a burden on your friend."
                     }
                 ]
@@ -857,7 +857,7 @@ const scenarios = {
                     {
                         text: "Keep paying for your car",
                         requiresFlag: "hasCar",
-                        effects: { money: -1500, frustration: 30 },
+                        effects: { money: -1500, frustration: 10 },
                         result: "You keep paying $600/month for your car. You drive it to Kroger once a week. Sometimes you drive it when you're bored. You're usually bored. You drive around and listen to Blinding Lights by the Weeknd. It keeps you sane. When the world reopens you're glad you kept it. Costs: $1,500."
                      },
         {
@@ -870,19 +870,19 @@ const scenarios = {
         {
             text: "Drive to your parents' house",
             requiresFlag: "hasCar",
-            effects: { money: -200, frustration: 15 },
+            effects: { money: -200, frustration: -15 },
             result: "You load up the car and drive to your parents' suburban house to quarantine there. The car enabled your escape from lockingdown alone. You didn't anticipate how long you would be stuck back with your parents. Your mom is on her third rewatch of Tiger King. Gas and groceries: $200."
         },
         {
             text: "Walk everywhere, all the time",
             requiresNoFlag: "hasCar",
-            effects: { money: -150, frustration: 10 },
+            effects: { money: -150, frustration: -10 },
             result: "You just walk to the store in your mask. Streets are EMPTY. No traffic. Peaceful. You walk up and down the street in your mask. You walk all day. You realize how nice walking is when there aren't so many cars around. You would walk the whole city if you could. Groceries: $150."
         },
         {
             text: "Buy a bike",
             requiresNoFlag: "hasCar",
-            effects: { money: -200, frustration: 25 },
+            effects: { money: -200, frustration: -5 },
             result: "You buy a bike to avoid buses and people during COVID lockdown. Biking through ghost-town Detroit is surreal. You see like 3 other people outside. The Motor City is completely empty and you're biking through it. Biking with no cars is so nice and peaceful. Bike: $200."
         },
         {
@@ -895,7 +895,7 @@ const scenarios = {
          {
          text: "Stay with friends",
         requiresNoFlag: "movedToSuburbs",
-        effects: {monthlyExpenses: -700, frustration: 50 },
+        effects: {monthlyExpenses: -700, frustration: 20 },
         result: "You move in with two friends to split rent and survive together. Your friend leaves their dirty socks around the apartment. This is fine. Everything's fine. Sometimes you cry in the shower. You've been in the shower too long and now your roomate is banging on the bathroom door."
         },
     ]
@@ -909,18 +909,18 @@ const scenarios = {
                 choices: [
                     {
                         text: "Buy an overpriced used car",
-                        effects: { money: -15000, monthlyExpenses: 750, frustration: 50, carsOwned: 1 },
+                        effects: { money: -15000, monthlyExpenses: 750, frustration: 20, carsOwned: 1 },
                         result: "You buy a 2015 model at the inflated pandemic price. Down payment: $5,000. Monthly breakdown: car payment $410, insurance $450 (Detroit!), gas $160, food and other expenses $700. You literally lost money by selling your car and then having to buy another one back at a much higher price. You're completely trapped in the system.",
                         flags: { hasCar: true }
                     },
                     {
                         text: "Just Uber to work every single day",
-                        effects: { monthlyExpenses: 650, frustration: 45 },
+                        effects: { monthlyExpenses: 650, frustration: 25 },
                         result: "You Uber to work every single day. $25 per trip. That's $550 per month, which is almost as much as actually owning a car would cost. Plus there's surge pricing sometimes. Plus you're always waiting for drivers. Plus you're sitting in a stranger's car every morning. This really isn't sustainable long-term but you're avoiding the car ownership trap. For now."
                     },
                     {
                         text: "Move way closer to work",
-                        effects: { money: -3500, monthlyExpenses: 1900, frustration: 35 },
+                        effects: { money: -3500, monthlyExpenses: 1900, frustration: -15 },
                         result: "You find a new apartment way closer to your office so you can walk. First month, last month, security deposit, moving costs - all of it wipes out $3,500 from your savings. Monthly rent: $1,700. Food and utilities: $900. You can walk to work now. No car needed. But you're completely broke from the moving expenses and the rent is crushing.",
                         flags: { livingDowntown: true }
                     }
@@ -936,13 +936,13 @@ const scenarios = {
                 choices: [
                     {
                         text: "Buy a car",
-                        effects: { money: -26000, monthlyExpenses: 880, frustration: -5, carsOwned: 1 },
+                        effects: { money: -26000, monthlyExpenses: 880, frustration: -15, carsOwned: 1 },
                         result: "You finally buy a 2019 model. Down payment eats $8,000 of your savings. Monthly costs: car payment $510, insurance $450, gas $150, downtown parking garage $270, food and other expenses $900. You completely caved. You're now car-dependent even while living in a supposedly walkable neighborhood. The irony absolutely stings.",
                         flags: { hasCar: true }
                     },
                     {
                         text: "Carpool with your friends",
-                        effects: { money: -150, frustration: 30 },
+                        effects: { money: -150, frustration: 10 },
                         result: "You ride with your friends and it's mostly fine. But you can't leave when you actually want to. You're stuck completely on their schedule. You really want to stay up there Sunday night but you simply can't because they're leaving at 4pm. Your friend plays Taylor Swift's Midnights the whole way there and back. You like that album but damn they have spotify premium can they seriously not play any other artist? Trip costs for food and activities: $150."
                     },
                     {
@@ -960,13 +960,13 @@ const scenarios = {
                 choices: [
                     {
                         text: "Fly there",
-                        effects: { money: -635, frustration: 40 },
+                        effects: { money: -635, frustration: 10 },
                         result: "You fly. The flight is delayed by three hours. You miss your connection. You land in Boston completely exhausted and stressed out. You're worried about making your return flight on time Sunday. The wedding itself is absolutely beautiful but you're completely drained from all the travel stress. This should have been a joyful celebration."
                     },
                     {
                         text: "Drive there",
                         requiresFlag: "hasCar",
-                        effects: { money: -400, frustration: 55 },
+                        effects: { money: -400, frustration: 25 },
                         result: "You drive ten hours straight through Ohio, Pennsylvania, and New York. Your back is killing you. You're completely exhausted when you finally arrive. Friday is just driving. Sunday is just driving. You took two precious days off work and you spent literally half of them sitting behind a steering wheel on highways."
                     },
                     {
@@ -985,18 +985,18 @@ const scenarios = {
                     {
                         text: "Go on the date - they seem worth the drive",
                         requiresFlag: "hasCar",
-                        effects: { money: -75, frustration: 25 },
+                        effects: { money: -75, frustration: -10 },
                         result: "The date is genuinely great. They're funny and interesting and very attractive. But you spent 2 full hours driving for what ended up being a 90-minute date. When they text you the next day suggesting date number two in Ann Arbor (which is 45 minutes away), you hesitate. Geographic distance is starting to feel like a legitimate relationship barrier before this has even really started."
                     },
                     {
                         text: "Take an Uber there",
                         requiresNoFlag: "hasCar",
-                        effects: { money: -95, frustration: 30 },
+                        effects: { money: -95, frustration: 10 },
                         result: "You Uber there and back for $95 total. The date itself is genuinely good but it's getting expensive to date without a car. They have a car and keep suggesting these very car-dependent date ideas. You keep having to Uber everywhere. This is getting expensive incredibly fast and it's not sustainable."
                     },
                     {
                         text: "Suggest meeting somewhere way closer to you",
-                        effects: { frustration: 20 },
+                        effects: { frustration: 10 },
                         result: "You suggest a bar that's actually near you instead. They say that doesn't really work for them - it's 45 minutes from their place. You both live in the same metro area but you're completely geographically incompatible. The conversation just kind of fizzles out after that. Another potential romantic connection killed by distance and car dependency."
                     },
                     {
@@ -1116,7 +1116,7 @@ const jobSpecificScenariosNYC = {
             },
             {
                 text: "Jersey? No thanks. Quit your job and find a new one",
-                effects: { money: -900, frustration: 60},
+                effects: { money: -900, frustration: 30},
                 result: "You quit on principle. You're a NEW YORKER. You don't work in JERSEY. Three months of job hunting later and you're realizing that was maybe a dumb move. Every factory is either closed, closing, or moving to the suburbs. You finally find work at a warehouse in Queens for less pay. Pride is expensive. Job search costs and lost wages: $900.",
             },
             {
@@ -1127,7 +1127,7 @@ const jobSpecificScenariosNYC = {
             },
             {
                 text: "Follow the work and move to Jersey City",
-                effects: { money: -800, monthlyExpenses: -100, frustration: 30 },
+                effects: { money: -800, monthlyExpenses: -100, frustration: 20 },
                 result: "You find a place in Jersey City to stay close to the factory. Rent's cheaper but it's no NYC. Moving costs: $800.",
                 flags: { movedToSuburbs: true }
             }
@@ -1148,13 +1148,13 @@ const jobSpecificScenariosNYC = {
             },
             {
                 text: "Stay at your walkable Manhattan school",
-                effects: { money: -90, frustration: 30 },
-                result: "You stay at the walkable school in the city. But enrollment's dropping as white families flee to the suburbs. There's serious talk your school might close within a few years. You kept your walkable commute but your job security feels shaky. School supplies out of pocket: $90."
+                effects: { money: -90, frustration: -10 },
+                result: "You stay at the walkable school in the city. But enrollment's dropping as families flee to the suburbs. There's serious talk your school might close within a few years. You kept your walkable commute but your job security feels shaky. School supplies out of pocket: $90."
             },
             {
                 text: "You already have a car - transfer easily",
                 requiresFlag: "hasCarGen1",
-                effects: { money: -95, frustration: 15 },
+                effects: { money: -95, frustration: -15 },
                 result: "You transfer to the Queens school without much drama. Commute jumps significantly but you were already prepared for car-dependent life. The new building is objectively better. You settle into driving to teach. Increased gas costs: $95/month."
             }
         ]
@@ -1177,7 +1177,7 @@ const jobSpecificScenariosNYC = {
             },
             {
                 text: "Abstain - refuse to choose between them",
-                effects: { money: -10, frustration: 30 },
+                effects: { money: -10, frustration: 20 },
                 result: "You abstain because this choice is impossible. The roads win anyway by a huge margin. You drive home on a newly paved highway, passing people stuck waiting at broken-down bus stops. The guilt sits heavy. You spend $10 for lunch at the meeting."
             }
         ]
@@ -1305,11 +1305,6 @@ const nycGen1Scenarios = [
                 result: "Progress requires sacrifice. The new Madison Square Garden will bring jobs and revenue. Penn Station was beautiful, but maintaining it was expensive. The rail is still there, it's just underground now. Honestly, rail is dying anyway - everyone's driving or flying now. Sometimes beauty has to give way to economics."
             },
             {
-                text: "This is a step to killing public transit",
-                effects: { money: 0, frustration: 25 },
-                result: "You see the bigger picture: Penn Station isn't just a building - it's a symbol. Penn Station downgrading while they're investing billions in highways. They're systematically eliminating alternatives to cars. The loss of transit infrastructure is devastating."
-            },
-            {
                 text: "Focus on your own commute",
                 effects: { money: 10, frustration: 0 },
                 result: "You have your own problems. Let the preservationists and developers fight it out. You just need to get to work. Whether it's a beautiful station or an ugly one doesn't change your daily grind. The train is still running."
@@ -1341,7 +1336,7 @@ const nycGen1Scenarios = [
             {
                 text: "You walk home in the dark",
                 requiresFlag: "hasCarGen1",
-                effects: { money: 0, frustration: 30 },
+                effects: { money: 0, frustration: 10 },
                 result: "You walk home in darkness. Strangers share candles. Neighbors check on each other. Churches open. It doesn't feel like real life. You realize how dependent we are on technology and power."
             }
         ]
@@ -1370,7 +1365,7 @@ const nycGen1Scenarios = [
         },
         {
             text: "Protest this nonsense",
-            effects: { money: 0, frustration: 35 },
+            effects: { money: 0, frustration: 15 },
             result: "You join a group of angry riders protesting at City Hall. Today its 20 cents, tomorrow 30, 40, until one day they're charging a $1?? OR GOD FORBID $2! It's an outrage! The Transit Authority shrugs. The fare stays at 20 cents. Your boss docks your pay for missing work."
         },
         {
@@ -1406,12 +1401,12 @@ const nycGen1Scenarios = [
             },
             {
                 text: "Take LIRR and they pick you up from the station",
-                effects: { money: -20, monthlyExpenses: 20, frustration: 25 },
+                effects: { money: -20, monthlyExpenses: 20, frustration: 20 },
                 result: "You take the train. They pick you up. The whole trip takes 90 minutes each way every Sunday. They keep hinting you'd visit more if you had a car, but they always think you're doing something wrong anyway. Monthly LIRR: $20."
             },
             {
                 text: "Visit once a month instead of weekly",
-                effects: { money: -10, frustration: 20 },
+                effects: { money: -10, frustration: -5 },
                 result: "You compromise on monthly visits instead of weekly. Your partner is annoyed. Their parents feel rejected. But sorry you're not spending every Sunday traveling to the suburbs for an afternoon of passive-agressive comments of why you don't have kids yet. Monthly visits: $10."
             }
         ]
@@ -1430,7 +1425,7 @@ const nycGen1Scenarios = [
             },
             {
                 text: "Keep street parking and fight the system daily",
-                effects: { money: -120, frustration: 45 },
+                effects: { money: -120, frustration: 25 },
                 result: "You set alarms to move your car for street cleaning. You've gotten twelve tickets this year. You spend 20 minutes every night hunting for a legal spot. This is absurd. Your palms hurt from banging your hands against the steering wheel in frustration. Annual tickets: $120."
             },
             {
@@ -1545,13 +1540,13 @@ const nycGen2Scenarios = [
         choices: [
             {
                 text: "Screw this! Move to the suburbs",
-                effects: { money: -2500, frustration: 20 },
+                effects: { money: -2500, frustration: -20 },
                 result: "This strike was your last straw. You can't deal with this anymore, nor do you want to. Maybe city life isn't for you. You pack up, move to Jersey, and buy a brand new car because you know what you deserve it."
             },
             {
                 text: "Tough it out. You're a real New Yorker",
                 requiresNoFlag: "hasCarGen2",
-                effects: { money: -180, frustration: 75 },
+                effects: { money: -180, frustration: 50 },
                 result: "Eleven days. You walk miles to work. Borrow friends' cars. Call in sick three days. Share expensive cabs. It's absolutely brutal. After this hell, you're reconsidering whether total transit dependency is wise. Cab costs: $180."
             },
             {
@@ -1584,7 +1579,7 @@ const nycGen2Scenarios = [
             },
             {
                 text: "Move to suburbs near grandparents",
-                effects: { money: -11000, monthlyExpenses: 450, frustration: 25, carsOwned: 1 },
+                effects: { money: -11000, monthlyExpenses: 450, frustration: -15, carsOwned: 1 },
                 result: "You move near grandparents for help with baby. Buy a car because suburbs require it. Now you drive everywhere - daycare, pediatrician, Target. Parenthood plus suburban geography equals mandatory car ownership. Moving and car: $11,000.",
                 flags: { movedToSuburbs: true, hasCarGen2: true }
             },
@@ -1598,7 +1593,7 @@ const nycGen2Scenarios = [
             {
                 text: "Make do with the car you have",
                 requiresFlag: "hasCarGen2",
-                effects: { money: -70, monthlyExpenses: 200, frustration: -15, carsOwned: 1 },
+                effects: { money: -70, monthlyExpenses: 200, frustration: 15, carsOwned: 1 },
                 result: "After your baby's appointment, you stuff their stroller into the trunk of the car. Your partner texts you asking if you can stop by the store to get this weeks groceries. You don't have anymore space in the trunk but you make do and put the grocieries in the back seat. You weren't thinking and put the eggs on the seat. On the way home they fall over and break. This weeks grocieries: $70 ",
                 flags: { hasMinivan: true }
             }
@@ -1628,7 +1623,7 @@ const nycGen2Scenarios = [
         {
             text: "Time to seriously consider buying a car",
             requiresNoFlag: "hasCarGen2",
-            effects: { money: 0, frustration: 40 },
+            effects: { money: 0, frustration: 20 },
             result: "The transit cuts are a warning. The government is betting on cars, not trains. Maybe you're on the wrong side of history. Everyone with money is driving. The subway is there but you're worried for the future."
         },
     ]
@@ -1655,8 +1650,8 @@ const nycGen2Scenarios = [
             text: "Tough it out - as we've already established you're a real New Yorker",
             requiresNoFlag: "hasCarGen2",
             requiresNoFlag: "movedToSuburbs",
-            effects: { money: 0, frustration: 55 },
-            result: "You keep riding. Trains disgusting terrify you a little, but you won't admit that. You've been mugged once, but hey everyone in New York gets mugged once. It's like a right of passage. And you're saving $340/month. You don't quit on the city."
+            effects: { money: 0, frustration: 30 },
+            result: "You keep riding. Trains are disgusting and terrify you a little, but you won't admit that. You've been mugged once, but hey everyone in New York gets mugged once. It's like a right of passage. And you're saving $340/month. You don't quit on the city."
         },
         {
             text: "Drive everywhere now - abandon the subway completely",
@@ -1667,7 +1662,7 @@ const nycGen2Scenarios = [
         {
             text: "Join a transit advocacy group",
             requiresNoFlag: "hasCarGen2",
-            effects: { money: -20, frustration: 15 },
+            effects: { money: -20, frustration: -15 },
             result: "You join the Straphangers Campaign and start attending meetings. You donate $20 that goes toward printing flyers nobody reads. You learn the subway's problems are systemic—decades of deferred maintenance and budget cuts. Armed with facts and righteous anger, you try explaining this to your neighbors. They nod politely and keep complaining about 'those people' on the trains."
         },
         {
@@ -1694,7 +1689,7 @@ const nycGen2Scenarios = [
         },
         {
             text: "Partner takes Metro-North",
-            effects: { money: -190, monthlyExpenses: 380, frustration: 25 },
+            effects: { money: -190, monthlyExpenses: 380, frustration: -15 },
             result: "They take Metro-North daily. $380/month pass. It works but it's expensive and adds commute time. They're cranky when they get home. Monthly pass: $380."
         },
         {
@@ -1734,16 +1729,16 @@ const nycGen2Scenarios = [
             result: "You stayed through the worst years. Now you're seeing the payoff. The subway is cleaner. Streets safer. The city is coming back. Loyalty to New York is being rewarded."
         },
         {
-            text: "Happy the subway is getting safer",
+            text: "Be happy the subway is getting safer",
             requiresFlag: "movedToSuburbs",
-            effects: { money: -12000, monthlyExpenses: 400, frustration: 25 },
+            effects: { money: -12000, monthlyExpenses: 400, frustration: -25 },
             result: "Even in the suburbs you still work and do activities in NYC, so feeling comftorable to take the subway again is a wonderdul feeling. You no longer have to call cabs all the time. ",
             flags: { movedToSuburbs: false }
         },
         {
             text: "Research what broken windows policing really means",
             image:"images/policenyc.jpg",
-            effects: { money: 0, frustration: 15 },
+            effects: { money: 0, frustration: 25 },
             result: "The city is safer but at what cost? Broken windows policing means aggressive enforcement of minor offenses - disproportionately targeting Black and brown communities. Stop-and-frisk. Criminalizing homelessness. Mass incarceration for turnstile jumping. Crime dropped nationwide in the 90s, not just NYC. Was this policy necessary or just cruel?"
         },
         {
@@ -1757,7 +1752,7 @@ const nycGen2Scenarios = [
         {
             text: "Consider moving back to the city",
             requiresFlag: "movedToSuburbs",
-            effects: { money: -12000, monthlyExpenses: 400, frustration: 25 },
+            effects: { money: -12000, monthlyExpenses: 400, frustration: -5 },
             result: "You move back to the city. You sell the suburban house and buy a city apartment. You can walk and take transit again. Real estate prices are rising fast. Moving back: $12,000.",
             flags: { movedToSuburbs: false }
         },
@@ -1765,7 +1760,7 @@ const nycGen2Scenarios = [
             text: "Keep the car and use transit when you want",
             requiresFlag: "hasCarGen2",
             requiresNoFlag: "movedToSuburbs",
-            effects: { money: 0, frustration: 10 },
+            effects: { money: 0, frustration: -10 },
             result: "The subway's better but you're keeping the car anyway. You're used to the freedom. The costs are manageable. Why give up the optionality? You're hedging your bets on NYC's future."
         }
     ]
@@ -1778,7 +1773,7 @@ const nycGen2Scenarios = [
     choices: [
         {
             text: "Buy them a car",
-            effects: { money: -6500, monthlyExpenses: 310, frustration: -15, carsOwned: 1 },
+            effects: { money: -6500, monthlyExpenses: 310, frustration: 5, carsOwned: 1 },
             result: "You buy them an old Toyota. They can get to work and see friends. Teen insurance is brutal - $280/month. But they have freedom. You're paying for their independence. Car: $6,500, monthly: $310.",
             flags: { teenHasCar: true }
         },
@@ -1802,7 +1797,7 @@ const nycGen2Scenarios = [
         {
             text: "Buy them a bike to get to work",
             requiresNoFlag: "movedToSuburbs",
-            effects: { money: -250, frustration: 30 },
+            effects: { money: -250, frustration: -5 },
             result: "You buy them a decent bike. They ride to their job daily. It's exercise but exhausting. Now their manager wants them to take a closing shift...should they be biking that late at night? Bike and lock: $250."
         }
     ]
@@ -1850,13 +1845,13 @@ const nycGen2Scenarios = [
         {
             text: "Rent a car monthly for bulk shopping",
             requiresNoFlag: "hasCarGen2",
-            effects: { money: -120, monthlyExpenses: 100, frustration: 25 },
+            effects: { money: -120, monthlyExpenses: 100, frustration: 15 },
             result: "You rent a car once a month for Costco runs. Drive to Astoria, load up, return the car. It's cheaper than owning but still costs money. You're definitely saving on groceries though. Is this worth the hassle? Maybe. Monthly rental: $120."
         },
         {
             text: "Stick with bodegas",
             requiresNoFlag: "hasCarGen2",
-            effects: { money: 0, frustration: 35 },
+            effects: { money: 0, frustration: 15 },
             result: "You stay loyal to your corner bodega. Yeah it's expensive but it's RIGHT THERE. You can walk there in pajamas at midnight. Costco people can keep their 72-packs of everything. You're paying for walkability and you're okay with that."
         },
         {
@@ -1886,19 +1881,19 @@ const nycGen2Scenarios = [
         },
         {
             text: "Lease a new car",
-            effects: { money: -2000, monthlyExpenses: 450, frustration: -5 },
+            effects: { money: -2000, monthlyExpenses: 450, frustration: 5 },
             result: "You lease a brand new 2001 Toyota Camry. No more breakdowns! No more repairs! Just $450/month forever. You're trapped in the lease cycle but the car is perfect and shiny and WORKS. Down payment: $2,000, monthly: $450."
         },
         {
             text: "Junk it and go back to the subway",
             requiresNoFlag: "movedToSuburbs",
-            effects: { money: 900, monthlyExpenses: -370, frustration: 15, carsOwned: -1 },
+            effects: { money: 900, monthlyExpenses: -370, frustration: -15, carsOwned: -1 },
             result: "You junk it for $900 and return to full-time subway life. The subway improved since the nightmare '80s. You're in NYC - you don't NEED a car. Freedom from car ownership feels amazing. Sold: $900.",
             flags: { soldCarGen2: true, hasCarGen2: false }
         },
         {
             text: "Buy a cheap beater",
-            effects: { money: -2100, monthlyExpenses: -150, frustration: 25 },
+            effects: { money: -2100, monthlyExpenses: -150, frustration: 15 },
             result: "Sell yours for $900, buy a $3,000 beater off Craigslist. It's ugly and smells weird but it runs. Way lower insurance. You're cutting costs while keeping wheels. It's not pretty but it's practical. Net: $2,100."
         }
     ]
@@ -1932,25 +1927,25 @@ const nycGen3Scenarios = [
         choices: [
             {
                 text: "East Village",
-                effects: { money: -2800, monthlyExpenses: 700, frustration: 20 },
+                effects: { money: -2800, monthlyExpenses: 700, frustration: 10 },
                 result: "East Village for $1,400. That's 40% of pre-tax income. You're eating dollar pizza but walking to everything. Broke but urban. Moving: $2,800.",
                 flags: { livingInCity: true }
             },
             {
                 text: "Astoria",
-                effects: { money: -2200, monthlyExpenses: 500, frustration: 15 },
+                effects: { money: -2200, monthlyExpenses: 500, frustration: 10 },
                 result: "Astoria for $1,100. Amazing souvlaki, farther from Manhattan nightlife. The N train works. You can actually save money. Moving: $2,200.",
                 flags: { livingInCity: true }
             },
             {
                 text: "Williamsburg",
-                effects: { money: -2400, monthlyExpenses: 600, frustration: 20 },
+                effects: { money: -2400, monthlyExpenses: 600, frustration: 10 },
                 result: "Williamsburg for $1,200. Artists everywhere. Warehouse parties. The L train is your lifeline. This neighborhood is about to explode. You're early. Moving: $2,400.",
                 flags: { livingInCity: true }
             },
             {
                 text: "Parents' house",
-                effects: { money: -12000, monthlyExpenses: 450, frustration: 45, carsOwned: 1 },
+                effects: { money: -12000, monthlyExpenses: 450, frustration: 25, carsOwned: 1 },
                 result: "You move home, buy a car. No rent but mom is always asking where you are. You're commuting to Manhattan on the LIRR. Car: $12,000.",
                 flags: { livingWithParents: true, hasCarGen3: true, movedToSuburbs: true }
             }
@@ -1965,13 +1960,13 @@ const nycGen3Scenarios = [
                 choices: [
                     {
                         text: "Buy a used car",
-                        effects: { money: -12000, monthlyExpenses: 600, frustration: 30, carsOwned: 1 },
+                        effects: { money: -12000, monthlyExpenses: 600, frustration: -10, carsOwned: 1 },
                         result: "You buy a used car with 60,000 miles on it. Down payment eats $3,000 of your savings. Monthly breakdown: car payment $300, insurance $250, gas $135, food and everything else $700. At least you can reliably get to work now. Living with your parents in the suburbs basically requires having a car.",
                         flags: { hasCar: true }
                     },
                     {
                         text: "Move to the city",
-                        effects: { money: -2800, monthlyExpenses: 2700, frustration: 25 },
+                        effects: { money: -2800, monthlyExpenses: 2700, frustration: -15 },
                         result: "You find a studio apartment downtown and sign the lease that same day. First month, last month, and security deposit completely wipe out $2,800 of your savings. But now you can walk to work every morning. No car needed. You're broke but you're finally independent.",
                         flags: { livingWithParents: false, livingDowntown: true }
                     }
@@ -1986,7 +1981,7 @@ const nycGen3Scenarios = [
         choices: [
         {
             text: "Move downtown",
-            effects: { money: -2800, monthlyExpenses: 1100, frustration: -30, carsOwned: -1 },
+            effects: { money: -2800, monthlyExpenses: 1100, frustration: -20, carsOwned: -1 },
             result: "You find a studio downtown. First, last, security deposit: $2,800 gone. You can walk to work and bars. You're broke but finally FREE. No more explaining the Pokemon posters. Moving: $2,800.",
             flags: { livingWithParents: false, livingDowntown: true, hasCarGen3: false, soldCarGen3: true }
         },
@@ -1998,7 +1993,7 @@ const nycGen3Scenarios = [
         },
         {
             text: "Move to Brooklyn",
-            effects: { money: -2400, monthlyExpenses: 1150, frustration: -25 },
+            effects: { money: -2400, monthlyExpenses: 1150, frustration: -20 },
             result: "You find two roommates in Bushwick. Your share is $1,000. Keep the car for flexibility. Moving costs: $2,400. You have roommates now instead of parents. It's loud and messy but it's YOUR loud and messy. Freedom achieved. Moving: $2,400.",
             flags: { livingWithParents: false, livingInCity: true }
         },
@@ -2027,34 +2022,34 @@ const nycGen3Scenarios = [
         {
             text: "Keep car for job hunting mobility",
             requiresFlag: "hasCarGen3",
-            effects: { money: -220, frustration: 40 },
+            effects: { money: -220, frustration: 20 },
             result: "You keep it for interviews across the region. Mobility could mean staying employed. You're betting on the car while your budget screams. Costs: $220."
         },
         {
             text: "Downgrade to cheaper beater",
             requiresFlag: "hasCarGen3",
-            effects: { money: 2500, monthlyExpenses: -180, frustration: 25 },
+            effects: { money: 2500, monthlyExpenses: -180, frustration: 10 },
             result: "Sell for $7,000, buy beater for $4,500. Way lower insurance. You look broke because you ARE. But you're surviving with wheels. Net: +$2,500."
         },
         {
             text: "Move to way cheaper apartment",
             requiresNoFlag: "movedToSuburbs",
-            effects: { money: -2200, monthlyExpenses: -450, frustration: 35 },
+            effects: { money: -2200, monthlyExpenses: -450, frustration: 25 },
             result: "You flee your nice place for another place deep in Queens. Practically on the border. Rent drops from $1,800 to $1,100. Further from everything, rougher, but you're saving $700/month. Survival mode. Moving: $2,200."
         },
         {
             text: "Get a weekend side hustle",
-            effects: { money: 400, monthlyExpenses: -400, frustration: 45 },
+            effects: { money: 400, monthlyExpenses: -400, frustration: 25 },
             result: "You bartend weekends for extra $400/month. You're working 60 hours a week now. Social life: dead. Energy: gone. Bank account: stabilized. Monthly income: +$400."
         },
         {
             text: "Ask parents for a loan",
-            effects: { money: 3000, frustration: 50 },
+            effects: { money: 3000, frustration: 20 },
             result: "You call your parents and ask for help. They loan you $3,000. You're grateful and humiliated simultaneously. They're worried about you. You promise to pay them back. The recession is breaking your generation. Loan: $3,000."
         },
         {
             text: "Freelance on the side",
-            effects: { money: 300, monthlyExpenses: -300, frustration: 40 },
+            effects: { money: 300, monthlyExpenses: -300, frustration: 20 },
             result: "You start freelancing nights and weekends. Graphic design, writing, whatever pays. Extra $300/month but you're exhausted constantly. Your generation has to have multiple income streams just to survive. Monthly freelance: +$300."
         }
     ]
@@ -2068,13 +2063,13 @@ const nycGen3Scenarios = [
             {
                 text: "Rent a car for the weekend",
                 requiresNoFlag: "hasCarGen3",
-                effects: { money: -280, frustration: 25 },
+                effects: { money: -280, frustration: 20 },
                 result: "You rent a car Friday-Sunday. Drive out, tan, swim, drink, eat drive back. It works but $280 for one weekend away? This is why people buy cars - rental costs add up. Rental and other costs: $280."
             },
             {
                 text: "LIRR then cab",
                 requiresNoFlag: "hasCarGen3",
-                effects: { money: -150, frustration: 45 },
+                effects: { money: -150, frustration: 25 },
                 result: "LIRR to the end of the line, cab from there. The logistics are harder than you thought. You're late to dinner. The return trip is a nightmare. Why do rich people have houses here? Train, cab, and other weekend espenses: $150."
             },
             {
@@ -2111,35 +2106,35 @@ const nycGen3Scenarios = [
         {
             text: "Take the subway carrying 10 bottles",
             requiresNoFlag: "hasCarGen3",
-            effects: { money: -105, frustration: 45 },
+            effects: { money: -105, frustration: 25 },
             result: "You take the subway to Union Square TJ's on Saturday afternoon. It's PACKED. You buy 10 bottles. The bags are absurdly heavy. You're dripping sweat. The train lurches and you almost fall. Everyone is staring. One bag rips. A bottle rolls down the car. You chase it. Humiliating. Wine and subway: $105."
         },
         {
             text: "Uber there and back with the wine",
             requiresNoFlag: "hasCarGen3",
-            effects: { money: -135, frustration: 25 },
+            effects: { money: -135, frustration: 15 },
             result: "You Uber to TJ's and back ($60 total). Your driver is blasting 'Closer' by the Chainsmokers on repeat. 'So baby pull me closer in the back seat of your Rover.'You tip extra because you like that song. Uber and wine: $135."
         },
         {
             text: "Drive your car",
             requiresFlag: "hasCarGen3",
-            effects: { money: -90, frustration: 35 },
+            effects: { money: -90, frustration: 15 },
             result: "You drive to the Queens TJ's. Easy! Load the trunk with wine and apps. Then you get back to your neighborhood and circle for 40 MINUTES looking for parking because everyone's home on Saturday. You finally find a spot 6 blocks away. Carry all the wine those 6 blocks. Wine and parking: $90."
         },
         {
             text: "Just pay the expensive local prices",
-            effects: { money: -215, frustration: 20 },
+            effects: { money: -215, frustration: -10 },
             result: "You walk to the wine shop and pay $18/bottle. You're paying $110 extra to avoid ALL transportation logistics. But the party is already stressful and you have other things to worry about. Sometimes convenience is worth the money. Wine: $215."
         },
         {
             text: "Ask friend with car to drive you",
             requiresNoFlag: "hasCarGen3",
-            effects: { money: -105, frustration: 40 },
+            effects: { money: -105, frustration: 10 },
             result: "You text your friend with a car: 'can u drive me to TJs pleeease 🙏🍷' They respond: 'ugh I don't feel like driving in the city rn.' You beg. They finally cave. You buy them Shake Shack after and feel like the world's biggest burden. Wine and food: $105."
         },
         {
             text: "Get wine delivered online",
-            effects: { money: -165, frustration: 15 },
+            effects: { money: -165, frustration: -15 },
             result: "You order wine delivery. Marked up to $12/bottle plus delivery fee plus tip. But it shows up at your door in an hour. Worth it (kinda). Delivered wine: $165."
         },
         {
@@ -2163,13 +2158,13 @@ const nycGen3Scenarios = [
             },
             {
                 text: "Uber both ways",
-                effects: { money: -115, frustration: 20 },
+                effects: { money: -115, frustration: -5 },
                 result: "You Uber both ways ($70). Date is good but this is expensive. They keep suggesting far places. Dating without a car costs money. This isn't sustainable. Date and rides: $115."
             },
             {
                 text: "Drive",
                 requiresFlag: "hasCarGen3",
-                effects: { money: -75, frustration: 15 },
+                effects: { money: -75, frustration: -10 },
                 result: "You drive. Find parking after 25 minutes. Parking garage $30 UGH. But the date is great. They're impressed you have a car. You offer to drive them home. Getting stuck in traffic prolongs the date and you both have a lot of fun. Parking and drinks: $75."
             },
             {
@@ -2193,7 +2188,7 @@ const nycGen3Scenarios = [
             {
                 text: "Public transit to Newark, fly",
                 requiresNoFlag: "hasCarGen3",
-                effects: { money: -460, frustration: 40 },
+                effects: { money: -460, frustration: 20 },
                 result: "NJ Transit to Newark to save $130. Connection adds 90 minutes. You're annoyed before boarding. Train and flight: $460."
             },
             {
@@ -2215,13 +2210,13 @@ const nycGen3Scenarios = [
             {
                 text: "Drive there",
                 requiresFlag: "hasCarGen3",
-                effects: { money: -220, frustration: 55 },
+                effects: { money: -220, frustration: 25 },
                 result: "Five hours through I-95 traffic. Friday is driving. Sunday is driving. Ten hours of your weekend in a car on highways. Wedding is beautiful but commute destroyed you. Gas and tolls: $220."
             },
             {
                 text: "Greyhound bus",
                 requiresNoFlag: "hasCarGen3",
-                effects: { money: -90, frustration: 65 },
+                effects: { money: -90, frustration: 35 },
                 result: "Greyhound. $35 each way. Five and a half hours. Seat next to bathroom. Door keeps hitting you. What happened in there... you don't want to know. Bus and gift: $90."
             },
             {
@@ -2239,7 +2234,7 @@ const nycGen3Scenarios = [
         choices: [
             {
                 text: "Flee upstate",
-                effects: { money: -3000, monthlyExpenses: 150, frustration: 20},
+                effects: { money: -3000, monthlyExpenses: 150, frustration: -20},
                 result: "You rent upstate in nature. Totally off the grid. Work remotely in peace. You sit by the fireplace everynight and you've watched every new Netflix original show. Renting cabin upstate and Netflix subscription: $3200.",
                 flags: { hasCarGen3: true, movedToSuburbs: true }
             },
@@ -2252,7 +2247,7 @@ const nycGen3Scenarios = [
             {
                 text: "Drive to parents",
                 requiresFlag: "hasCarGen3",
-                effects: { money: -400, frustration: 10 },
+                effects: { money: -400, frustration: -10 },
                 result: "You load the car and quarantine at parents' suburban house. Car gave you escape options. Now you're stuck at your parents house for who knows how long. Your mom won't stop talking about the Tiger King. They pay for the groceries. Gas: $400."
             },
             {
@@ -2270,7 +2265,7 @@ const nycGen3Scenarios = [
             {
                 text: "Stay with friends",
                 requiresNoFlag: "movedToSuburbs",
-                effects: {monthlyExpenses: -700, frustration: 50 },
+                effects: {monthlyExpenses: -700, frustration: 30 },
                 result: "You move in with two friends to split rent and survive together. Your friend leaves their dirty socks around the apartment. This is fine. Everything's fine. Sometimes you cry in the shower. You've been in the shower too long and now your roomate is banging on the bathroom door."
             }
         ]
@@ -2295,7 +2290,7 @@ const nycGen3Scenarios = [
         {
             text: "Move to suburbs",
             requiresNoFlag: "movedToSuburbs",
-            effects: { money: -18000, monthlyExpenses: 200, frustration: 35, carsOwned: 1 },
+            effects: { money: -18000, monthlyExpenses: 200, frustration: 15, carsOwned: 1 },
             result: "You move to Jersey and buy a car. Rent drops to $1,400. You drive to PATH station twice a week. The other three days you work from home. Hybrid work made suburban life possible. Maybe you should get a dog. Name him Snoopy. Moving and car: $18,000.",
             flags: { movedToSuburbs: true, hasCarGen3: true }
         },
@@ -2306,7 +2301,7 @@ const nycGen3Scenarios = [
         },
         {
             text: "Ask your boss to go fully remote",
-            effects: { money: 0, frustration: 35 },
+            effects: { money: 0, frustration: 15 },
             result: "You ask your boss if you can just go fully remote since you're only in twice a week anyway. They say 'No, we need the team collaboration.' You point out you're on Zoom the whole time you're in the office. They don't care. Request denied."
         },
     ]
@@ -2327,19 +2322,19 @@ const nycGen3Scenarios = [
             },
             {
                 text: "Amtrak + Uber",
-                effects: { money: -360, monthlyExpenses: 360, frustration: 35 },
+                effects: { money: -360, monthlyExpenses: 360, frustration: 25 },
                 result: "Amtrak then Uber from the station. $180 per visit. Less than owning but still $4,320/year. You're car-free but stuck on train schedules. Monthly: $360."
             },
             {
                 text: "Rent car for visits",
                 requiresNoFlag: "hasCarGen3",
-                effects: { money: -280, monthlyExpenses: 280, frustration: 30 },
+                effects: { money: -280, monthlyExpenses: 280, frustration: 10 },
                 result: "You rent twice monthly. $140 per weekend. Flexibility without ownership. Still $3,360/year. You're constantly calculating if this is cheaper than owning. Probably? Monthly: $280."
             },
             {
                 text: "Drive whenever",
                 requiresFlag: "hasCarGen3",
-                effects: { money: -75, frustration: 5 },
+                effects: { money: -75, frustration: -5 },
                 result: "You drive upstate whenever. Parents are thrilled. Spontaneous visits! Weekday dinners! Car makes family easy. This is what it's for. Gas monthly: $75."
             },
         ]
@@ -2364,22 +2359,22 @@ const nycGen3Scenarios = [
         },
         {
             text: "Keep riding - WFH on flood days",
-            effects: { money: -90, frustration: 30 },
+            effects: { money: -90, frustration: -10 },
             result: "You keep riding. Most days it works fine. Flood days you work from home or Uber. The subway is still cheaper than car ownership even with occasional flooding. You're adapting to climate change without buying a car. Flood day Ubers: $90."
         },
         {
             text: "Buy e-bike",
-            effects: { money: -2800, frustration: 25 },
+            effects: { money: -2800, frustration: -5 },
             result: "You buy an e-bike. Bikes don't flood! You're climate-adapting without car dependency. You show up to work drenched on rainy days but you're mobile in ANY weather. Your coworkers think you're completely insane. E-bike: $2,800."
         },
         {
             text: "CitiBike membership",
-            effects: { money: -220, monthlyExpenses: 18, frustration: 30 },
+            effects: { money: -220, monthlyExpenses: 18, frustration: 10 },
             result: "You get CitiBike annual membership as flood-day backup. Stations everywhere! Except when there's no bikes. Or no docks. Or it's pouring rain. You still end up Ubering on actual flood days. Annual: $220."
         },
         {
             text: "Just accept the flooding. Not everything can be perfect",
-            effects: { money: 0, frustration: 35 },
+            effects: { money: 0, frustration: -5 },
             result: "You just... deal with it. Check weather every morning. Plan around rain forecasts. Work from home when it floods. This is climate change in a coastal city. You're adapting to the new normal without buying anything."
         }
     ]
@@ -2397,28 +2392,28 @@ const nycGen3Scenarios = [
     choices: [
         {
             text: "Keep driving",
-            effects: { money: -400, monthlyExpenses: 400, frustration: 50 },
+            effects: { money: -400, monthlyExpenses: 400, frustration: 10 },
             result: "You keep driving to work in Manhattan. $15 every time you cross 60th Street. That's $300/month for 20 commutes PLUS your $600 parking PLUS insurance PLUS gas. You're paying over $1,500/month just to own and use a car in NYC now. This is insane. Monthly toll: $400."
         },
         {
             text: "Sell the car",
-            effects: { money: 14000, monthlyExpenses: -1040, frustration: 20, carsOwned: -1 },
+            effects: { money: 14000, monthlyExpenses: -1040, frustration: -10, carsOwned: -1 },
             result: "Congestion pricing plus parking plus insurance is TOO MUCH. You sell and go full-time subway. The city finally made car ownership financially impossible. You're actually relieved. Victory for transit. Freedom for you. Sold: $14,000.",
             flags: { soldCarGen3: true, hasCarGen3: false }
         },
         {
             text: "Work from home more",
-            effects: { money: 0, frustration: 30 },
+            effects: { money: 0, frustration: 20 },
             result: "You start working from home way more to avoid both the commute AND the toll. Your boss notices you're never in the office anymore. They're not thrilled about it. You get a bad review at the end of the year."
         },
         {
             text: "Move to a job outside the congestion zone",
-            effects: { money: -1200, frustration: 35 },
+            effects: { money: -1200, frustration: -5 },
             result: "You job hunt specifically for positions above 60th Street or in Brooklyn to escape the toll zone. You find one after two months. Same pay, no toll. You restructured your career around a traffic policy. Job hunt: $1,200."
         },
         {
             text: "Park outside zone, subway in",
-            effects: { money: -200, monthlyExpenses: 200, frustration: 40 },
+            effects: { money: -200, monthlyExpenses: 200, frustration: 10 },
             result: "You drive to 61st Street, park there for $400/month (still expensive but less than downtown), then subway the rest. You're gaming the system. It's annoying and time-consuming but cheaper than the toll. Monthly parking: $200 extra."
         }
     ]
@@ -2432,36 +2427,36 @@ const nycGen3Scenarios = [
             {
                 text: "Stay in NYC",
                 requiresNoFlag: "movedToSuburbs",
-                effects: { money: -1400, frustration: 55 },
+                effects: { money: -1400, frustration: 5 },
                 result: "You renew. Barely making it but STAYING. Your grandparents made it on factory wages. You barely make it with a degree. The system broke somewhere. But you're not leaving. Renewal: $1,400."
             },
             {
                 text: "Move to Philadelphia",
-                effects: { money: -3800, monthlyExpenses: -1100, frustration: 50 },
+                effects: { money: -3800, monthlyExpenses: -1100, frustration: 10 },
                 result: "You move to Philly. Rent is $1,400 for twice the space. You can save and breathe. But you LEFT NEW YORK. Affordability won. You failed to hold on. Friends say they'll visit. They won't. Moving: $3,800."
             },
             {
                 text: "Move to Suburbs",
                 requiresNoFlag: "movedToSuburbs",
-                effects: { money: -21000, monthlyExpenses: 350, frustration: 45, carsOwned: 1 },
+                effects: { money: -21000, monthlyExpenses: 350, frustration: 15, carsOwned: 1 },
                 result: "You retreat to New Jersey. Rent drops to $1,600 but you need a car IMMEDIATELY for everything. Priced out of NYC and pushed into car dependency at once. The double defeat. Moving and car: $21,000.",
                 flags: { movedToSuburbs: true, hasCarGen3: true }
             },
             {
                 text: "Stay in the Suburbs",
                 requiresFlag: "movedToSuburbs",
-                effects: { money: 0, frustration: 20 },
+                effects: { money: 0, frustration: 10 },
                 result: "You're in suburbs where rent is $1,400. Affordable. You need the car but housing isn't crushing you. You left years ago. Different trade-offs."
             },
             {
             text: "It's cold here, it's busy here. Move to Florida",
-             effects: { money: -8000, monthlyExpenses: -400, frustration: 40, carsOwned: 1 },
+             effects: { money: -8000, monthlyExpenses: -400, frustration: 10, carsOwned: 1 },
             result: "You flee to Tampa. Rent is $1,200 for a 2-bedroom with PARKING. No state income tax! Sunshine! But you need a car for literally everything. There's no sidewalks. You're driving to get your mail. You joined the mass NYC-to-Florida migration and traded unaffordable walkability for affordable car dependency. Moving and car down payment: $8,000.",
             flags: { movedToSouth: true, hasCarGen3: true }
             },
             {
             text: "Move in with partner",
-            effects: { money: -2400, monthlyExpenses: -1000, frustration: 30 },
+            effects: { money: -2400, monthlyExpenses: -1000, frustration: 20 },
             result: "You move in with partner. Split a $2,000 place. Staying in NYC by combining incomes. Relationship escalated by rent crisis. Very romantic. Very necessary. Moving: $2,400."
             }
         ]
