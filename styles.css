@@ -68,7 +68,6 @@ body {
     100% { transform: translateX(100%); }
 }
 
-
 .meter label {
     margin: 0;
 }
@@ -77,6 +76,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-left: auto;
 }
 
 .frustration-labels {
@@ -122,238 +122,179 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
+
+/* ========== FRONT PAGE ========== */
 .front-page-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.logo {
-    margin-bottom: 40px;
-}
-
-.logo h1 {
-    font-size: 28px;
-    color: #6A1B9A;
-    text-shadow: 3px 3px 0px #4A148C;
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-}
-
-.logo .subtitle {
-    font-size: 12px;
-    color: #8E24AA;
-    margin-bottom: 20px;
-}
-
-.game-description {
-    background: #F3E5F5;
-    border: 4px solid #6A1B9A;
-    padding: 10px;
-    margin-bottom: 20px;
-    box-shadow: 6px 6px 0px #4A148C;
-}
-
-.game-description p {
-    font-size: 9px;
-    line-height: 1.8;
-    margin-bottom: 15px;
-    color: #2D1B69;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    background: #f6c1ff;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
     gap: 15px;
-    margin-top: 20px;
 }
 
-.feature {
-    font-size: 9px;
-    color: #6A1B9A;
+#pixel-canvas {
+    width: 95%;
+    max-width: 1100px;
+    height: auto;
+    max-height: 40vh;
+    aspect-ratio: 2.5/1;
+    border: 6px solid #4a148c;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    display: block;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+}
+
+.title-section {
     text-align: center;
-    padding: 10px;
-    background: #E1BEE7;
-    border: 2px solid #6A1B9A;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.main-button {
-    font-size: 14px;
-    padding: 20px 30px;
-    position: relative;
-    overflow: hidden;
-}
-
-.button-car {
-    display: inline-block;
-    margin-right: 10px;
-    animation: wiggle 1s ease-in-out infinite;
-}
-.animated-road {
-    width: 100%;
-    height: 100px;
-    background: #424242;
-    position: relative;
-    margin-bottom: 10px;
-    overflow: hidden;
-    border: 3px solid #2D1B69;
-}
-
-.road-stripe {
-    position: absolute;
-    width: 80px;
-    height: 4px;
-    background: #FFC107;
-    top: 50%;
-    animation: roadMove 2s linear infinite;
-}
-
-.road-stripe:nth-child(1) { left: 0%; }
-.road-stripe:nth-child(2) { left: 33%; animation-delay: -0.66s; }
-.road-stripe:nth-child(3) { left: 66%; animation-delay: -1.33s; }
-
-@keyframes roadMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-300px); }
-}
-
-.stuck-car {
-    position: absolute;
-    font-size: 24px;
-    top: 25%;
-    animation: carHonk 1.5s ease-in-out infinite;
-}
-
-.stuck-car.car-2 {
-    left: 35%;
-    top: 50%;
-    animation-delay: -0.5s;
-}
-
-.stuck-car.car-3 {
-    left: 60%;
-    top: 30%;
-    animation-delay: -1s;
-}
-
-@keyframes carHonk {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(3px); }
-}
-
-.walking-person {
-    position: absolute;
-    font-size: 20px;
-    top: 10%;
-    right: 10%;
-    animation: personWalk 3s linear infinite;
-}
-
-@keyframes personWalk {
-    0% { transform: translateX(0) scaleX(1); }
-    49% { transform: translateX(-50px) scaleX(1); }
-    50% { transform: translateX(-50px) scaleX(-1); }
-    99% { transform: translateX(0) scaleX(-1); }
-    100% { transform: translateX(0) scaleX(1); }
-}
-
-.glitch-text {
-    position: relative;
-    animation: glitchPulse 3s ease-in-out infinite;
-}
-
-.typing-text {
-    font-size: 10px;
-    color: #8E24AA;
+.game-title {
+    font-size: 42px;
+    color: #52007a;
+    letter-spacing: 8px;
     margin-bottom: 5px;
+    text-shadow: 
+        5px 5px 0 rgba(0,0,0,0.6),
+        -2px -2px 0 #7c53f7;
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { 
+        text-shadow: 
+            4px 4px 0 rgba(0,0,0,0.5),
+            -2px -2px 0 #ba98ff;
+    }
+    50% { 
+        text-shadow: 
+            6px 6px 0 rgba(0,0,0,0.5),
+            -3px -3px 0 #cb9dff,
+            0 0 20px rgba(131, 73, 237, 0.5);
+    }
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #E1BEE7;
+    letter-spacing: 2px;
+    margin: 12px 0;
 }
 
 #cycling-word {
-    color: #6A1B9A;
-    font-weight: bold;
-    border-right: 3px solid #8E24AA;
-    padding-right: 5px;
-}
-@keyframes glitchPulse {
-    0%, 100% { text-shadow: 3px 3px 0px #4A148C; }
-    50% { text-shadow: -2px 2px 0px #FF6B9D, 2px -2px 0px #4A148C; }
+    color: #7300ff;
+    display: inline-block;
+    min-width: 180px;
 }
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
+.game-info {
+    font-size: 16px;
+    color: #8800ffd9;
+    letter-spacing: 2px;
+    margin: 15px 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.039);
 }
 
-@keyframes blink {
-    50% { border-color: transparent; }
+.game-tagline {
+    font-size: 10px;
+    color: #7a28ff;
+    letter-spacing: 1px;
+    margin: 12px 0 20px 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.106);
 }
 
-.year-range {
-    font-size: 9px;
-    color: #6A1B9A;
-    margin-top: 10px;
-}
-
-.pulse-box {
-    animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { box-shadow: 6px 6px 0px #4A148C; }
-    50% { box-shadow: 6px 6px 20px rgba(106, 27, 154, 0.6); }
-}
-
-.hook {
-    font-size: 11px !important;
-    color: #6A1B9A;
-    font-weight: bold;
-    margin-bottom: 20px !important;
-    text-shadow: 1px 1px 0px #E1BEE7;
-}
-
-.warning {
-    font-size: 9px !important;
-    color: #D32F2F;
-    margin-top: 20px !important;
-    text-align: center;
-    animation: warningBlink 1.5s ease-in-out infinite;
-}
-
-@keyframes warningBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-}
-
-.glow-button {
-    animation: buttonGlow 2s ease-in-out infinite;
+.start-game-btn {
+    background: linear-gradient(135deg, #6A1B9A, #8E24AA);
+    border: 5px solid #2D1B69;
+    color: #fff;
+    font-size: 16px;
+    padding: 18px 45px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    box-shadow: 
+        6px 6px 0 #914cff,
+        0 0 30px #7344ff99;
+    transition: background 0.2s;
+    font-family: 'Press Start 2P', monospace;
     position: relative;
+    overflow: hidden;
+    animation: pulse-out 4s ease-in-out infinite;
 }
 
-@keyframes buttonGlow {
-    0%, 100% { box-shadow: 4px 4px 0px #4A148C; }
-    50% { box-shadow: 4px 4px 30px rgba(255, 107, 157, 0.8), 4px 4px 0px #4A148C; }
-}
-
-.button-shimmer {
+.start-game-btn::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    animation: shimmer 3s infinite;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 70%
+    );
+    animation: shimmer 2.5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse-out {
+    0%, 100% {
+        transform: translate(0, 0);
+        box-shadow: 
+            6px 6px 0 #914cff,
+            0 0 30px #7344ff99;
+    }
+    50% {
+        transform: translate(-8px, -8px);
+        box-shadow: 
+            14px 14px 0 #914cff,
+            0 0 60px #7344ffff,
+            0 0 100px #7344ff88;
+    }
 }
 
 @keyframes shimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
-@keyframes wiggle {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-3deg); }
-    75% { transform: rotate(3deg); }
+.start-game-btn:hover {
+    background: linear-gradient(135deg, #1d46ff, #003dd7);
+    animation: pulse-out-hover 0.6s ease-in-out infinite;
+}
+
+@keyframes pulse-out-hover {
+    0%, 100% {
+        transform: translate(3px, 3px);
+        box-shadow: 
+            3px 3px 0 #0b00d4,
+            0 0 40px rgba(11, 60, 255, 0.9);
+    }
+    50% {
+        transform: translate(-6px, -6px);
+        box-shadow: 
+            12px 12px 0 #0b00d4,
+            0 0 80px rgba(11, 60, 255, 1);
+    }
+}
+
+.start-game-btn:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 #240cff;
+    animation: none;
 }
 
 .card {
@@ -685,18 +626,6 @@ input[type="radio"] {
     padding-top: 10px;
 }
 
-.choices-header {
-    text-align: center;
-    font-size: 10px;
-    color: #6A1B9A;
-    margin-bottom: 15px;
-    padding: 10px;
-    background: linear-gradient(90deg, transparent, #D4A5D7, transparent);
-    border-top: 2px solid #6A1B9A;
-    border-bottom: 2px solid #6A1B9A;
-    text-shadow: 1px 1px 0px #4A148C;
-}
-
 .choices {
     display: flex;
     flex-direction: column;
@@ -704,37 +633,29 @@ input[type="radio"] {
 }
 
 .choice-button {
-    background: linear-gradient(135deg, #FF6B9D, #FFA07A);
-    border: 3px solid #2D1B69;
+    background: linear-gradient(135deg, #7ae7ff, #01d0ff);
+    border: 5px solid #0c061f;
     padding: 18px 25px;
     font-family: 'Press Start 2P', monospace;
-    font-size: 9px;
+    font-size: 11px;
     cursor: pointer;
-    text-align: left;
+    text-align: center;
     transition: all 0.2s ease;
     color: #2D1B69;
-    border-radius: 25px;
+    border-radius: 20px;
     line-height: 1.6;
-    box-shadow: 6px 6px 0px rgba(45, 27, 105, 0.6);
-    position: relative;
-}
-
-.choice-button::before {
-    content: '→';
-    position: absolute;
-    left: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #2D1B69;
-    opacity: 0;
-    transition: all 0.2s ease;
+    box-shadow: 8px 8px 0px rgba(0, 19, 160, 0.6);
 }
 
 .choice-button:hover {
     background: linear-gradient(135deg, #FF8FAB, #FFB399);
     transform: translateX(5px);
     box-shadow: 10px 10px 0px rgba(45, 27, 105, 0.8);
+}
+
+.choice-button.forced-choice {
+    background: linear-gradient(135deg, #FFCCBC, #FFAB91);
+    border-color: #D84315;
 }
 
 .choice-button:hover::before {
@@ -836,6 +757,7 @@ input[type="radio"] {
     justify-content: space-between;
     margin-bottom: 8px;
 }
+
 .skip-button {
     background: rgba(45, 27, 105, 0.8);
     color: #F3E5F5;
@@ -956,8 +878,8 @@ input[type="radio"] {
         padding: 20px;
     }
 
-    .logo h1 {
-        font-size: 20px;
+    .game-title {
+        font-size: 32px;
     }
 
     .radio-group-horizontal {
@@ -967,5 +889,9 @@ input[type="radio"] {
 
     .story-panel-full {
         padding: 20px;
+    }
+    
+    #pixel-canvas {
+        max-width: 100%;
     }
 }
