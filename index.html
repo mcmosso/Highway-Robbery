@@ -6,50 +6,39 @@
     <title>Highway Robbery</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-       <link rel="stylesheet" type="text/css" href="https://mediainnovation.camd.northeastern.edu/2021/masters/css/masters.css">
+    <link rel="stylesheet" type="text/css" href="https://mediainnovation.camd.northeastern.edu/2021/masters/css/masters.css">
     <link rel="stylesheet" type="text/css" href="https://mediainnovation.camd.northeastern.edu/2025/masters/css/2025masters.css">
-    
-    
 </head>
 <body>
     <!---------------------------- Hamburger menu –––––––––––––––––––––––––––––––––––– -->
     <nav role="navigation" class="essential-nav">
-    <div id="menuToggle">
-        <!--
-        A fake / hidden checkbox is used as click reciever,
-        so you can use the :checked selector on it.
-        -->
-        <input type="checkbox"/>
-        <!--
-        Some spans to act as a hamburger.
-        -->
-        <span></span>
-        <span></span>
-        <span></span>
-        <ul id="menu">
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/bucci/index.html"><li>Danae Bucci</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/cao/index.html"><li>Wenqi Cao</li></a>
-        <a href="https://ricole5151.github.io/Draft2_MI2025_Ricole/"><li>Ricole Chen</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/dsouza/index.html"><li>Vivica Dsouza</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/fan/index.html"><li>Shuyu Fan</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/jia/index.html"><li>Haolong Jia</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/liu/index.html"><li>Jiarui Liu</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/mosso/index.html"><li>MariCarmen Mosso</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/nie/index.html"><li>Chloe Nie</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/haris/index.html"><li>Namira Haris</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/shi/index.html"><li>Yuanlang Shi</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/siljeholm/index.html"><li>Marian Siljeholm</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/thalhamer/index.html"><li>Lisa Thalhamer</li></a>
-        <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/zhang/index.html"><li>Shuran Zhang</li></a>
-
-        </ul>
-    </div>
-        
+        <div id="menuToggle">
+            <input type="checkbox"/>
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/bucci/index.html"><li>Danae Bucci</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/cao/index.html"><li>Wenqi Cao</li></a>
+                <a href="https://ricole5151.github.io/Draft2_MI2025_Ricole/"><li>Ricole Chen</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/dsouza/index.html"><li>Vivica Dsouza</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/fan/index.html"><li>Shuyu Fan</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/jia/index.html"><li>Haolong Jia</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/liu/index.html"><li>Jiarui Liu</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/mosso/index.html"><li>MariCarmen Mosso</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/nie/index.html"><li>Chloe Nie</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/haris/index.html"><li>Namira Haris</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/shi/index.html"><li>Yuanlang Shi</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/siljeholm/index.html"><li>Marian Siljeholm</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/thalhamer/index.html"><li>Lisa Thalhamer</li></a>
+                <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/zhang/index.html"><li>Shuran Zhang</li></a>
+            </ul>
+        </div>
     </nav>
     
-            <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/index.html">
-                <div style="width: 50%; height: 50px; margin: 0 25%; position: absolute; top:0;z-index:5;"></div> <!-- Make logo clickable by wrapping a div in a link -->
-            </a>
+    <a href="https://mediainnovation.camd.northeastern.edu/2025/masters/index.html">
+        <div style="width: 50%; height: 50px; margin: 0 25%; position: absolute; top:0;z-index:5;"></div>
+    </a>
     <div class="game-container">
         <header class="game-header">
             <div class="title">HIGHWAY ROBBERY</div>
@@ -71,56 +60,28 @@
                     <label>CARS: </label>
                     <span id="cars-owned">0</span>
                 </div>
-                <header class="game-header">
-        <button class="skip-button" id="skip-button" onclick="skipToEnd()" style="display: none;">
-        ⏭️ SKIP TO RESULTS
-    </button>
-    <div class="meters" id="game-meters" style="display: none;">
-    </div>
-</header>
             </div>
+            <button class="skip-button" id="skip-button" onclick="skipToEnd()" style="display: none;">
+                ⏭️ SKIP TO RESULTS
+            </button>
         </header>
 
-<div id="front-page" class="screen active">
-    <div class="front-page-content">
-        <div class="animated-road">
-            <div class="road-stripe"></div>
-            <div class="road-stripe"></div>
-            <div class="road-stripe"></div>
-            <div class="stuck-car">🚗</div>
-            <div class="stuck-car car-2">🚗</div>
-            <div class="stuck-car car-3">🚙</div>
-            <div class="walking-person">🚶</div>
-        </div>
-        
-        <div class="logo">
-            <h1 class="glitch-text">HIGHWAY ROBBERY</h1>
-            <div class="subtitle typing-text">A game about <span id="cycling-word">"choice"</span></div>
-            <div class="year-range">1950 → 2025 • 3 Generations • 75 Years</div>
-        </div>
-        
-        <div class="game-description pulse-box">
-            <p class="hook">What if your "choices" were never really yours?</p>
-            <p>Start in 1950 with $5,000 and a future full of possibilities.</p>
-            <p>Make decisions through three generations.</p>
-            
-            <div class="features">
-                <div class="feature">🏙️ Multiple Cities</div>
-                <div class="feature">💰 Real Economics</div>
-                <div class="feature">🚗 True History</div>
-                <div class="feature">😤 Tough Choices</div>
+        <div id="front-page" class="screen active">
+            <div class="front-page-content">
+                <canvas id="pixel-canvas" width=1000" height="400"></canvas>
+                
+                <div class="title-section">
+                    <h1 class="game-title">HIGHWAY ROBBERY</h1>
+                    <div class="subtitle">A game about <span id="cycling-word">"choice"</span></div>
+                    <div class="game-info">3 CITIES • 3 GENERATIONS • 75 YEARS</div>
+                    <div class="game-tagline">WHAT IF YOUR "CHOICES" WERE NEVER REALLY YOURS?</div>
+                    
+                    <button class="start-game-btn" onclick="startCharacterCreation()">
+                        ▶ START YOUR JOURNEY
+                    </button>
+                </div>
             </div>
-            
-            <p class="warning">⚠️ Your "freedom" to choose might be an illusion.</p>
         </div>
-
-        <button class="button main-button glow-button" onclick="startCharacterCreation()">
-            <span class="button-car">🚗</span>
-            START YOUR JOURNEY
-            <span class="button-shimmer"></span>
-        </button>
-    </div>
-</div>
 
         <div id="character-creation" class="screen">
             <div class="card">
@@ -267,19 +228,9 @@
                     <a class="resource-link" href="https://www.detroithistorical.org/learn/online-research/blog/detroits-streetcars-past-and-present" target="_blank">→ Detroit's Streetcars: Past and Present</a>
                     <a class="resource-link" href="https://www.segregationbydesign.com/the-bronx/the-cross-bronx-expressway" target="_blank">→ The Cross Bronx Expressway</a>
                     <a class="resource-link" href="https://www.kcet.org/shows/lost-la/the-death-of-the-red-cars" target="_blank">→ LA's Last Red Car</a>
-                    <a class="resource-link" href="https://www.latimes.com/opinion/op-ed/la-oe-snell-what-really-killed-streetcars-20230312-story.html" target="_blank">→ What Really Killed LA's Streetcars</a>
-                    
-                    <h4>Modern Transit Failures</h4>
-                    <a class="resource-link" href="https://creativeloafing.com/content-214744-atlanta-olympics-were-an-unmitigated-transport" target="_blank">→ Atlanta Olympics Transportation Disaster</a>
-                    <a class="resource-link" href="https://www.nytimes.com/2012/11/01/nyregion/tunnels-may-be-hardest-part-of-transit-system-to-restore.html" target="_blank">→ Hurricane Sandy Floods NYC Subways</a>
-                    <a class="resource-link" href="https://allthatsinteresting.com/new-york-subways-1980s" target="_blank">→ NYC Subway Crisis of the 1980s</a>
-                    
-                    <h4>Policy and Systemic Failures</h4>
-                    <a class="resource-link" href="https://www.nytimes.com/1986/01/05/us/reagan-seeks-cut-of-40-in-funds-for-mass-transit.html" target="_blank">→ 1986 Transit Funding Cuts</a>
-                    <a class="resource-link" href="https://www.chicagotribune.com/2005/03/16/car-insurance-expensive-think-5162-in-detroit/" target="_blank">→ Detroit's Insurance Poverty Tax</a>
                     
                     <h4>What You Can Do</h4>
-                    <p style="margin-top: 15px; font-size: 9px;">Car dependency was designed by policy. Policy can be redesigned by people like you. Your local city council controls walkable streets, bike lanes, and transit funding. Show up to meetings. Demand better. Vote for candidates who prioritize people over cars.</p>
+                    <p style="margin-top: 15px; font-size: 9px;">Car dependency was designed by policy. Policy can be redesigned by people like you.</p>
                 </div>
                 
                 <button class="button" onclick="location.reload()">PLAY AGAIN</button>
