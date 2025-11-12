@@ -1318,8 +1318,8 @@ const nycGen1Scenarios = [
             },
             {
                 text: "STICK WITH THE SUBWAY",
-                effects: { money: 75, frustration: -5 },
-                result: "Why complicate life? You're saving money while Frank stresses about parking tickets. His car doesn't seem worth all that stress. Franks has always been a show off anyways."
+                effects: { money: -.10, frustration: -5 },
+                result: "Why complicate life? You're saving money while Frank stresses about parking tickets. His car doesn't seem worth all that stress. Franks has always been a show off anyways. Subway ride home: 10 cents"
             },
             {
                 text: "THINK ABOUT IT - NOT READY TO DECIDE",
