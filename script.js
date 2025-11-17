@@ -1957,10 +1957,10 @@ const nycGen2Scenarios = [
 },
 {
     year: 2001,
-    title: "Your Car Literally Dies on the BQE",
+    title: "Your Car Dies on the BQE",
     narrative: "Brooklyn-Queens Expressway. Rush hour. Your car makes a horrible grinding noise and just... stops. Dead. Traffic backs up behind you for MILES. People are screaming. Honking. Calling you terrible names...You're mortified. Tow truck: $95. Mechanic: 'Yeah, transmission is completely shot. $2,900 to fix.' The car is 13 years old. You could junk it for $900, buy something newer, lease something reliable, or say screw it. What now?",
     requiresFlag: "hasCarGen2",
-    image: "",
+    image: "image/cardies.gif",
     choices: [
         {
             text: "FIX IT",
@@ -1996,7 +1996,7 @@ const nycGen2Scenarios = [
 const nycGen3Scenarios = [
     {
         year: 2002,
-        title: "Generation 3: Fresh Out of College",
+        title: "Generation 3: Out of College",
         narrative: "You just graduated with $28,000 in student loans. First job offer: $42,000/year in Manhattan. Your grandparents paid $60/month rent here ($784 today). You're looking at $1,200/month for a studio. The city survived the fiscal crisis. It's safer now. The subway works. But can you afford it on entry-level pay?",
         image: "images/nyc2002.jpg",
         fact: {
@@ -2006,7 +2006,7 @@ const nycGen3Scenarios = [
         choices: [
             {
                 text: "Start Generation 3 in post-9/11 New York",
-                effects: { monthlySalary: 3000, monthlyExpenses: 12500 },
+                effects: { monthlySalary: 3000, monthlyExpenses: 1200 },
                 result: "You're 22 with a degree and debt. Your grandparents thrived here on factory wages, but times have drastically changed. You're trying to make it work in the recovering city. Welcome to 2002."
             }
         ]
