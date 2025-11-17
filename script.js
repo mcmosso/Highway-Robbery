@@ -215,14 +215,14 @@ const scenarios = {
                 flags: { hasCarGen1: true }
             },
             {
-                text: "BUY BRAND NEW ON CREDIT",
+                text: "BUY BRAND NEW,
                 effects: { money: -1400, monthlyExpenses: 95, frustration: -20, carsOwned: 1 },
                 result: "You walk into the Dodge dealership on Woodward and the salesman practically CARRIES you to a shiny new Coronet. That new car smell hits different. You drive it to work Monday and three guys stop you in the parking lot to look at it. Frank sees it and goes SILENT. Wednesday morning he's revving his Chevy in the driveway. You rev the Coronet back. LOUDER. Frank revs again. You rev LOUDER. This goes on for five minutes. Your partner yells 'FOR THE LOVE OF GOD WILL BOTH OF YOU STOP' out the window. You and Frank are in a cold war now. Worth every penny. Monthly costs: $55.",
                 flags: { hasCarGen1: true }
             },
             {
                 text: "STICK WITH STREETCAR",
-                effects: { money: 100, frustration: 15 },
+                effects: { money: 0, frustration: 15 },
                 result: "Streetcars still run perfectly fine! You're saving HUNDREDS. But literally every lunch break is car talk now. Your partner says their sister and their partner took their new Buick up to Mt.Mancelona to ski. You respond 'Well that's like a three hour drive and I hate skiiing so sounds like an awful day that I would hate' Jeez simmer down... Also, Frank honks at you when he drives past you at the streetcar stop. You roll your eyes at him. He can be such an asshole."
             }
         ]
