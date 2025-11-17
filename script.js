@@ -152,7 +152,7 @@ const gameState = {
     currentGeneration: 1,
     money: 5000,
     monthlySalary: 300,
-    monthlyExpenses: 50,
+    monthlyExpenses: 100,
     frustration: 0,
     carsOwned: 0,
     currentScenarioIndex: 0,
@@ -175,132 +175,133 @@ const jobSalaries = {
 const scenarios = {
     detroit: {
         gen1: [
-            {   year: 1950,
-                title: "Welcome to Detroit",
-                narrative: "You just moved to Detroit with $5,000 saved. Your apartment is downtown, walking distance to work. The streetcar stops outside. Your partner works three blocks away. Life feels manageable.",
-                image: "images/steetcard.jpg",
-                fact: {
-                    text: "In 1950, Detroit had one of America's most extensive streetcar systems. A ride cost 10¢.",
-                    link: "https://www.detroithistorical.org/learn/online-research/blog/detroits-streetcars-past-and-present"
-                },
-                choices: [
-                    {
-                        text: "EXPLORE THE CITY BY STREETCAR EVERY WEEKEND",
-                        effects: { money: -100, frustration: -10 },
-                        result: "Paradise Valley jazz clubs, Belle Isle picnics, downtown theaters. The streetcar takes you everywhere. You and your partner discover the whole city for pocket change."
-                    },
-                    {
-                        text: "WORK OVERTIME TO SAVE FOR A HOUSE",
-                        effects: { money: 200, frustration: 25, jobMultiplier: true },
-                        result: "Time and a half pays well. Your savings grow fast but you're exhausted. Your partner barely sees you. Your friends talk about their weekends while you yawn through Monday mornings."
-                    },
-                    {
-                        text: "BALANCE WORK AND LEISURE",
-                        effects: { money: 0, frustration: 0 },
-                        result: "You work 40 hours. Save a little each month. Friday nights you ride the streetcar to dinner. Sundays you watch the lions (they were really good in the 50s). It's stable and sustainable."
-                    }
-                ]
+            {
+    year: 1950,
+    title: "Welcome to Detroit",
+    narrative: "You just moved to Detroit with $5,000 saved! Your apartment is downtown, $45 a month. The streetcar stops right outside and runs everywhere for a dime. Your partner works three blocks away. There's so much to do and explore. The city feels electric.",
+    image: "images/steetcard.jpg",
+    fact: {
+        text: "In 1950, Detroit had one of America's most extensive streetcar systems. A ride cost 10¢. The city was at its peak population of 1.8 million.",
+        link: "https://www.detroithistorical.org/learn/online-research/blog/detroits-streetcars-past-and-present"
+    },
+    choices: [
+        {
+            text: "EXPLORE THE CITY BY STREETCAR EVERY WEEKEND",
+            effects: { money: -100, frustration: -10 },
+            result: "Paradise Valley jazz clubs on Friday - Elvin Jones is just incredible. Belle Isle picnics on Saturday. Fox Theatre on Sunday to see All About Eve - AMAZING FILM. The streetcar takes you everywhere for a dime. Detroit's got 1.8 million people right now and the whole city feels alive. You're living in the center of American manufacturing and it RULES."
+        },
+        {
+            text: "WORK OVERTIME - STACK THAT MONEY",
+            effects: { money: 200, frustration: 25, jobMultiplier: true },
+            result: "Time and a half at the plant pays STUPID GOOD. Your savings are exploding. You're also seeing your apartment exclusively between the hours of 11pm and 6am. Your partner asks if you remember what they look like. Trouble in paradise...Your friends went to see the Lions beat the Rams but you were doing a double shift. Think of the money...think of the money..."
+        },
+        {
+            text: "BALANCE WORK AND LIFE",
+            effects: { money: 0, frustration: 0 },
+            result: "You work your 40 hours. No more, no less. Friday nights at the Polish restaurants on Michigan Avenue - pierogis for DAYS. Sundays at Briggs Stadium watching the Lions (they're actually REALLY GOOD right now, absolutely enjoy this while it lasts). Motor City's got you purring."
+        }
+    ]
+},
+    {
+        year: 1952,
+        title: "Everyone's Buying Cars",
+        narrative: "Cars are EVERYWHERE in your neighborhood now. Your neighbor Frank bought a new Chevy and won't shut UP about it - he's selling his old '48 Plymouth for $700. Everyone at the plant talks about their weekend drives up north. Your partner mentions their sister just bought one. Frank keeps revving his engine in the driveway at 7am. Frank, we GET IT.",
+        image: "images/chrome.jpg",
+        choices: [
+            {
+                text: "BUY FRANK'S OLD CAR",
+                effects: { money: -700, monthlyExpenses: 55, frustration: -15, carsOwned: 1 },
+                result: "The Plymouth runs great. You drive it to work Monday and feel POWERFUL. Gas is 20¢/gallon. Parking's free everywhere. Tuesday morning Frank's out there reving his Chevy at 7am as usual. You rev the Plymouth back. Frank LOSES IT laughing. Now you both rev your engines at each other every morning. The other neighbors hate both of you. You and Frank don't care - You're best buddies now. Monthly costs: $35.",
+                flags: { hasCarGen1: true }
             },
             {
-                year: 1952,
-                title: "Everyone's Buying Cars",
-                narrative: "You see cars all over your neighborhood. Your neighbor Frank bought a new Chevy - he's selling his old '48 Plymouth for $700. Everyone at work talks about their weekend drives. Your partner mentions their sister just bought one.",
-                image: "images/chrome.jpg",
-                choices: [
-                    {
-                        text: "BUY FRANK'S OLD CAR",
-                        effects: { money: -700, monthlyExpenses: 35, frustration: -15, carsOwned: 1 },
-                        result: "The Plymouth runs fine. You drive it home Saturday. Sunday drives to visit family in the suburbs. Gas is 20¢/gallon. Parking's free everywhere. You feel like you're living the American Dream. Thanks Frank!",
-                        flags: { hasCarGen1: true }
-                    },
-                    {
-                        text: "BUY BRAND NEW ON CREDIT",
-                        effects: { money: -1400, monthlyExpenses: 55, frustration: -20, carsOwned: 1 },
-                        result: "The salesman shakes your hand like you just joined a club. That new car smell is sooo good. Chrome that shines. Everyone at work notices. The payments are steep but you feel successful.",
-                        flags: { hasCarGen1: true }
-                    },
-                    {
-                        text: "STICK WITH STREETCAR",
-                        effects: { money: 100, frustration: 15 },
-                        result: "Streetcars still run perfectly. You're saving money. But car talk dominates every lunch break. Your partner asks if you've thought about getting one. You're starting to feel left behind."
-                    }
-                ]
+                text: "BUY BRAND NEW ON CREDIT",
+                effects: { money: -1400, monthlyExpenses: 95, frustration: -20, carsOwned: 1 },
+                result: "You walk into the Dodge dealership on Woodward and the salesman practically CARRIES you to a shiny new Coronet. That new car smell hits different. You drive it to work Monday and three guys stop you in the parking lot to look at it. Frank sees it and goes SILENT. Wednesday morning he's revving his Chevy in the driveway. You rev the Coronet back. LOUDER. Frank revs again. You rev LOUDER. This goes on for five minutes. Your partner yells 'FOR THE LOVE OF GOD WILL BOTH OF YOU STOP' out the window. You and Frank are in a cold war now. Worth every penny. Monthly costs: $55.",
+                flags: { hasCarGen1: true }
             },
             {
-                year: 1954,
-                title: "Anniversary Dinner",
-                narrative: "Your anniversary is coming up. Your partner wants to go to a new restaurant that opened in the suburbs - everyone's raving about it. It's 9 miles away. The bus takes 90 minutes with two transfers. The streetcar doesn't go there.",
-                image: "images/couplead.jpg",
-                choices: [
-                    {
-                        text: "DRIVE THERE",
-                        requiresFlag: "hasCarGen1",
-                        effects: { money: -15, frustration: -15 },
-                        result: "You drive to the restaurant. The food's amazing. Your partner's thrilled. You drive home with the windows down, radio playing. You pass by a Cadillac ad feauturing a happy couple. They remind you of you and your partner. These are the moments that make car ownership feel worth it."
-                    },
-                    {
-                        text: "TAKE THE BUS",
-                        requiresNoFlag: "hasCarGen1",
-                        effects: { money: -8, frustration: 20 },
-                        result: "Two buses, 90 minutes each way. You're exhausted before dinner even starts. The food's good but the travel stress ruined the night. On the way home you see an Cadillac ad featuring a happy couple. Your partner suggests maybe it's time to get a car so you can be like the couple in the ad."
-                    },
-                    {
-                        text: "FIND A DOWNTOWN RESTAURANT INSTEAD",
-                        effects: { money: -12, frustration: 10 },
-                        result: "You find a nice place downtown you can walk to. It's lovely. But your partner mentions the place they really wanted to try. You see a big Cadillac ad feauturing a happy couple. That could be you one day. You both know the city's already changing."
-                    }
-                ]
-            },
+                text: "STICK WITH STREETCAR",
+                effects: { money: 100, frustration: 15 },
+                result: "Streetcars still run perfectly fine! You're saving HUNDREDS. But literally every lunch break is car talk now. Your partner says their sister and their partner took their new Buick up to Mt.Mancelona to ski. You respond 'Well that's like a three hour drive and I hate skiiing so sounds like an awful day that I would hate' Jeez simmer down... Also, Frank honks at you when he drives past you at the streetcar stop. You roll your eyes at him. He can be such an asshole."
+            }
+        ]
+    },
+    {
+    year: 1954,
+    title: "Anniversary Dinner",
+    narrative: "Your anniversary is coming up. Your partner wants to go to this new restaurant that opened in the suburbs - everyone at work won't stop talking about it. It's 9 miles away. The bus takes 90 minutes with two transfers. The streetcar doesn't go there. What should you do?",
+    image: "images/couplead.jpg",
+    choices: [
+        {
+            text: "DRIVE THERE",
+            requiresFlag: "hasCarGen1",
+            effects: { money: -15, frustration: -15 },
+            result: "You drive to the restaurant in 15 minutes flat. The food's incredible. Your partner's absolutely glowing. You drive home with the windows down, radio playing Sinatra. You pass a massive Cadillac billboard with a happy couple who look EXACTLY like you two right now. Your partner goes 'THAT'S US!' You feel like you're living in a car commercial and it feels AMAZING. Dinner and gas: $15."
+        },
+        {
+            text: "TAKE THE BUS",
+            requiresNoFlag: "hasCarGen1",
+            effects: { money: -25, frustration: 20 },
+            result: "Your partner would rather just go somewhere else. 'No no we're gonna go to this place on the bus it'll be fine.'Two buses. 90 minutes EACH WAY. Your partner's not speaking to you. The food's probably good but you can't taste it through the stress. On the way home at 11pm you pass a Cadillac billboard showing a happy couple driving to dinner. Your partner stares at it in silence. The silence is LOUD. Bus fare, dinner, and the present you give to your partner as an apology: $25."
+        },
+        {
+            text: "FIND A DOWNTOWN RESTAURANT INSTEAD",
+            effects: { money: -12, frustration: 10 },
+            result: "You find a gorgeous place downtown you can walk to. Candlelight! Wine! Everything's perfect until your partner mentions 'Janet from work went to that suburban place and said it was INCREDIBLE.' The mood deflates like a sad balloon. You walk past a Cadillac billboard with a couple driving somewhere fun. Your partner goes 'must be nice.' Uh oh. Dinner: $12."
+        }
+    ]
+},
+     {
+        year: 1955,
+        title: "Emergency Room Crisis",
+        narrative: "Your partner has appendicitis. The hospital is 15 miles away. It's 2am. The streetcars aren't running this late. Buses have stopped for the night. An ambulance costs $450. You're panicking.",
+        requiresNoFlag: "hasCarGen1",
+        image: "images/abulance.jpg",
+        choices: [
             {
-                year: 1955,
-                title: "Emergency Room Crisis",
-                narrative: "Your partner has appendicitis. The hospital is 15 miles away. It's 2am. The streetcars aren't running this late. Buses have stopped for the night. An ambulance costs $450. You're panicking.",
-                requiresNoFlag: "hasCarGen1",
-                image: "images/abulance.jpg",
-                choices: [
-                    {
-                        text: "CALL EXPENSIVE AMBULANCE",
-                        effects: { money: -450, frustration: 50 },
-                        result: "The ambulance arrives in 18 minutes. Your partner is in pain the whole time, yelling and cursing at you. They make it to the hospital. Surgery is successful. But you feel helpless. If you'd had a car, you could've left immediately."
-                    },
-                    {
-                        text: "WAKE A NEIGHBOR TO DRIVE YOU",
-                        effects: { money: -20, frustration: 55 },
-                        result: "You knock on three doors at 2am before someone finally answers. They're clearly annoyed but agree to drive you to the ER. Your partner's okay. You owe them huge. Being car-free means depending on others in emergencies. Maybe it really is time to get a car."
-                    }
-                ]
+            text: "CALL THE EXPENSIVE AMBULANCE",
+            effects: { money: -450, frustration: 50 },
+            result: "You call. The ambulance takes 18 MINUTES to arrive. Your partner's screaming and crying the entire time. You're both crying. Surgery's successful but those 18 minutes aged you 10 years. If you'd had a car you could've been GONE. Your partner says from the hospital bed 'we're getting a car' and you nod because YEAH. NO KIDDING. Ambulance: $450."
             },
-            {
-                year: 1956,
-                title: "The Last Streetcar",
-                narrative: "April 8, 1956. Detroit's final streetcar makes its last run down Woodward Avenue. Crowds gather. Some people cry. The bells ring one last time, then stop forever. You rode these everywhere just a few years ago. Now they're gone. Your backup plan just disappeared.",
-                image: "images/lastcar.jpg",
-                fact: {
-                    text: "Detroit's last streetcar ran on April 8, 1956, ending one of America's largest streetcar systems.",
-                    link: "https://www.detroithistorical.org/learn/online-research/blog/detroits-streetcars-past-and-present"
-                },
-                choices: [
-                    {
-                        text: "WATCH FROM YOUR CAR",
-                        requiresFlag: "hasCarGen1",
-                        effects: {frustration: -15 },
-                        result: "You watch history end from your driver's seat. People are taking photographs. A kid asks their parent why everyone is sad. You drive home, keys heavy in your pocket. You're glad you bought a car when you did. Fill-up costs $3."
-                    },
-                    {
-                        text: "RIDE THE FINAL STREETCAR",
-                        effects: {frustration: 15 },
-                        result: "You pack onto the final car with everyone else. People are crying and cheering at the same time, mourning what's being lost. When you step off for the last time, the future feels hostile. The bus system is a skeleton of what the streetcars were.",
-                        forceNext: true
-                    },
-                    {
-                        text: "BUY A CAR IMMEDIATELY",
-                        requiresNoFlag: "hasCarGen1",
-                        effects: { money: -1050, monthlyExpenses: 45, frustration: 20, carsOwned: 1 },
-                        result: "The writing's on the wall. Without streetcars, you can't rely on transit anymore. You buy a used car from your neighbor that same week. It's not really a choice - it's survival. Welcome to car dependency.",
-                        flags: { hasCarGen1: true }
-                    }
-                ]
-            },
+        {
+            text: "WAKE UP A NEIGHBOR TO DRIVE YOU",
+            effects: { money: -20, frustration: 55 },
+            result: "You knock on THREE doors at 2am. First neighbor yells at you through the door. Second neighbor pretends they're not home. Third neighbor - Frank, of course it's Frank - opens up in his bathrobe, sees your partner's situation, and RUNs to get his keys. He drives 80mph to the ER. Your partner's okay. Frank saved the day. Being carless means gambling on Frank's mercy at 2am. You're buying a car TOMORROW. Gas money and a gift for Frank: $20."
+        }
+    ]
+},
+{
+    year: 1956,
+    title: "The Last Streetcar",
+    narrative: "April 8, 1956. Detroit's final streetcar makes its last run down Woodward Avenue. Crowds gather to watch. People are crying. The bells ring one last time, then stop forever. You rode these everywhere just a few years ago - Paradise Valley, Belle Isle, downtown - all for a dime. The Motor City is killing its streetcars so people have to buy more cars. That's some next-level irony.",
+    image: "images/lastcar.jpg",
+    fact: {
+        text: "Detroit's last streetcar ran on April 8, 1956, ending one of America's largest streetcar systems.",
+        link: "https://www.detroithistorical.org/learn/online-research/blog/detroits-streetcars-past-and-present"
+    },
+    choices: [
+        {
+            text: "WATCH FROM YOUR CAR",
+            requiresFlag: "hasCarGen1",
+            effects: {frustration: -15 },
+            result: "You watch the funeral from your driver's seat with the engine running. Burning gas to watch public transit die. A photographer is taking pictures for the Free Press. A little kid asks 'why is everyone sad?' Their parent tries to explain but gives up. An old lady who's been riding since the 1920s won't stop crying. Frank drives by, honks, and gives you a thumbs up like this is good news. Frank doesn't get it, but this is the Motor City after all. Gas fill-up: $3."
+        },
+        {
+            text: "RIDE THE FINAL STREETCAR",
+            effects: {frustration: 15 },
+            result: "You squeeze onto the final car with everyone who loved these things. Someone's crying into a handkerchief. A guy with a camera is documenting everything. An old man stands up and yells 'Thank you for sixty years!' and everyone claps. The bells ring one last time. When you step off, you realize the buses that are replacing this are terrible. They don't go to half the places. They're slow. They're unreliable. The Motor City is going fully motor. Fare: 10 cents, forever.",
+            forceNext: true
+        },
+        {
+            text: "BUY A CAR RIGHT NOW",
+            requiresNoFlag: "hasCarGen1",
+            effects: { money: -1050, monthlyExpenses: 45, frustration: 20, carsOwned: 1 },
+            result: "The streetcars are dead. Time to join Team Car. You buy a used Pontiac from your coworker that week for $1,050. When you pull into your driveway, Frank is immediately outside. 'Nice wheels!' he yells. You barely got the door open. Frank wants to look under the hood. Frank wants to talk horsepower. Frank wants to tell you about his Chevy from 1952. You're out there for 45 minutes. Frank will not stop talking. But you're in the car club now - Detroit just eliminated public transit and forced everyone into car ownership and more conversations with Frank... Car: $1,050. Monthly costs: $45.",
+            flags: { hasCarGen1: true }
+        }
+    ]
+},
             {
                 year: 1956.5,
                 title: "You Need a Car Now",
@@ -323,31 +324,47 @@ const scenarios = {
                 image: "",
                 choices: []
 },
-            {
-                year: 1962,
-                title: "Partner's Job Moves Suburban",
-                narrative: "Your partner's department store just opened a huge new suburban location in Southfield. They're transferring your partner there - it's a promotion with better pay. But it's 12 miles away. There's no bus route. You have one car between the two of you. Someone's waking up at 5:30am every morning or you're buying another car.",
-                image: "images/mall.jpg",
-                choices: [
-                    {
-                        text: "BUY A SECOND CAR",
-                        effects: { money: -1050, monthlyExpenses: 40, frustration: -10, carsOwned: 1 },
-                        result: "You're a two-car household now. Two insurance bills, two gas tanks to fill, double the maintenance costs. But you both keep your jobs. Your partner gets the raise. This is what suburban life requires now.",
-                        flags: { partnerHasCar: true }
-                    },
-                    {
-                        text: "SHARE ONE CAR",
-                        effects: { money: -50, frustration: 40 },
-                        result: "You wake up at 5:30am to drive your partner to Southfield, then drive back to your job downtown. Pick them up at 5pm. Your entire life revolves around car logistics now. You're exhausted. This can't last long.",
-                        forceNext: true
-                    },
-                    {
-                        text: "PARTNER DECLINES THE PROMOTION",
-                        effects: { monthlySalary: -150, frustration: 35 },
-                        result: "They turn down the promotion to avoid the car logistics nightmare. Your household income stays lower. You both wonder what could have been. The resentment builds quietly."
-                    }
-                ]
-            },
+           {
+    year: 1962,
+    title: "Partner's New Job",
+    narrative: "Your partner's department store just opened a massive new location in Southfield - it's a promotion with better pay and they're super happy. Great news! Except it's 12 miles away and there's literally no bus that goes there. You have ONE car between you. Your partner needs to be there by 8:30am. You need to be downtown by 8:15am. The math isn't mathing. Someone's waking up at the ass-crack of dawn every morning or you're draining your savings for a second car.",
+    image: "images/mall.jpg",
+    choices: [
+        {
+            text: "BUY A SECOND CAR",
+            effects: { money: -1050, monthlyExpenses: 40, frustration: -10, carsOwned: 1 },
+            result: "You buy a second car. A used '59 Ford Fairlane from Frank's cousin who 'barely drove it' (it has 90,000 miles on it, Frank's cousin is a liar). Two cars. Two insurance bills. Two registrations. Two oil changes. Two everything. But you both keep your jobs! Your partner gets the raise! You can both leave the house at normal human hours! YAY! Second car: $1,050. Monthly costs: $40.",
+            flags: { partnerHasCar: true }
+        },
+        {
+            text: "SHARE ONE CAR",
+            effects: { money: -50, frustration: 40 },
+            result: "You wake up at 5:30am in complete darkness to drive your partner to Southfield. Drive 12 miles back downtown to your job. Work all day exhausted. Leave at 4:45pm to pick them up. They get in the car and IMMEDIATELY start critiquing your lane changes. One day you call in sick just to take a relaxing day off from driving them. Your entire life is car logistics and resentment. Extra gas: $50/month.",
+            forceNext: true
+        },
+        {
+            text: "PARTNER TURNS DOWN THE PROMOTION (SORRY...)",
+            effects: { monthlySalary: -150, frustration: 35 },
+            result: "Your partner turns down the promotion to avoid the car nightmare. More money? Gone. Better position? Gone. They keep sighing REALLY LOUD while doing the dishes. Yesterday they said 'lots of households have two cars now' while watching TV. You pretended not to hear. The tension is unbearable. Suburban sprawl just murdered your partner's career advancement and your marriage is dying with it."
+        }
+    ]
+},
+{
+    year: 1962.5,
+    title: "The Great Car Fight of 1963",
+    narrative: "Three months of hell. You're late to work constantly because you're exhausted from 5:30am wake-ups. Yesterday you literally fell asleep during a meeting and your boss had to wake you up. Your partner won't stop passenger seat driving. Last Tuesday you SCREAMED 'I SWEAR TO GOD IF YOU TELL ME HOW TO MERGE ONE MORE TIME' and they didn't talk to you for two full days. Your neighbor asked if everything's okay at home. Everything is NOT okay. It's car or divorce at this point.",
+    requiresForced: true,
+    image: "images/maddriving.gif",
+    choices: [
+        {
+            text: "BUY A SECOND CAR",
+            effects: { money: -1150, monthlyExpenses: 40, carsOwned: 1 },
+            result: "You buy another car. A '60 Chevy Corvair. Your partner is SO HAPPY they literally cry. You both apologize for the screaming. You sleep in the same bed again. The first morning you both leave at your own times and you kiss them goodbye like it's your wedding day. True love is two car payments. Romance! Second car: $1,150. Monthly: $40.",
+            flags: { partnerHasCar: true },
+            forcedChoice: true
+        }
+    ]
+},
             {
                 year: 1962.5,
                 title: "Car Juggling Failed",
@@ -363,49 +380,49 @@ const scenarios = {
                     }
                 ]
             },
-            {
-                year: 1964,
-                title: "Move to the Suburbs?",
-                narrative: "All your friends are moving to the suburbs. Bigger houses, yards, better schools for the kids everyone's having. Your downtown lease is up. Businesses are following people out. The city feels emptier every month. What do you do?",
-                image: "images/suburbs.jpg",
-                choices: [
-                    {
-                        text: "MOVE TO BLOOMFIELD HILLS - BIGGER HOUSE",
-                        effects: { monthlyExpenses: 500, money: -1000, frustration: 20 },
-                        result: "The house is twice the size for less rent. But you're driving everywhere now. Grocery store: 10 minutes. Work: 25 minutes. Hardware store: 15 minutes. Nothing is walkable. Your car becomes your lifeline. The gas bills climb.",
-                        flags: { movedToSuburbs: true }
-                    },
-                    {
-                        text: "STAY DOWNTOWN",
-                        effects: { money: -200, frustration: 10 },
-                        result: "You renew your lease. You can still walk to corner stores and restaurants. But most of your friends are all in the suburbs now. Visiting them requires driving. The city feels emptier every month but sometimes you like the quiet."
-                    },
-                    {
-                        text: "MOVE TO DEARBORN - MIDDLE GROUND",
-                        effects: { monthlyExpenses: 300, money: -600, frustration: 15 },
-                        result: "Not quite suburbs, not quite city. You drive to work but some stores are still walkable. There's a small yard. The commute is 20 minutes. It's a compromise that works. For now.",
-                        flags: { movedToSuburbs: true }
-                    }
-                ]
-            },
-            {
-                year: 1966,
-                title: "Weekend at the Lake",
-                narrative: "Your friends are all going to a lake house upstate for the weekend. It's 80 miles away. They're carpooling and there's room for you and your partner. But you'd be completely dependent on their schedule - leave Friday at 5pm sharp, come back Sunday at 3pm sharp. No flexibility at all.",
-                image: "images/lakeday.jpg",
-                choices: [
-                    {
-                        text: "DRIVE YOURSELF",
-                        effects: { money: -45, frustration: -15 },
-                        result: "You drive your own car. Leave when you want. Come back early Sunday if you need to. Stop at roadside diners on the way. Gas costs $25 for the round trip. Freedom feels real. Gas and food on the trip: $45"
-                    },
-                    {
-                        text: "CARPOOL WITH FRIENDS",
-                        effects: { money: -15, frustration: 5 },
-                        result: "You ride with your friends. You save on gas money. But you're stuck on their exact schedule. You want to leave early Sunday afternoon but you can't. Your friend falls asleep on your shoulder. Next time you'll drive yourself so you have more control."
-                    }
-                ]
-            },
+           {
+    year: 1964,
+    title: "Move to the Suburbs?",
+    narrative: "All your friends are fleeing to the suburbs like it's an evacuation. Bloomfield Hills! Grosse Pointe! Royal Oak! Everyone's buying houses with YARDS and talking about 'good schools' even though their kids are still in diapers. Your downtown lease is up. The corner bakery just closed. Your favorite diner is moving to Southfield. Frank moved last month and keeps calling to tell you about his LAWN. Do you follow the exodus or stay in the city?",
+    image: "images/suburbs.jpg",
+    choices: [
+        {
+            text: "MOVE TO BLOOMFIELD HILLS",
+            effects: { monthlyExpenses: 500, money: -1000, frustration: 20 },
+            result: "You move to Bloomfield Hills. The house is twice the size and costs less than your downtown apartment. There's a YARD! You have to drive everywhere now though. Grocery store: 10-minute drive. Bank: 15-minute drive. Pharmacy: 12-minute drive. Friend's house: 8-minute drive. Nothing is walkable. Frank lives three blocks over and now you see him CONSTANTLY. He keeps inviting you to backyard barbecues. You're trapped in suburbia with Frank forever. Moving costs: $1,000.",
+            flags: { movedToSuburbs: true }
+        },
+        {
+            text: "STAY DOWNTOWN",
+            effects: { money: -200, frustration: 10 },
+            result: "You renew your lease. The baker retired. The diner moved. Half the apartments in your building are empty. But you can still walk to the corner store! You can still walk to go eat! Your suburban friends keep asking 'when are you moving out?' You will stay in DETROIT the city, not be one of those people that says 'Im from Detroit, but they really live in Millford. Lease renewal: $200."
+        },
+        {
+            text: "MOVE TO DEARBORN",
+            effects: { monthlyExpenses: 300, money: -600, frustration: 15 },
+            result: "You move to Dearborn. Not full suburbs, not quite city. You drive to work but you can still walk to some stores. There's a small yard. The houses all look kind of the same. It's good, It's a compromise. Moving costs: $600.",
+            flags: { movedToSuburbs: true }
+        }
+    ]
+},
+         {
+    year: 1966,
+    title: "Weekend at the Lake",
+    narrative: "Your friends are going to somebody's uncle's lake house upstate for the weekend. Eighty miles north. Swimming! Grilling! Beer! They're carpooling and there's room for you and your partner. Sounds perfect EXCEPT you'd be completely trapped on their schedule - leave Friday at 5pm SHARP, come back Sunday at 3pm SHARP, zero flexibility. Your friend Janet is the driver and she's very particular about her departure times. Very. Particular.",
+    image: "images/lakeday.jpg",
+    choices: [
+        {
+            text: "DRIVE YOUR OWN CAR",
+            effects: { money: -45, frustration: -15 },
+            result: "You drive your own car. Leave when you want! Stay an extra night if you feel like it! Stop at that weird roadside diner with the giant chicken! On Sunday afternoon Janet's carpool has to leave at 10am sharp because Janet has 'plans'. You stay until sunset. Drive home at your own pace. Stop for ice cream. Gas, ice cream, roadside diner pie, and other lake costs: $45."
+        },
+        {
+            text: "CARPOOL WITH JANET",
+            effects: { money: -15, frustration: 5 },
+            result: "You carpool with Janet. Big mistake. Janet wants to leave at 4:58pm on Friday. You arrive at 5:01pm and she's really annoyed. She only listens to AM radio the entire drive. Your car has FM radio too... Saturday night you want to stay up late but Janet wants everyone in bed by 10pm because 'we're leaving at 10am tomorrow and I want you rested.' Sunday at 10 am she's honking the horn. You save $30 on gas but at what cost. Your sanity, that's the cost. Your contribution to gas and other lake costs: $15."
+        }
+    ]
+},
             {
                 year: 1968,
                 title: "The City Divided",
@@ -413,7 +430,7 @@ const scenarios = {
                 image: "images/riotdetroit.jpg",
                 fact: {
                     text: "From 1950-1960, Detroit lost 179,000 residents. Freeways like I-375 destroyed historically Black neighborhoods including Black Bottom and Paradise Valley.",
-                    link: "https://www.detroitnews.com/story/news/local/detroit-city/2021/06/13/black-bottom-paradise-valley-detroits-destroyed-neighborhoods/7481736002/"
+                    link: "https://riseupdetroit.org/chapters/chapter-2/part-1/urban-renewal/"
                 },
                 choices: [
                     {
@@ -423,7 +440,7 @@ const scenarios = {
                         result: "You stay downtown. The city needs people who won't abandon it. But businesses keep leaving. Your corner grocery store closes. The hardware store moves out to the suburbs. Everything is getting harder."
                     },
                     {
-                        text: "YOU'RE ALREADY IN THE SUBURBS - WATCH THE NEWS",
+                        text: "WATCH THE NEWS FROM THE SUBURBS",
                         requiresFlag: "movedToSuburbs",
                         effects: {frustration: 10 },
                         result: "You watch the news from your suburban house. You're insulated from the unrest. Your commute gets you away from it all. But you can't help but wonder about the role suburban flight played in all of this. Car maintenance this month: $150."
@@ -431,35 +448,35 @@ const scenarios = {
                     {
                         text: "MOVE TO THE SUBURBS",
                         requiresNoFlag: "movedToSuburbs",
-                        effects: { money: -1000, monthlyExpenses: -40, frustration: 20 },
+                        effects: { money: -1000, monthlyExpenses: 200, frustration: 20 },
                         result: "You join the exodus. The suburbs feel safer, newer, more stable. You're part of white flight whether you want to admit it or not. The city hollows out behind you. Moving costs and deposits: $500.",
                         flags: { movedToSuburbs: true }
                     }
                 ]
             },
-            {
+             {
                 year: 1970,
-                title: "Parking Downtown",
-                narrative: "You have a doctor appointment downtown. Parking meters are everywhere now - 25¢ an hour. Or you can pay $2 for a parking garage. Or circle forever looking for free parking. Even owning a car costs money when it's not moving.",
-                image: "images/meter.jpg",
+                title: "The Downtown Parking Nightmare",
+                narrative: "You have a doctor appointment downtown at 2pm. Should be simple! Except parking is now a WHOLE THING. Parking meters everywhere - 25¢ an hour and you need quarters. The parking garage wants $2 (ROBBERY). Or you could circle the blocks for free parking like a shark hunting prey. Your appointment is in 20 minutes. Your blood pressure is rising and you haven't even seen the doctor yet. This is what car ownership means - paying money for your car to just sit there.",
+                image: "images/meters.jpg",
                 choices: [
                     {
                         text: "PAY FOR THE PARKING GARAGE",
                         effects: { money: -2, frustration: -5 },
-                        result: "You pay $2 for the garage. It's easy and your car is safe. But it adds up - every single downtown trip costs money now. Parking meters, parking garages, parking tickets. Your car costs money even when it's sitting still."
+                        result: "You pay the $2 garage fee. The attendant takes your money with dead eyes. You walk to your appointment fuming about the principle. You own a car. You paid for the car. You pay for gas. You pay for insurance. And now you're PAYING for it to SIT MOTIONLESS in a concrete box? The hidden costs never end. Every downtown trip costs money now. Your car is a financial vampire that drains you even when it's parked. Parking: $2."
                     },
                     {
-                        text: "CIRCLE FOR 20 MINUTES HUNTING FOR FREE PARKING",
+                        text: "CIRCLE ENDLESSLY HUNTING FOR FREE PARKING",
                         effects: { money: -1, frustration: 15 },
-                        result: "You burn a dollar in gas just circling the blocks. You finally find a spot six blocks away from the office. You're late to your appointment and sweaty from the walk. You should have just paid for the garage."
+                        result: "You circle the same four blocks for TWENTY MINUTES. That spot! No wait, fire hydrant. That spot! No, wow that's a really small car. That spot! Nope, street cleaning. You're burning gas to find free parking which defeats the purpose. You finally find a spot six blocks away. You're now 15 minutes late and sweating from the walk. The receptionist is judging you. Your doctor asks if you're okay - your heart rate is elevated. 'It's the parking,'. They don't understand. Gas wasted: $1."
                     },
                     {
-                        text: "PARK AT A METER - FEED IT THROUGHOUT THE AFTERNOON",
-                        effects: { money: -7, frustration: 25 },
-                        result: "You feed quarters into the meter all afternoon. You have to run out in the middle of your appointment to add more coins. You come back to find a $5 parking ticket anyway - the meter expired while you were inside. Total cost: $7."
+                        text: "PARK AT A METER",
+                        effects: { money: -24, frustration: 25 },
+                        result: "You find a meter! You dump in quarters. 25¢ buys you one hour. Your appointment runs long. You SPRINT out mid-exam - still in the paper gown - to feed more quarters into the meter. The doctor is confused. You run back. Ten minutes later the nurse says 'you're all set!' You walk outside to find a $5 parking ticket on your windshield anyway. The meter expired while you were getting your blood pressure checked (ironic). You just paid $4 to park for a $20 doctor visit. Total disaster: $24."
                     }
                 ]
-            },
+},
             {
                 year: 1973,
                 title: "The Gas Crisis",
@@ -472,7 +489,7 @@ const scenarios = {
                 choices: [
                     {
                         text: "WAIT IN GAS LINES(NO CHOICE)",
-                        effects: { money: -80, monthlyExpenses: +25, frustration: 50 },
+                        effects: { money: -80, monthlyExpenses: 25, frustration: 50 },
                         result: "You wake up at 6am to try to beat the crowds. You don't beat the crowds. You wait one hour in line for eight gallons of gas. This happens multiple times every month now. Your monthly gas costs have nearly doubled. That 'freedom' you bought back in the '50s doesn't feel so free anymore.",
                         forcedChoice: true
                     }
@@ -488,7 +505,7 @@ const scenarios = {
                     choices: [
                     {
                         text: "Start Generation 2",
-                        effects: { monthlySalary: 3000, monthlyExpenses: 1500 },
+                        effects: { monthlySalary: 2000, monthlyExpenses: 900 },
                         result: "You're starting adult life in the car-designed world your parents built. Time to see what choices you have left."
                     }
         ]
@@ -501,59 +518,59 @@ const scenarios = {
                 choices: [
                     {
                         text: "BUY A NEWER, SAFER CAR FOR YOUR FAMILY",
-                        effects: { money: -8000, monthlyExpenses: 500, frustration: -15, carsOwned: 1 },
+                        effects: { money: -8000, monthlyExpenses: 300, frustration: -15, carsOwned: 1 },
                         result: "The '79 Buick Regal has airbags and a solid frame. The car seat clicks in perfectly. When the engine purrs to life, you feel like a responsible parent. Monthly costs: payment $140, insurance $90, gas $70. The payments will be steep but your baby deserves safe transportation."
                     },
                     {
                         text: "KEEP THE OLD CAR AND INSTALL A CAR SEAT",
-                        effects: { money: -140, monthlyExpenses: 200, frustration: 20 },
+                        effects: { money: -140, monthlyExpenses: 50, frustration: 20 },
                         result: "You strap the car seat into the rust-bucket and pray it holds together. Every weird engine noise makes your stomach drop. Every time someone speeds past you on I-75, you grip the wheel tighter. But you don't want to buy a new car. Sometimes needs outweigh wants."
                     },
                     {
                         text: "BUY A USED CAR",
-                        effects: { money: -4500, monthlyExpenses: 300, frustration: 5, carsOwned: 1 },
+                        effects: { money: -4500, monthlyExpenses: 100, frustration: 5, carsOwned: 1 },
                         result: "A '76 Ford with 80,000 miles on it. Not perfect, but definitely safer than what you had. It has working brakes and decent tires. Monthly costs: payment $95, insurance $65, gas $45. The baby will probably be fine."
                     }
                 ]
             },
             {
                 year: 1984,
-                title: "Partner's Career Opportunity",
-                narrative: "Your partner just got a job offer in Ann Arbor - 45 minutes west of here. Better pay, better benefits, real career advancement. But you work in Troy - 40 minutes east. You have one car between you. Your kid needs daycare drop-off and pickup every single day. The math doesn't work. Someone needs another car, or someone's career is ending.",
-                image: "images/annarbor.jpg",
+                title: "Tigers Win the World Series!",
+                narrative: "October 1984. The Detroit Tigers just won the World Series! The city is going ABSOLUTELY INSANE. People are flooding downtown to celebrate. Woodward Avenue is packed. Cars honking. People hanging out of windows. This is Detroit's moment! Your friends are all heading downtown to party. Are you?",
+                image: "images/tigers.jpg",
+                fact: {
+                    text: "The Tigers won the 1984 World Series, sparking massive celebrations in Detroit. Despite the city's economic struggles, 80,000+ fans flooded downtown to celebrate - one of Detroit's biggest parties ever.",
+                    link: "https://www.vintagedetroit.com/night-detroit-tigers-won-1984-world-series/?srsltid=AfmBOooi3g3lBuch8vJKzpUrjph7EVJdJ37hSbf2yZ5Ap_leeQLUSBoi"
+                },
                 choices: [
-                    {
-                        text: "BUY A SECOND CAR SO YOU CAN BOTH WORK",
-                        effects: { money: -10000, monthlyExpenses: 520, frustration: -10, carsOwned: 1 },
-                        result: "You're a two-car household now. Two car payments totaling $380/mo, two insurance policies at $200/mo, two gas tanks to fill at $150/mo. But you both keep your jobs. You both keep your independence. This is what dual-income car reliance demands.",
-                        flags: { partnerHasCar: true }
-                    },
-                    {
-                        text: "PARTNER DECLINES THE JOB - STAY ONE-CAR",
-                        effects: {frustration: 35 },
-                        result: "They turn down the better opportunity. Your household income stays lower. The resentment is palpable. They look for work closer to home, but the options are limited. Your partner sleeps on the couch for a couple of days.",
-                        forceNext: true
-                    },
-                    {
-                        text: "QUIT YOUR JOB - BECOME STAY AT HOME PARENT",
-                        effects: { monthlySalary: -1800, frustration: 30 },
-                        result: "You give up your career so your partner can take the better job. You become the stay-at-home parent. It wasn't the plan. The isolation is real. Your professional identity feels lost. All of this because of car logistics."
-                    }
-                ]
-            },
-            {
-                year: 1984.5,
-                title: "One Car Doesn't Work",
-                narrative: "Three exhausting months of juggling one car. Your partner is arriving late to work constantly. You're missing daycare pickup. Your boss is losing patience. There's no choice left. You need a second car now.",
-                requiresForced: true,
-                choices: [
-                    {
-                        text: "BUY A SECOND CAR (NO CHOICE)",
-                        effects: { money: -10000, monthlyExpenses: 520, carsOwned: 1 },
-                        result: "You and your partner go to the dealership to get another car. Premium this...features in this model features in that model. You just want a car without this whole speech. You're a two-car household now, forced into it whether you planned for it or not. $700/mo just for the cars before you even factor in gas. ",
-                        flags: { partnerHasCar: true },
-                        forcedChoice: true
-                    }
+                {
+                    text: "DRIVE AROUND TO SEE THE CELEBRATION",
+                    requiresNoFlag: "movedToSuburbs",
+                    effects: { money: -20, frustration: -25 },
+                    result: "You drive around just to see what's happening. Woodward Avenue is absolute MADNESS. People everywhere. Dancing in the streets. Honking. Screaming. You roll down your windows and someone hands you a beer through the car window. Hey you're driving... You're honking with everyone else. This is DETROIT at its best! You loop around for two hours just soaking it in. Park eventually and join the street party. You're home by 2am grinning. This is why you stayed in the city. Gas and a new tigers hat: $20."
+                },
+                {
+                    text: "DRIVE INTO THE CITY",
+                    requiresFlag: "movedToSuburbs",
+                    effects: { money: -40, frustration: -25 },
+                    result: "You drive downtown into pure CHAOS. Woodward Avenue is packed. Takes you forever to find parking. People are dancing ON TOP of cars. Someone's blasting 'We Are the Champions' from their trunk. You join thousands of screaming fans in the streets. Strangers hugging! Beer everywhere! Hey you only get ONE because you're driving. This is DETROIT! You get home at 3am hoarse and happy. Gas, parking ticket you definitely got, beers: $50."
+                },
+                {
+                    text: "WALK DOWNTOWN",
+                    requiresNoFlag: "movedToSuburbs",
+                    effects: { money: -40, frustration: -25 },
+                    result: "You WALK downtown because you can! This is why you stayed in the city! Within minutes you're in the middle of the biggest party Detroit's seen in years. People EVERYWHERE! You're hugging strangers! Someone hands you a beer! The Tigers won and you're HERE for it! Your suburban friends are stuck in traffic or watching on TV. You're LIVING it. Celebration beers: $40."
+                },
+                {
+                    text: "WATCH ON TV AT HOME",
+                    effects: { frustration: 30 },
+                    result: "You watch from your couch. The TV shows Woodward Avenue absolutely PACKED with celebrating fans. The energy looks incredible. You're sitting alone eating chips. Your friends text you photos from downtown - it looks AMAZING. You stayed home because parking seemed like a hassle. Now you're missing Detroit's biggest celebration in years. Monday everyone has stories."
+                },
+                {
+                    text: "THROW A HOUSE PARTY",
+                    effects: { money: -80, frustration: -10 },
+                    result: "You throw a watch party at your place. Friends come over. You're watching the chaos on TV together while drinking beers in your living room. You even invited Frank and he brings potato salad that's wow really good. It's fun! It's nice! You're one degree removed from the real party but still, you saved on gas and parking. Snacks and beer: $80."
+                }
                 ]
             },
             {
@@ -567,12 +584,12 @@ const scenarios = {
                 },
                 choices: [
                     {
-                        text: "THIS DOESN'T AFFECT YOU - YOU HAVE CARS SO YOU DONT CARE",
+                        text: "THIS DOESN'T AFFECT YOU",
                         effects: {frustration: -25 },
                         result: "You barely notice the news. Transit was already basically dead here anyway. With your two reliable cars, you're completely insulated from this policy change. Oil changes for both cars this month: $150."
                     },
                     {
-                        text: "ATTEND CITY MEETING - SPEAK AGAINST THE CUTS",
+                        text: "ATTEND CITY MEETING AND SPEAK AGAINST THE CUTS",
                         effects: {frustration: 25 },
                         result: "You actually go to a city council meeting to speak against the cuts. You're one of maybe five people who show up. The council is sympathetic but powerless - this is federal policy. You drive home feeling helpless. Gas and parking cost you $30. Nothing changes."
                     },
@@ -584,27 +601,33 @@ const scenarios = {
                 ]
             },
             {
-                year: 1990,
-                title: "Car Breaks Down on the Highway",
-                narrative: "Your car completely dies on I-94 during your morning commute. Just dead. The tow truck costs $85. The mechanic's diagnosis: the engine is shot. It needs $2,500 to rebuild, or you can junk it and move on. Your car is 14 years old. What do you do?",
-                image: "images/carbreakdkdoown.gif",
-                choices: [
-                    {
-                        text: "REBUILD THE ENGINE - EXTEND THE CAR'S LIFE",
-                        effects: { money: -2585, frustration: 40 },
-                        result: "Tow plus rebuild costs you $2,585 total. The car runs again but it's still really old. You wonder how long it'll be before the next major breakdown hits. You're throwing good money after bad at this aging vehicle."
-                    },
-                    {
-                        text: "BUY A DIFFERENT USED CAR",
-                        effects: { money: -6500, monthlyExpenses: 430, frustration: -5, carsOwned: 1 },
-                        result: "You junk the old car and buy an '86 Honda Civic with 95,000 miles on it. Cash price: $5,500, plus the tow was $85. Monthly costs: insurance $90, gas $70. It's a fresh-ish start but it's still a used car. How long will this one last?"
-                    },
-                    {
-                        text: "FINANCE A NEWER CAR",
-                        effects: { money: -3085, monthlyExpenses: 560, frustration: -15, carsOwned: 1 },
-                        result: "You trade in the dead car for $200 and finance an '88 model that's more reliable. Tow cost $85, down payment $3,000. Monthly: payment $215, insurance $105. It's reliable and you feel better. But the debt cycle never ends."
-                    }
-                ]
+            year: 1987,
+            title: "The People Mover Opens!",
+            narrative: `July 31, 1987. The Detroit People Mover officially opens! Mayor Coleman Young cuts a giant cake shaped like a train car. They release 10,000 balloons. This is DETROIT'S BIG TRANSIT COMEBACK! Automated trains! Modern technology! Except... it's a 2.9-mile loop that only goes around downtown. It doesn't go to the suburbs or anywhere outside that loop. It doesn't go to the airport. It doesn't connect to anything. President Ford offered Detroit $600 million for regional rail. Detroit built this tiny loop instead. But hey - it's cheap!`,
+            image: "images/peoplemover.png",
+            fact: {
+                text: "The People Mover opened in 1987 as Detroit's 'return to rail' - 31 years after streetcars died. But it only operates in a 2.9-mile downtown loop. By 2008 it carried 7,500 riders daily - just 2.5% of its capacity. President Ford offered $600M for regional rail; Detroit built this instead.",
+                link: "https://www.midstory.org/circuit-breakers-the-detroit-people-mover-and-the-promise-of-non-essential-transit/"
+            },
+            choices: [
+                {
+                    text: "RIDE IT OPENING DAY",
+                    requiresNoFlag: "movedToSuburbs",
+                    effects: { money: -5.50, frustration: -10 },
+                    result: "You ride opening day with thousands of excited Detroiters! The trains are SHINY and automated! Mayor Young is there! There are BALLOONS! It's 50 cents to ride! Rail is BACK in Detroit after 31 years! You're crying a little. Then you realize... it only goes in a tiny loop downtown. It doesn't go to your house in the suburbs. It doesn't go to the airport. It doesn't go ANYWHERE you actually need. It's a 2.9-mile tourist attraction pretending to be transit. But it EXISTS! Maybe this is the start of something bigger? Fare and celebration hot dog: $5.50."
+                },
+                {
+                    text: "IT'S USELESS IN THE SUBURBS",
+                    requiresFlag: "movedToSuburbs",
+                    effects: { frustration: 15 },
+                    result: "The People Mover is cute but completely useless to you. You live in Bloomfield Hills. It goes in a loop downtown. Cool for the 47 people who live AND work downtown. You're still driving everywhere. Detroit had a chance to build REAL regional transit and built a carnival ride instead. President Ford offered $600 MILLION for a regional system. This is what Detroit chose. A toy train that goes nowhere."
+                },
+                {
+                    text: "RECOGNIZE THE FAILURE",
+                    effects: { frustration: 25 },
+                    result: "You read about it in the Free Press. They're celebrating like Detroit solved transportation. But this is a JOKE. It's 2.9 miles. In a loop. It doesn't connect to neighborhoods. It doesn't go to suburbs. It doesn't connect to the airport. President Ford offered $600 million for regional rail and Detroit built a downtown loop instead. Thirty-one years after killing the streetcars, THIS is the comeback? The city that builds cars can't build real transit."
+                }
+             ]
             },
             {
                 year: 1992,
@@ -613,7 +636,7 @@ const scenarios = {
                 image: "images/drivein.jpg",
                 choices: [
                     {
-                        text: "EMBRACE THE CONVENIENCE - IT SAVES TIME",
+                        text: "EMBRACE THE CONVENIENCE",
                         effects: { money: -200, frustration: -30 },
                         result: "Drive-through everything. You barely leave your car all week. It's incredibly efficient. But when your kid asks why you can't just walk to the store like kids do on TV, you don't have a good answer. Monthly drive-through spending: $200."
                     },
@@ -637,7 +660,7 @@ const scenarios = {
                 choices: [
                     {
                         text: "BUY THEM A USED CAR",
-                        effects: { money: -4500, monthlyExpenses: 350, frustration: -15, carsOwned: 1 },
+                        effects: { money: -4500, monthlyExpenses: 250, frustration: -15, carsOwned: 1 },
                         result: "You buy an '89 Honda Civic with 130,000 miles on it. They hug you and immediately drive to their friend's house. You're relieved - no more chauffeur duty - but absolutely terrified watching them back out of the driveway. That's your kid out there in Detroit traffic. Monthly costs: their payment $105, teen insurance rate $180.",
                         flags: { teenHasCar: true }
                     },
@@ -649,7 +672,7 @@ const scenarios = {
                     },
                     {
                         text: "SPLIT THE COST - THEY PAY HALF",
-                        effects: { money: -2250, monthlyExpenses: 225, frustration: -5, carsOwned: 1 },
+                        effects: { money: -2250, monthlyExpenses: 125, frustration: -5, carsOwned: 1 },
                         result: "They work all summer to save up their half. You match what they saved. The shared ownership makes them drive more carefully and appreciate it more because they earned it. Monthly costs: their payment $60, their insurance $180. You're now a three-car household.",
                         flags: { teenHasCar: true }
                     }
@@ -709,13 +732,13 @@ const scenarios = {
                         result: "New engine parts, transmission work, all of it. $2,200 completely gone. The car runs better but it's still ancient. You're already wondering when the next big expense is going to hit. You're throwing good money after bad at a dying car."
                     },
                     {
-                        text: "BUY A DIFFERENT USED CAR - FRESH START",
-                        effects: { money: -5200, monthlyExpenses: 470, frustration: -10, carsOwned: 1 },
+                        text: "BUY A DIFFERENT USED CAR",
+                        effects: { money: -5200, monthlyExpenses: 200, frustration: -10, carsOwned: 1 },
                         result: "You sell the old car for $800 and buy a '96 Toyota for $6,400. Title and fees add another $800. Monthly costs: insurance $105, gas $85, payment if financed $140. It's a fresh-ish start but it's still a used car. How long will this one actually last?"
                     },
                     {
-                        text: "FINANCE A NEWER CAR - PEACE OF MIND MATTERS",
-                        effects: { money: -4800, monthlyExpenses: 860, frustration: -10, carsOwned: 1 },
+                        text: "FINANCE A NEWER CAR",
+                        effects: { money: -4800, monthlyExpenses: 350, frustration: -10, carsOwned: 1 },
                         result: "You trade in the dying car for $800 and finance a 2000 model that's actually reliable. Down payment: $4,000. Monthly costs: payment $310, insurance $115. It's reliable and you finally feel some peace of mind. But the debt cycle just never ends."
                     }
                 ]
@@ -730,7 +753,7 @@ const scenarios = {
                 choices: [
                     {
                         text: "Start Generation 3",
-                        effects: { monthlySalary: 5800, monthlyExpenses: 2000 },
+                        effects: { monthlySalary: 3500, monthlyExpenses: 1500 },
                         result: "You're 22 years old with a college degree, a mountain of debt, and some big decisions ahead of you. Time to figure out where to live and how you're going to get around in the city your grandparents built."
                     }
             ]
@@ -742,10 +765,10 @@ const scenarios = {
                 image: "images/thinking.gif",
                 choices: [
                     {
-                        text: "MOVE DOWNTOWN",
+                        text: "MOVE DOWNTOWN AND BUY A CAR",
                         effects: { money: -2800, monthlyExpenses: 700, frustration: 10 },
-                        result: "Renovated loft, exposed brick, huge windows. Half your entire paycheck is gone to rent. You can walk to work and walk to bars. No car payment to worry about. But you're eating ramen for dinner every single night. Your suburban friends have space, savings accounts, and cars. You have a good location. First and last month's rent ate $2,800 of your savings.",
-                        flags: { livingDowntown: true }
+                        result: "Renovated loft, exposed brick, huge windows. Half your entire paycheck is gone to rent. You can walk to restaurants and bars. You still need a car to get to work though. First and last month's rent ate $2,800 of your savings.",
+                        flags: { livingDowntown: true, hasCar: true }
                     },
                     {
                         text: "MOVE TO SUBURBS WITH A CAR",
@@ -755,8 +778,8 @@ const scenarios = {
                     },
                     {
                         text: "LIVE WITH YOUR PARENTS",
-                        effects: { money: -200, monthlyExpenses: 350, frustration: 35 },
-                        result: "You're 22 years old and living in your childhood bedroom again. Your parents are absolutely thrilled. You are decidedly not. You save thousands of dollars per month but you can't bring a date home. You can't host your friends. You can't feel like an actual adult. You keep promising yourself this is just temporary. You're giving your parents $200/month to help with groceries and utilities.",
+                        effects: { money: -200, monthlyExpenses: 100, frustration: 35 },
+                        result: "You're 22 years old and living in your childhood bedroom again. Your parents are absolutely thrilled. You are decidedly not. You save thousands of dollars per month but you can't bring a date home. You can't host your friends. You can't feel like an actual adult. You keep promising yourself this is just temporary. You're giving your parents $100/month to help with groceries and utilities.",
                         flags: { livingWithParents: true }
                     }
                 ]
@@ -765,26 +788,26 @@ const scenarios = {
                 year: 2005,
                 title: "Your Parents Need Their Cars",
                 narrative: "You need to get to work every day. Your parents both use their cars for their own jobs. The bus from their suburb takes 90 minutes each way with two different transfers. You can't keep borrowing their car forever. You need your own transportation, or you need to move out somewhere closer to work. Fast.",
-                image: "images/thinking.gif",
+                image: "images/geturcar.gif",
                 requiresFlag: "livingWithParents",
                 choices: [
                     {
                         text: "BUY A USED CAR",
-                        effects: { money: -12000, monthlyExpenses: 600, frustration: 30, carsOwned: 1 },
+                        effects: { money: -12000, monthlyExpenses: 300, frustration: 30, carsOwned: 1 },
                         result: "You buy a used car with 60,000 miles on it. Down payment eats $3,000 of your savings. Monthly breakdown: car payment $300, insurance $425 (because Detroit rates are brutal), gas $135, food and everything else $700. At least you can reliably get to work now. Living with your parents in the suburbs basically requires having a car.",
                         flags: { hasCar: true }
                     },
                     {
-                        text: "MOVE DOWNTOWN",
-                        effects: { money: -2800, monthlyExpenses: 2700, frustration: -15 },
-                        result: "You find a studio apartment downtown and sign the lease that same day. First month, last month, and security deposit completely wipe out $2,800 of your savings. But now you can walk to work every morning. No car needed. You're broke but you're finally independent.",
-                        flags: { livingWithParents: false, livingDowntown: true }
+                        text: "MOVE DOWNTOW AND BUY A CAR",
+                        effects: { money: -3800, monthlyExpenses: 700, frustration: -15 },
+                        result: "You find a studio apartment downtown and sign the lease that same day. First month, last month, and security deposit completely wipe out $2,800 of your savings. But now you can walk to breakfast every morning. You still need a car for work though.",
+                        flags: { livingWithParents: false, livingDowntown: true, hasCar: true }
                     }
                 ]
             },
             {
                 year: 2005,
-                title: "The Detroit Insurance Shock",
+                title: "Detroit Insurance",
                 narrative: "Your first annual car insurance bill just arrived in the mail: $5,100 for the year. Detroit has the absolute highest car insurance rates in America. It doesn't matter at all that you're a perfectly safe driver with a completely clean record. You live in Detroit, so you pay. This is structural inequality baked directly into the infrastructure.",
                 requiresFlag: "hasCar",
                 image: "images/insurance.jpg",
@@ -813,42 +836,43 @@ const scenarios = {
     requiresFlag: "livingWithParents",
     choices: [
         {
-            text: "MOVE DOWNTOWN",
-            effects: { money: -2800, monthlyExpenses: 1100, frustration: -30, carsOwned: -1 },
-            result: "You find a studio downtown. First, last, security deposit: $2,800 gone. You're broke but finally FREE. No more Pokemon posters. Moving: $2,800.",
+            text: "MOVE DOWNTOWN AND BUY CAR",
+            effects: { money: -2800, monthlyExpenses: 1100, frustration: -30, carsOwned: 1 },
+            result: "You find a studio downtown. First, last, security deposit: $2,800 gone. You're broke but finally FREE. No more Pokemon posters. Moving and car: $2,800.",
             flags: { livingWithParents: false, livingDowntown: true, hasCarGen3: false, soldCarGen3: true }
         }
     ]
 },
-            {
-                year: 2007,
-                title: "Your Friend's Suburban Wedding",
-                narrative: "Your college friend is getting married out in Novi - about 35 minutes away from downtown. The reception starts at 6pm on a Saturday. You live downtown. An Uber there and back would cost about $110. Or maybe this is finally the moment you should just buy a car and have it for this and literally everything else going forward?",
-                requiresFlag: "livingDowntown",
-                requiresNoFlag: "hasCar",
-                image: "images/suburbanwedding.jpg",
-                choices: [
-                    {
-                        text: "TaAKE A TAXI",
-                        effects: { money: -50, frustration: 15 },
-                        result: "You taxi there and back for $110 total. The wedding is absolutely beautiful. But literally everyone else drove their own cars. They're all planning to meet up for brunch tomorrow morning in Ann Arbor. You can't justify spending more money on more taxis. You miss the whole after-party gathering."
-                    },
-                    {
-                        text: "CALL YOUR PARENTS AND ASK THEM TO DRIVE YOU",
-                        effects: { money: -50, frustration: -5 },
-                        result: "Your parents are happy to take you, but you still can't help feeling like a complete burden on them. They fall asleep at 10pm sharp and you end up having to call a taxi to get home from the reception."
-                    },
-                    {
-                        text: "BUY A CAR",
-                        effects: { money: -16000, monthlyExpenses: 730, frustration: 20, carsOwned: 1 },
-                        result: "This wedding experience made you finally realize: being car-free in Detroit means constantly missing out on things. You buy a used 2005 model. Down payment: $4,500. Monthly breakdown: car payment $335, insurance $425, gas $120, downtown parking garage $250. You're now car-dependent even while living in a supposedly walkable area. The irony is not lost on you.",
-                        flags: { hasCar: true }
-                    }
-                ]
-            },
-          {
+{
+    year: 2007,
+    title: "Pistons Playoff Game at The Palace",
+    narrative: `The Pistons are in the playoffs, ${gameState.character.firstName}! Your friend scored tickets to a game at The Palace of Auburn Hills. Chauncey Billups! Rasheed Wallace! The Palace is 35 miles north in the suburbs. You have a car so getting there is easy. But after the game, everyone wants to hit different bars in different suburbs and you're all driving separately. Metro Detroit's sprawl means even hanging out with friends requires complex driving logistics.`,
+    image: "images/billups.gif",
+    fact: {
+        text: "The Palace of Auburn Hills (1988-2017) was located 35 miles from downtown Detroit with zero public transit access. The Pistons didn't return to playing IN Detroit until 2017.",
+        link: "https://www.stadiumjourney.com/stadiums/the-palace-of-auburn-hills-detroit-pistons"
+    },
+    choices: [
+        {
+            text: "DRIVE TO THE PALACE",
+            effects: { money: -95, frustration: -15 },
+            result: "You drive 35 miles to Auburn Hills blasting 'Umbrella' by Rihanna. The game is INCREDIBLE! Pistons win! After, everyone scatters to different suburbs in different directions. Your friend wants a bar in Royal Oak. Another friend suggests Ferndale. Someone else says Rochester. You all drove separately so you can't even ride together. You end up at a bar alone near The Palace because driving another 20 miles sounds exhausting. Gas, parking, ticket, beer: $95."
+        },
+        {
+            text: "COORDINATE A CARPOOL",
+            effects: { money: -80, frustration: 10 },
+            result: "You organize everyone to carpool in your car. It takes 23 text messages to coordinate. The game is amazing! But after, you're STUCK with everyone's schedules. One person wants to leave immediately. Another wants to stay for drinks. You're not watching the game, you're managing logistics. You drive everyone home to three different suburbs. You're basically an unpaid Uber. Your car enabled the hangout but also made you responsible for it. Gas and ticket: $80."
+        },
+        {
+        text: "SKIP THE GAME",
+        effects: { money: -10, frustration: 30 },
+        result: "Thirty-five miles to Auburn Hills on a work night? You're exhausted just thinking about it. You bail. Your friends go without you. Monday they won't stop talking about the game, the energy, the afterparty at some bar in Rochester Hills. You stayed home watching 'The Office' reruns. The Pistons don't even play IN Detroit anymore and it's making you antisocial. White Castle burgers for yourself: $10"
+        }
+    ]
+},
+    {
     year: 2008,
-    title: "The Auto Industry Collapses - Detroit Dies With It",
+    title: "Auto Industry Collapses",
     narrative: "The Great Recession hit Detroit like a bomb. GM and Chrysler declare bankruptcy. The auto industry COLLAPSES. Unemployment hits 28%. Your job survives but they cut your salary 15%. Half your friends are packing U-Hauls and fleeing to other cities. The freeways feel empty. The whole city feels like a ghost town. You need to make some hard choices fast.",
     image: "images/crisis.jpg",
     choices: [
@@ -858,12 +882,6 @@ const scenarios = {
             effects: { money: 5500, monthlyExpenses: -600, frustration: 40, carsOwned: -1 },
             result: "You sell the car for $5,500 cash. In DETROIT. The irony. You just sold a car in the Motor City during the auto industry collapse. You're taking the bus to work in the city that builds cars. But you need the money more than the vehicle right now. Sold: $5,500.",
             flags: { soldCarGen3: true, hasCar: false }
-        },
-        {
-            text: "DOWNGRADE TO A BEATER",
-            requiresFlag: "hasCar",
-            effects: { money: 3000, monthlyExpenses: -250, frustration: 10 },
-            result: "You sell your decent car for $8,000, and buy a complete piece of shit for $5,000. It's ugly and smells weird but it runs. Insurance drops. Gas drops. You're cutting costs while keeping wheels. Speaking of wheels you're a little worried the wheels on the car are going to fall off at any moment. Net cash: +$3,000."
         },
         {
             text: "MOVE TO CHEAPER NEIGHBORHOOD",
@@ -876,61 +894,46 @@ const scenarios = {
             result: "You get a weekend job at a restaurant that's still open. Extra $350/month. You're working 60 hours a week now. You're exhausted. Your social life is dead. But your budget is stable. You get free food too so can't complain too much. Monthly income: +$350."
         },
         {
-            text: "ASK YOUR PARENTS FOR A LOAN",
-            effects: { money: -20, frustration: 55 },
-            result: "You call your parents and ask for help. They're broke too. Phone bill: $20 "
-        },
-        {
             text: "KEEP EVERYTHING THE SAME",
             effects: { money: -400, frustration: 20 },
             result: "You keep the car, keep the apartment, keep everything exactly the same and just... hope. Your stress builds. Your car needs repairs you can barely afford. You're playing financial chicken with a recession. Emergency expenses: $400."
         }
     ]
 },
+        {
+        year: 2012,
+        title: "Your Car Dies on I-94",
+        narrative: `Your car completely DIES on I-94 during your morning commute. Just dead. Won't start. Traffic is backing up behind you. People are SCREAMING. You're mortified. The tow truck costs $125. The mechanic's diagnosis: 'Yeah, transmission is completely shot. $3,200 to rebuild it.' Your car is 8 years old with 100,000 miles. You could fix it, junk it and buy used, or lease something new. What do you do?`,
+        image: "images/carbreakdown.gif",
+        choices: [
             {
-                year: 2012,
-                title: "The Grocery Store Dilemma",
-                narrative: "You need to buy groceries every week like everyone else. The corner store near you downtown is walkable and convenient but incredibly expensive. Costco in Madison Heights is 25 minutes away by car with way better bulk prices. Your monthly grocery bill would be $450 at the corner store versus only $300 at Costco. But getting to Costco requires having a car.",
-                image: "images/groceries.jpg",
-                choices: [
-                    {
-                        text: "DRIVE TO COSTCO MONTHLY",
-                        requiresFlag: "hasCar",
-                        effects: { monthlyExpenses: -150, money: -50, frustration: -10 },
-                        result: "You drive out to Costco once a month for a big shopping trip. You're saving about $150 per month on groceries compared to the corner store prices. But the gas to get out there costs about $25/month. Plus the annual membership is $50. Your car is enabling you to save money while simultaneously creating total dependency on it. Your trunk isn't even that big - maybe you should get a bigger car?"
-                    },
-                    {
-                        text: "DRIVE TO GREENFIELD MARKET INSTEAD",
-                        requiresFlag: "hasCar",
-                        effects: { money: -100, frustration: -10 },
-                        result: "The market has everything you actually need and the parking lot is pretty easy to navigate. It starts raining on your drive home. Through the window you see someone walking who just dropped their grocery bags all over the wet street. You're really glad you have a car. Monthly grocery costs: $100."
-                    },
-                    {
-                        text: "WALK TO THE GROCERY STORE NEAR YOU",
-                        requiresNoFlag: "hasCar",
-                        effects: { money: -60, frustration: 5 },
-                        result: "You walk to the Whole Foods near your apartment. It's only about a 15-minute walk. You buy way too much because everything looks good. The bags are HEAVY on the walk back. Halfway home it starts pouring rain and the cheap brown paper bags start to completely rip apart. You drop half your groceries right there in the middle of the street."
-                    },
-                    {
-                        text: "GET YOUR GROCERIES DELIVERED EVERY WEEK",
-                        requiresNoFlag: "hasCar",
-                        effects: { monthlyExpenses: 80, money: -80, frustration: -10 },
-                        result: "Grocery delivery is expensive and your delivery driver seems genuinely annoyed that you ordered two full cases of water bottles. Like, who actually needs that much water in single-use plastic bottles?? This doesn't feel sustainable long-term. The monthly delivery fees really add up fast."
-                    },
-                    {
-                        text: "ASK A FRIEND TO DRIVE YOU TO THE STORE",
-                        requiresNoFlag: "hasCar",
-                        effects: { money: -60, frustration: -10 },
-                        result: "You and your friend do a grocery run together, but the whole time you're anxious about how much can actually fit in their car since both of you are buying groceries. This constant low-level anxiety about space causes you to completely forget to buy milk, which was literally the main thing you needed. You feel like such a burden on your friend."
-                    }
-                ]
+                text: "REBUILD THE TRANSMISSION",
+                effects: { money: -3325, frustration: 40 },
+                result: "Tow plus transmission rebuild: $3,325 total. The car runs again but it's ANCIENT. You're basically in an abusive relationship with this vehicle at this point. How long before the next catastrophic failure? You're listening to Gotye's 'Somebody That I Used to Know' on the radio and relating way too hard to your car. You're throwing good money after bad but you can't let go. Total: $3,325."
             },
+            {
+                text: "BUY A DIFFERENT USED CAR",
+                effects: { money: -11000, monthlyExpenses: 50, frustration: -5, carsOwned: 1 },
+                result: "You junk it for $800 and buy a 2009 Honda Civic with 75,000 miles for $12,000. Way more reliable! The salesman is playing Carly Rae Jepsen's 'Call Me Maybe' and you're feeling optimistic. Lower insurance! Better gas mileage! The debt cycle continues forever but at least this one probably won't die on I-94. Probably. Net cost after trade-in: $11,000."
+            },
+            {
+                text: "LEASE A NEWER CAR",
+                effects: { money: -2500, monthlyExpenses: 480, frustration: 5 },
+                result: "You lease a brand new 2012 Toyota Camry. No more breakdowns! No more repairs! Just $480/month. You're trapped in the lease cycle but the car is shiny and WORKS and has an mp3 cable so you can blast your Ipod playlists. You're listening to fun.'s 'We Are Young' and feeling like you made a responsible adult decision. Down payment: $2,500, monthly: $480."
+            },
+            {
+                text: "BUY A CHEAP BEATER",
+                effects: { money: -3700, monthlyExpenses: -120, frustration: 20 },
+                result: "Junk yours for $800, buy a $4,500 beater off Craigslist. It's a 2004 with 140,000 miles. It smells like cigarettes and regret. The previous owner left a Nickelback CD stuck in the player. But it RUNS and insurance is way cheaper. You're cutting costs while keeping wheels. It's not pretty but it's practical. Net cost: $3,700."
+            }
+        ]
+    },
             {
                 year: 2016,
                 title: "Car Maintenance Never Actually Ends",
-                narrative: "Your car is 12 years old now. The maintenance is absolutely constant and never-ending. New tires: $600. Complete brake job: $400. New battery: $180. Oil changes throughout the year: $180 total. Annual registration fee: $120. Even when a car is completely paid off, it still costs you money forever and ever.",
+                narrative: "Car maintenance is absolutely constant and never-ending. New tires: $600. Complete brake job: $400. New battery: $180. Oil changes throughout the year: $180 total. Annual registration fee: $120. Even when a car is completely paid off, it still costs you money forever and ever.",
                 requiresFlag: "hasCar",
-                image: "",
+                image: "images/maintenance.gif",
                 choices: [
                     {
                         text: "PAY FOR ALL THE MAINTENANCE (NO CHOICE)",
@@ -944,14 +947,8 @@ const scenarios = {
                 year: 2020,
                 title: "The Pandemic Hits Detroit",
                 narrative: "March 2020. The world shuts down. You're working from home indefinitely. Detroit goes silent. Your transportation needs just changed overnight. What do you do?",
-                image: "images/detroitcovid.jpg",
+                image: "images/detoitcovid.jpg",
                 choices: [
-                    {
-                        text: "KEEP PAYING FOR YOUR CAR",
-                        requiresFlag: "hasCar",
-                        effects: { money: -1500, frustration: 10 },
-                        result: "You keep paying $600/month for your car. You drive it to Kroger once a week. Sometimes you drive it when you're bored. You're usually bored. You drive around and listen to Blinding Lights by the Weeknd. It keeps you sane. When the world reopens you're glad you kept it. Costs: $1,500."
-                     },
         {
             text: "SELL IT",
             requiresFlag: "hasCar",
@@ -967,20 +964,18 @@ const scenarios = {
         },
         {
             text: "WALK EVERYWHERE, ALL THE TIME",
-            requiresNoFlag: "hasCar",
-            effects: { money: -150, frustration: -10 },
-            result: "You just walk to the store in your mask. Streets are EMPTY. No traffic. Peaceful. You walk up and down the street in your mask. You walk all day. You realize how nice walking is when there aren't so many cars around. You would walk the whole city if you could. Groceries: $150."
+            effects: { money: -50, frustration: -10 },
+            result: "You just walk to the store in your mask. Streets are EMPTY. No traffic. Peaceful. You walk up and down the street in your mask. You've recently gotten back into Glee. You walk all day listening to the Glee cast. Hey some glee versions are better than the originals... You realize how nice walking is when there aren't so many cars around. You would walk the whole city if you could. You do have six seasons of Glee music to listen to. Groceries: $50."
         },
         {
             text: "BUY A BIKE",
-            requiresNoFlag: "hasCar",
             effects: { money: -200, frustration: -5 },
             result: "You buy a bike to avoid buses and people during COVID lockdown. Biking through ghost-town Detroit is surreal. You see like 3 other people outside. The Motor City is completely empty and you're biking through it. Biking with no cars is so nice and peaceful. Bike: $200."
         },
         {
-            text: "PANIC-BUY a CAR TO ESCAPE TO FAMILY",
+            text: "PANIC-BUY A CAR TO ESCAPE TO FAMILY",
             requiresNoFlag: "hasCar",
-            effects: { money: -15000, monthlyExpenses: 580, frustration: 30, carsOwned: 1 },
+            effects: { money: -15000, monthlyExpenses: 380, frustration: 30, carsOwned: 1 },
             result: "Your friends with cars escaped to better quarantine spots. You panic-buy a car for $15,000 and drive to your parents' place IMMEDIATELY. The pandemic pushed you into car ownership out of pure fear and desperation. Your free to go anywhere, but you don't know where else you would go. You watch all of Outer Banks in one day on your parents couch. What now? Car: $15,000.",
             flags: { hasCar: true }
         },
@@ -1019,55 +1014,62 @@ const scenarios = {
                 ]
             },
             {
-                year: 2022,
-                title: "The Weekend Trip Dilemma",
-                narrative: "Your friends are planning a weekend trip up to Traverse City. It's a 4-hour drive each way. You're living downtown without a car. They say you can ride with them in their car but you would be completely on their schedule. Leave Friday at 6pm sharp, come back Sunday at 4pm sharp. Zero flexibility whatsoever.",
-                requiresFlag: "livingDowntown",
-                requiresNoFlag: "hasCar",
-                image: "images/traversecity.jpg",
-                choices: [
-                    {
-                        text: "BUY A CAR",
-                        effects: { money: -26000, monthlyExpenses: 880, frustration: -15, carsOwned: 1 },
-                        result: "You finally buy a 2019 model. Down payment eats $8,000 of your savings. Monthly costs: car payment $510, insurance $450, gas $150, downtown parking garage $270, food and other expenses $900. You completely caved. You're now car-dependent even while living in a supposedly walkable neighborhood. The irony absolutely stings.",
-                        flags: { hasCar: true }
-                    },
-                    {
-                        text: "CARPOOL WITH YOUR FRIENDS",
-                        effects: { money: -150, frustration: 10 },
-                        result: "You ride with your friends and it's mostly fine. But you can't leave when you actually want to. You're stuck completely on their schedule. You really want to stay up there Sunday night but you simply can't because they're leaving at 4pm. Your friend plays Taylor Swift's Midnights the whole way there and back. You like that album but damn they have spotify premium can they seriously not play any other artist? Trip costs for food and activities: $150."
-                    },
-                    {
-                        text: "SKIP THE ENTIRE TRIP - STAY HOME ALONE",
-                        effects: { frustration: 50 },
-                        result: "You skip the trip entirely. You spend the weekend alone in your apartment while all your friends are bonding up north together. Monday morning they're all sharing inside jokes about things that happened. You weren't there for any of it. Now they have a whole groupchat without you..."
-                    }
-                ]
-            },
-            {
-                year: 2023,
-                title: "Your Best Friend's Boston Wedding",
-                narrative: "Your college best friend is getting married in Boston and you desperately want to be there for them. You start looking at your transportation options and reality sets in fast. Flying costs $635 total. Driving would be $400 in gas plus 20 hours of your life behind the wheel. Taking the train would be 22 hours of travel time and $350. This is American transportation in 2023. Literally every single option is terrible.",
-                image: "images/boston.jpg",
-                choices: [
-                    {
-                        text: "FLY THERE",
-                        effects: { money: -635, frustration: 10 },
-                        result: "You fly. The flight is delayed by three hours. You miss your connection. You land in Boston completely exhausted and stressed out. You're worried about making your return flight on time Sunday. The wedding itself is absolutely beautiful but you're completely drained from all the travel stress. This should have been a joyful celebration."
-                    },
-                    {
-                        text: "DRIVE THERE",
-                        requiresFlag: "hasCar",
-                        effects: { money: -400, frustration: 25 },
-                        result: "You drive ten hours straight through Ohio, Pennsylvania, and New York. Your back is killing you. You're completely exhausted when you finally arrive. Friday is just driving. Sunday is just driving. You took two precious days off work and you spent literally half of them sitting behind a steering wheel on highways."
-                    },
-                    {
-                        text: "SKIP THE WEDDING ENTIRELY - CAN'T JUSTIFY THE COSTS",
-                        effects: { money: -150, frustration: 65 },
-                        result: "You just can't justify the cost, the time commitment, or the absolute hassle of getting there. You send a generous gift and a deeply apologetic text message. What kind of person skips their best friends weddind?"
-                    }
-                ]
-            },
+            year: 2022,
+            title: "Weekend Trip to Traverse City",
+            narrative: `Your friends are planning a weekend trip to Traverse City - 4 hours north through pure Michigan beauty. Cherry orchards! Wineries! Sleeping Bear Dunes! Everyone's driving up Friday after work, staying at an Airbnb, coming back Sunday. Except everyone's leaving at slightly different times from different suburbs and the group coordination is hard. Do you drive solo and have flexibility, or carpool and save gas but be trapped on someone else's schedule?`,
+            image: "images/traversecity.jpg",
+            choices: [
+                {
+                    text: "DRIVE YOUR OWN CAR",
+                    effects: { money: -180, frustration: -15 },
+                    result: "You drive solo. Leave Friday at 7pm when you want. Stop at roadside cherry stands. Take the scenic route. Stay until Monday morning because you can. Your friends in the carpool had to leave Sunday at 3pm sharp. You're swimming in Lake Michigan Monday morning while they're already back at work. Solo road trip blasting your own Spotify playlist, nobody judging you for playing Industry Baby by Lil Nas X 10 times on the way there. Activities and food: $180."
+                },
+                {
+                    text: "ORGANIZE A CARPOOL",
+                    effects: { money: -125, frustration: 25 },
+                    result: "You organize a carpool to save gas. This requires 47 text messages and a shared Google Doc. You're leaving at 6:15pm SHARP from the Meijer parking lot in Royal Oak. One person is 10 minutes late. Everyone's annoyed. Your friend driving only listens to country music the ENTIRE drive. Four hours of Luke Bryan. You ask if they could play a little Kacey Musgraves because she's country too. They say no. Chris Stapleton? Ok. Your gas share and other food and activities: $125."
+                },
+                {
+                    text: "SKIP IT",
+                    effects: { frustration: 35 },
+                    result: "Four hours of driving each way after a long work week? You're EXHAUSTED just thinking about it. You skip it. Your friends go without you. Monday they're all sharing photos from the dunes, posting about their weekend. You stayed home watching 'Euphoria' and ordering DoorDash. You're missing out on life because driving 8 hours round trip sounds like hell. You wish there was a train or something..."
+                },
+                {
+                    text: "RENT AN RV - GO BIG",
+                    effects: { money: -550, frustration: -20 },
+                    result: "You rent an RV and offer to drive everyone. Everyone piles in. It's a PARTY on wheels. Someone brings a speaker. You're blasting music, laughing, it's a vibe. You camp in the RV near the beach. This is peak Michigan summer. Your friends Venmo you gas money. You spent more money but created the best memories. RV rental, gas, and being the cool friend: $550."
+                }
+            ]
+},
+           {
+    year: 2023,
+    title: "Your BFF's Chicago Wedding",
+    narrative: "Your college best friend is getting married in Chicago and you desperately want to be there for them. You start looking at your transportation options from Detroit and reality sets in FAST. Flying costs $420 total. Driving would be $180 in gas plus 4 hours of your life behind the wheel. Taking Amtrak would be 5 hours and $140 but the train only runs once a day at weird times. Every option has a catch.",
+    image: "images/chicago.gif",
+    choices: [
+        {
+            text: "FLY THERE",
+            effects: { money: -420, frustration: 15 },
+            result: "You fly out of Detroit Metro. The flight is only about 50 minutes but you have to get there 90 minutes early for security. Your Uber to the airport is $45. The flight gets delayed 45 minutes - you're stress watching Succession feeling like Kendall Roy. You land, Uber to the hotel, finally arrive. The wedding is beautiful! You and your BFF karaoke 'Karma' by Taylor Swift at the afterparty. Sunday you do it all in reverse. You spent $420 and 2 total hours of air time to go 280 miles. In Japan this would be a $60 train ride. Flight, Ubers, and wedding gift: $420."
+        },
+        {
+            text: "DRIVE THERE",
+            requiresFlag: "hasCar",
+            effects: { money: -280, frustration: 30 },
+            result: "You drive 4.5 hours listening to your 'Road Trip 2023' Spotify playlist. You're singing along to 'Unholy' by Sam Smith and Kim Petras - an inside reference between you and your bestie. The wedding is gorgeous! You and your BFF karaoke 'Karma' by Taylor Swift at the afterparty. Sunday you drive 4 hours back listening to your favorite Bright Eyes album. You spent 8ish hours of your weekend behind a steering wheel for a wedding. Your back hurts. Your ass is numb. American infrastructure failure turned a 280-mile trip into a full day of driving. Gas, tolls, hotel, and gift: $280."
+        },
+        {
+            text: "TAKE AMTRAK",
+            effects: { money: -240, frustration: 25 },
+            result: "You take the Amtrak Wolverine. The train leaves Detroit at 8am. You're working on your laptop, watching Michigan scenery. Five hours later you roll into Chicago Union Station. It's actually... nice? Relaxing? You read a book! The wedding is great! You and your BFF karaoke 'Karma' by Taylor Swift at the afterparty. Sunday the return train is at 6pm so you have all day in Chicago. You go see the bean! It's so shiny. This almost worked perfectly except the schedule is SO LIMITED - one train per day. If you miss it, you're screwed. Train, hotel, and gift: $240."
+        },
+        {
+            text: "SKIP THE WEDDING",
+            effects: { money: -100, frustration: 65 },
+            result: "You just can't make any of the options work. Flying is too expensive. Driving is too exhausting. The train schedule doesn't fit your work schedule. You send a generous gift and the world's most apologetic text. Your friend is hurt. You watch their wedding on someone's Instagram story while sitting on your couch eating Chipotle alone. What kind of friend skips their best friend's wedding? You're not a good friend...Gift that doesn't fix anything: $100."
+        }
+    ]
+},
             {
                 year: 2024,
                 title: "First Date Geography Problem",
@@ -1075,14 +1077,13 @@ const scenarios = {
                 image: "images/hinge.gif",
                 choices: [
                     {
-                        text: "GO ON THE DATE - THEY SEEM WORTH THE DRIVE",
+                        text: "DRIVE TO THE DATE",
                         requiresFlag: "hasCar",
                         effects: { money: -75, frustration: -10 },
-                        result: "The date is genuinely great. They're funny and interesting and very attractive. But you spent 2 full hours driving for what ended up being a 90-minute date. When they text you the next day suggesting date number two in Ann Arbor (which is 45 minutes away), you hesitate. Geographic distance is starting to feel like a legitimate relationship barrier before this has even really started."
+                        result: "You drive to meet your date and jam to 'Titi Me Pregunto' by Bad Bunny to hype yourself up. Fire song but interesting choice. The date is genuinely great. They're funny and interesting and very attractive. But you spent 2 full hours driving for what ended up being a 90-minute date. When they text you the next day suggesting date number two in Ann Arbor (which is 45 minutes away), you hesitate. Geographic distance is starting to feel like a legitimate relationship barrier before this has even really started."
                     },
                     {
                         text: "TAKE AN UBER THERE",
-                        requiresNoFlag: "hasCar",
                         effects: { money: -95, frustration: 10 },
                         result: "You Uber there and back for $95 total. The date itself is genuinely good but it's getting expensive to date without a car. They have a car and keep suggesting these very car-dependent date ideas. You keep having to Uber everywhere. This is getting expensive incredibly fast and it's not sustainable."
                     },
@@ -1101,15 +1102,15 @@ const scenarios = {
             {
                 year: 2025,
                 title: "The Final Reckoning",
-                narrative: "You're 43 years old now. You've been driving for 21 years. Time to actually sit down and add up what car ownership has cost you. What did 75 years of American car dependency actually mean?",
-                image: "",
+                narrative: `Congrats on making it through Detroit, ${gameState.character.firstName}. Time to sit down and add up what car ownership actually cost you. What did 75 years of Detroit car dependency mean?`,
+                image: "images/detroit.gif",
                 choices: [
                     {
-                        text: "SEE HOW YOUR STORY ENDED",
+                        text: "SEE HOW YOUR DETROIT STORY ENDED",
                         effects: {},
-                        result: "Your journey through 75 years of American car dependency is complete. Time to see what it all actually meant."
-                     }
-                    ]
+                        result: "75 years of Detroit. Your grandparents rode streetcars everywhere for a dime, worked union jobs, bought a house for $8,000, watched the Lions actually WIN games in the 1950s (hey yes they're better now but still), and lived in a thriving city of 1.8 million people. Your parents watched people flee to the suburbs, sat in traffic on I-94, watched the city hollow out, and paid for cars their entire lives while the auto industry controlled everything. You: spent thousands on mandatory car ownership, paid America's highest insurance rates ($5,100/year!) just for living in Detroit, survived the 2008 auto industry collapse that nearly murdered the whole city, still can't afford a house even though the city lost a million people (most young people in 2025 can't), and have poured thousands into cars over your lifetime. The streetcars ran 1,000+ miles and they're never coming back. The People Mover is a 2.9-mile loop ride. The Pistons played in Auburn Hills for 29 years instead of Detroit. Frank is still revving his engine at you every morning (he's 100 now!). But HEY - the Lions FINALLY won a playoff game in 2024 after 32 years! Gibbs and Montgomery aka Sonic and Knuckles."
+                    }
+                ]
             }
         ]
     }
@@ -1119,7 +1120,7 @@ const jobSpecificScenarios = {
         year: 1959,
         title: "The Factory Moves",
         narrative: "Management drops the news during lunch: the factory's relocating to Warren next year. Cheaper land, room to expand, easier truck access. It's 15 miles north. No streetcar goes there. The bus takes two hours with three transfers. You either buy a car to keep this job, move to Warren and need a car anyway, or start hunting for factory work in a city that's hemorrhaging manufacturing jobs.",
-        image: "factorywarren.jpg",
+        image: "images/factorywarren.jpg",
         choices: [
             {
                 text: "BUY A CAR TO KEEP YOUR JOB",
@@ -1293,7 +1294,7 @@ const nycGen1Scenarios = [
                 result: "Harlem jazz clubs on Friday. Village cafes on Saturday. Coney Island on Sunday. A dime gets you anywhere. Your feet memorize every shortcut between avenues. The city feels infinite and it's all yours for pocket change. You're a NEW YORKER BABY!"
             },
             {
-                text: "WORK OVERTIME - BUILD YOUR SAVINGS FAST",
+                text: "WORK OVERTIME AND BUILD YOUR SAVINGS FAST",
                 effects: { money: 150, frustration: 25, jobMultiplier: true },
                 result: "Time and a half pays well. Your bankroll grows but you're missing the city. Your friends invite you to a Yankees game, but you already agreed to work a double shift. You try to convince yourself Yogi Berra isn't that good. Whatever helps you sleep at night..."
             },
@@ -1311,15 +1312,15 @@ const nycGen1Scenarios = [
         image: "images/chrome.jpg",
         choices: [
             {
-                text: "BUY A CAR - JOIN THE AMERICAN DREAM",
+                text: "BUY A CAR AND JOIN THE AMERICAN DREAM",
                 effects: { money: -1850, monthlyExpenses: 120, frustration: -10, carsOwned: 1 },
                 result: "You buy a car for weekend adventures. Drives up the Hudson. Trips to the beach. It feels like freedom. Until you try to park it in Manhattan. Until the monthly garage bill arrives. Until insurance is due. The car is for leisure, not necessity. That's an expensive hobby. Monthly costs: $120.",
                 flags: { hasCarGen1: true }
             },
             {
                 text: "STICK WITH THE SUBWAY",
-                effects: { money: -.10, frustration: -5 },
-                result: "Why complicate life? You're saving money while Frank stresses about parking tickets. His car doesn't seem worth all that stress. Franks has always been a show off anyways. Subway ride home: 10 cents"
+                effects: { money: 75, frustration: -5 },
+                result: "Why complicate life? You're saving money while Frank stresses about parking tickets. His car doesn't seem worth all that stress. Franks has always been a show off anyways."
             },
             {
                 text: "THINK ABOUT IT - NOT READY TO DECIDE",
@@ -1573,7 +1574,7 @@ const nycGen2Scenarios = [
         choices: [
             {
                 text: "Start Generation 2 in the city",
-                effects: { monthlySalary: 3800, monthlyExpenses: 1000 },
+                effects: { monthlySalary: 1800, monthlyExpenses: 1000 },
                 result: "You're entering adulthood during New York's darkest moment. The city that never sleeps feels like its on life support. But it's still your city and this is a fresh start. Time to see if it/ you survives."
             }
         ]
@@ -1671,7 +1672,7 @@ const nycGen2Scenarios = [
             },
             {
                 text: "MOVE TO THE SUBURBS NEAR GRANDPARENTS",
-                effects: { money: -11000, monthlyExpenses: 450, frustration: -15, carsOwned: 1 },
+                effects: { money: -11000, monthlyExpenses: 250, frustration: -15, carsOwned: 1 },
                 result: "You move near grandparents for help with baby. Buy a car because suburbs require it. Now you drive everywhere - daycare, pediatrician, Target. Parenthood plus suburban geography equals mandatory car ownership. Moving and car: $11,000.",
                 flags: { movedToSuburbs: true, hasCarGen2: true }
             },
@@ -1685,7 +1686,7 @@ const nycGen2Scenarios = [
             {
                 text: "MAKE DO WITH THE CAR YOU HAVE",
                 requiresFlag: "hasCarGen2",
-                effects: { money: -70, monthlyExpenses: 200, frustration: 15, carsOwned: 1 },
+                effects: { money: -70, monthlyExpenses: 100, frustration: 15, carsOwned: 1 },
                 result: "After your baby's appointment, you stuff their stroller into the trunk of the car. Your partner texts you asking if you can stop by the store to get this weeks groceries. You don't have anymore space in the trunk but you make do and put the grocieries in the back seat. You weren't thinking and put the eggs on the seat. On the way home they fall over and break. This weeks grocieries: $70 ",
                 flags: { hasMinivan: true }
             }
@@ -1781,8 +1782,8 @@ const nycGen2Scenarios = [
         },
         {
             text: "PARTNER TAKES METRO-NORTH",
-            effects: { money: -190, monthlyExpenses: 380, frustration: -15 },
-            result: "They take Metro-North daily. $380/month pass. It works but it's expensive and adds commute time. They're cranky when they get home. Monthly pass: $380."
+            effects: { money: -190, monthlyExpenses: 90, frustration: -15 },
+            result: "They take Metro-North daily. $90/month pass. It works but it's expensive and adds commute time. They're cranky when they get home. Monthly pass: $380."
         },
         {
             text: "BUY SECOND CAR - BOTH NEED INDEPENDENCE",
@@ -1792,7 +1793,7 @@ const nycGen2Scenarios = [
         },
         {
             text: "MOVE TO CONNECTICUT",
-            effects: { money: -15000, monthlyExpenses: 500, frustration: 20, carsOwned: 1 },
+            effects: { money: -15000, monthlyExpenses: 400, frustration: 20, carsOwned: 1 },
             result: "Bye bye New York - You move to Stamford. Buy a car. You drive to Metro-North to reverse-commute to Manhattan. Partner drives to work. Completely car-dependent life now. You spend everyday waiting for Saturday. Saturdays you spend dreading Monday. Moving and car: $15,000.",
             flags: { movedToSuburbs: true, hasCarGen2: true }
         },
@@ -1823,7 +1824,7 @@ const nycGen2Scenarios = [
         {
             text: "BE HAPPY THE SUBWAY IS GETTING SAFER",
             requiresFlag: "movedToSuburbs",
-            effects: { money: -12000, monthlyExpenses: 400, frustration: -25 },
+            effects: {frustration: -25 },
             result: "Even in the suburbs you still work and do activities in NYC, so feeling comftorable to take the subway again is a wonderdul feeling. You no longer have to call cabs all the time. ",
             flags: { movedToSuburbs: false }
         },
@@ -2005,7 +2006,7 @@ const nycGen3Scenarios = [
         choices: [
             {
                 text: "Start Generation 3 in post-9/11 New York",
-                effects: { monthlySalary: 5200, monthlyExpenses: 2500 },
+                effects: { monthlySalary: 3000, monthlyExpenses: 12500 },
                 result: "You're 22 with a degree and debt. Your grandparents thrived here on factory wages, but times have drastically changed. You're trying to make it work in the recovering city. Welcome to 2002."
             }
         ]
@@ -2058,7 +2059,7 @@ const nycGen3Scenarios = [
                     },
                     {
                         text: "MOVE TO THE CITY",
-                        effects: { money: -2800, monthlyExpenses: 2700, frustration: -15 },
+                        effects: { money: -2800, monthlyExpenses: 1000, frustration: -15 },
                         result: "You find a studio apartment downtown and sign the lease that same day. First month, last month, and security deposit completely wipe out $2,800 of your savings. But now you can walk to work every morning. No car needed. You're broke but you're finally independent.",
                         flags: { livingWithParents: false, livingDowntown: true }
                     }
@@ -2120,18 +2121,18 @@ const nycGen3Scenarios = [
         {
             text: "DOWNGRADE TO A CHEAPER BEATER",
             requiresFlag: "hasCarGen3",
-            effects: { money: 2500, monthlyExpenses: -180, frustration: 10 },
+            effects: { money: 2500, monthlyExpenses: -80, frustration: 10 },
             result: "Sell for $7,000, buy beater for $4,500. Way lower insurance. You look broke because you ARE. But you're surviving with wheels. Net: +$2,500."
         },
         {
             text: "MOVE TO A WAY CHEAPER APARTMENT",
             requiresNoFlag: "movedToSuburbs",
-            effects: { money: -2200, monthlyExpenses: -450, frustration: 25 },
+            effects: { money: -2200, monthlyExpenses: -350, frustration: 25 },
             result: "You flee your nice place for another place deep in Queens. Practically on the border. Rent drops from $1,800 to $1,100. Further from everything, rougher, but you're saving $700/month. Survival mode. Moving: $2,200."
         },
         {
             text: "GET A WEEKEND SIDE HUSTLE",
-            effects: { money: 400, monthlyExpenses: -400, frustration: 25 },
+            effects: { money: 400, monthlyExpenses: -200, frustration: 25 },
             result: "You bartend weekends for extra $400/month. You're working 60 hours a week now. Social life: dead. Energy: gone. Bank account: stabilized. Monthly income: +$400."
         },
         {
@@ -2141,7 +2142,7 @@ const nycGen3Scenarios = [
         },
         {
             text: "FREELANCE ON THE SIDE",
-            effects: { money: 300, monthlyExpenses: -300, frustration: 20 },
+            effects: { money: 300, monthlyExpenses: -200, frustration: 20 },
             result: "You start freelancing nights and weekends. Graphic design, writing, whatever pays. Extra $300/month but you're exhausted constantly. Your generation has to have multiple income streams just to survive. Monthly freelance: +$300."
         }
     ]
@@ -2399,38 +2400,38 @@ const nycGen3Scenarios = [
     ]
     },
     {
-        year: 2023,
-        title: "Parents Retired to the Catskills",
-        narrative: "Your parents retired upstate. Two hours north in the mountains. They want you visiting every other weekend for family time. Options: Amtrak + Uber is $180 round trip. Rent ZIP Car for $140 the weekend. Buy a car for $600/month forever. Or visit monthly and handle the guilt. Family obligations meet infrastructure.",
-        image: "images/catskills.jpg",
-        choices: [
-            {
-                text: "BUY A CAR FOR FAMILY VISITS",
-                requiresNoFlag: "hasCarGen3",
-                requiresNoFlag: "movedToSuburbs",
-                effects: { money: -30000, monthlyExpenses: 640, frustration: -10, carsOwned: 1 },
-                result: "You buy a car specifically for visiting family. Now you can go whenever. But paying $640/month (parking in Brooklyn is $350!) for a car you use twice monthly. Family geography bought this car. Monthly: $640.",
-                flags: { hasCarGen3: true }
-            },
-            {
-                text: "AMTRAK + UBER",
-                effects: { money: -360, monthlyExpenses: 360, frustration: 25 },
-                result: "Amtrak then Uber from the station. $180 per visit. Less than owning but still $4,320/year. You're car-free but stuck on train schedules. Monthly: $360."
-            },
-            {
-                text: "RENT CAR FOR VISITS",
-                requiresNoFlag: "hasCarGen3",
-                effects: { money: -280, monthlyExpenses: 280, frustration: 10 },
-                result: "You rent twice monthly. $140 per weekend. Flexibility without ownership. Still $3,360/year. You're constantly calculating if this is cheaper than owning. Probably? Monthly: $280."
-            },
-            {
-                text: "DRIVE WHENEVER",
-                requiresFlag: "hasCarGen3",
-                effects: { money: -75, frustration: -5 },
-                result: "You drive upstate whenever. Parents are thrilled. Spontaneous visits! Weekday dinners! Car makes family easy. This is what it's for. Gas monthly: $75."
-            },
-        ]
+    year: 2023,
+    title: "Giants Game at MetLife Stadium",
+    narrative: "Your friend scored Giants tickets for this Sunday! MetLife Stadium in New Jersey. You're HYPED. Then you look up how to get there and... oh no. You can take NJ Transit from Penn Station to Secaucus Junction then transfer to a special stadium shuttle train. Sounds easy! Except the shuttle only runs during games, the return trains get MOBBED, and if you miss the last train you're stranded in New Jersey at midnight. Or you could drive and deal with stadium parking ($40) and traffic. Or Uber ($120 round trip). Why is seeing the Giants this complicated? They're not even good...",
+    image: "images/giants.gif",
+    fact: {
+        text: "MetLife Stadium only got rail service in 2009 and it only runs during major events. You must transfer at Secaucus Junction. After games, trains get so overcrowded that fans sometimes wait 2+ hours to leave.",
+        link: "https://www.njtransit.com/meadowlands"
     },
+    choices: [
+        {
+            text: "DRIVE TO METLIFE AND PAY FOR PARKING",
+            requiresFlag: "hasCarGen3",
+            effects: { money: -140, frustration: 25 },
+            result: "You drive to Jersey. Stadium parking is $40 (HIGHWAY ROBBERY). After the game, you sit in the parking lot for 45 MINUTES not moving while 80,000 people try to leave simultaneously. You're listening to the post-game show getting analysis on a game you just watched. You finally escape the lot and hit traffic on Route 3. A 30-minute drive home takes 90 minutes. You spent $140 and half your Sunday sitting in parking lots. This is the NFL experience. Tickets, parking, gas, and a $12 Bud Light: $140."
+        },
+        {
+            text: "TAKE NJ TRANSIT",
+            effects: { money: -110, frustration: 35 },
+            result: "You take the train from Penn Station to Secaucus Junction (easy!), transfer to the Meadowlands shuttle (fine!), arrive at the stadium (great!). The game is so much fun even though the Giants lost (shocker) Then... the nightmare. You wait in a LINE of 10,000 people trying to get on the shuttle back. You're standing for 90 MINUTES. You finally get on a train so packed you can't breathe. Someone's elbow is in your ribs. At Secaucus you almost miss your connection to NYC. You get home at midnight. The game ended at 7pm. Train tickets and stadium food: $110."
+        },
+        {
+            text: "UBER BOTH WAYS",
+            effects: { money: -220, frustration: 15 },
+            result: "You Uber to MetLife ($60) and back ($60). Your driver there is playing Miley Cyrus's 'Flowers' and your driver back is playing Jack Harlow and lowkey you're vibin. The game is great! Leaving is EASY - you just walk to the Uber pickup and you're done while everyone else is fighting for trains. But you just spent $120 on rides to see a football game. You could've bought a whole Daniel Jones or Saquon Barkley jersey ( ${gameState.character.firstName} I'm from the future and trust be glad you didn't get either). Uber, tickets, and stadium nachos: $220."
+        },
+        {
+            text: "SKIP THE GAME AND WATCH ON TV",
+            effects: { frustration: 35 },
+            result: "You bail. The transportation logistics are too ANNOYING. You watch from your couch while your friend texts you updates from the stadium. 'Crowd is insane!' 'Saquon just scored!'(😞) You're eating Doritos alone. American infrastructure made going to a football game 15 miles away such a hassle that you just gave up. Your friend offers you their extra ticket for the next game and you say maybe. You both know it's a no."
+        }
+    ]
+},
     {
     year: 2024,
     title: "Subway Floods When It Rains Now",
@@ -2512,7 +2513,7 @@ const nycGen3Scenarios = [
     },
        {
         year: 2025,
-        title: "Can You Even Afford the New York area?",
+        title: "Can You Even Afford New York?",
         narrative: "Rent just hit $2,800/month. That's 61% of take-home pay. Officially 'severely rent-burdened.' Savings: empty. One emergency from disaster. But you're in New York without a car. That's worth something. Right? Your grandparents afforded this on $300/month ($3,900 today). You barely afford it making $58,000. Can you stay?",
         image: "images/expensive.gif",
         choices: [
@@ -2555,33 +2556,932 @@ const nycGen3Scenarios = [
     },
     {
         year: 2025,
-        title: "Looking Back at 75 Years",
-        narrative: "Three generations. Grandparents: $60 rent ($784 today), 10¢ subway ($1.31 today), car optional. Parents: fiscal crisis, burning trains, suburban flight. You: $2,800 rent, $2.90 subway, $3.00 starting in 2026. Transit still exists. You still don't NEED a car. But can you afford car-free life? That's the question.",
-        image: "",
+        title: "Looking Back at 75 Years in NYC",
+        narrative: "Three generations in the greatest city in the world (Hamilton reference), ${gameState.character.firstName}. Time to see what it all meant.",
+        image: "images/newyork.gif",
         choices: [
             {
-                text: "FINISH YOUR JOURNEY",
+                text: "FINISH YOUR NEW YORK JOURNEY",
                 effects: { money: 0, frustration: 0 },
-                result: "75 years of NYC. Transit still exists. You still don't technically need a car. But the city got so expensive that car-free living became a luxury only the rich, desperate, or deeply committed can afford. Was this choice or economics forcing your hand?"
+                result: "75 years of New York City. Your grandparents: paid $60/month rent ($784 today), rode the subway for a dime ($1.31 today), walked to Yankee Stadium to see DiMaggio and Mantle (that's ok Mets are cooler now), saw Broadway shows for $5, lived in a city where cars were optional and life was affordable on factory wages. Your parents: survived the 1975 fiscal crisis ('FORD TO CITY: DROP DEAD'), rode burning subway trains in the 1980s when 2,500 fires per year was normal, got mugged (everyone got mugged once, it's a rite of passage), watched the city nearly die and then come roaring back, paid $400/month rent that felt expensive at the time. You: pay $2,800/month rent (61% of your income), ride a $2.90 subway ($3.00 starting in 2026!), survived COVID watching the city empty out, dealt with congestion pricing, watched the Mets break your heart repeatedly, paid $18 for a cocktail in the East Village, got priced out or almost got priced out or definitely got priced out depending on your choices. Transit still EXISTS in New York - you still don't technically NEED a car. That's a miracle. But the city got so EXPENSIVE. Your grandparents thrived here on $300/month factory wages. You barely survive here making $70,000 with a degree. At least the Knicks are pretty good (Thank you Jalen Brunson). The pizza is still elite. The bagels cannot be replicated anywhere else on Earth. You can still take the train at 3am (even if it smells like pee). You can still walk faster than traffic. The city that never sleeps is still here. It's just... different now."
+            }
+        ]
+}
+];
+const laGen1Scenarios = [
+    {
+        year: 1950,
+        title: "Welcome to Los Angeles",
+        narrative: `Welcome to Los Angeles, ${gameState.character.firstName}. It's 1950 and the Pacific Electric Red Cars still connect beaches, mountains, downtown, and suburbs across Southern California. It's sunny and warm. The San Gabriel Mountains are visible from downtown. The ocean is just a Red Car ride away. This is paradise on rails.`,
+        image: "images/redcars.jpg",
+        fact: {
+            text: "Pacific Electric operated over 1,000 miles of interurban track in 1950 - one of the world's largest electric railway systems.",
+            link: "https://www.thereallosangelestours.com/the-red-cars-las-lost-trams/"
+        },
+        choices: [
+            {
+                text: "RIDE THE RED CARS EVERY WEEKEND AND EXPLORE",
+                effects: { money: -30, frustration: -10 },
+                result: "Santa Monica Pier on Saturday morning. On Sunday you hike to see the iconic HOLLYWOOD sign. Long Beach during the week. The whole region feels like one connected paradise. Holy shit you just saw Marlon Brando while crossing the street! This system is absolutely incredible."
+            },
+            {
+                text: "WORK OVERTIME TO SAVE FOR A HOUSE",
+                effects: { money: 200, frustration: 25, jobMultiplier: true },
+                result: "Time and a half pays well. Your savings grow fast but you're missing the sunshine. Your coworkers talk about their beach weekends while you're pulling doubles. You hear sunset boulevard is one of the best movies of the year - too bad you don't have any time to go see it. The California dream is happening outside while you're inside working. Worth it?"
+            },
+            {
+                text: "BALANCE WORK AND LEISURE PERFECTLY",
+                effects: { money: -10, frustration: 0 },
+                result: "40 hours at work. Red Car to Santa Monica beach on Fridays. On Sundays you watch the Rams play at the Memorial Coliseum. You're living the California dream on a regular paycheck. The palm trees sway. Life feels really good here. New pair of sunglasses : $10"
+            }
+        ]
+    },
+{
+        year: 1952,
+        title: "Drive-In Movie Date Night",
+        narrative: "There are drive-in movie theaters popping up all over LA - the newest craze. Tonight's showing 'Singin' in the Rain' with Gene Kelly at the Sepulveda Drive-In. Your date is excited. Everyone goes to drive-ins now - it's THE thing to do. Park, hook up the speaker, watch movies under the stars. But you need a car. The Red Car doesn't exactly drop you off at a parking lot full of cars. What should you do?",
+        image: "images/driveinsepulveda.jpg",
+        choices: [
+            {
+                text: "SUGGEST A REGULAR THEATER INSTEAD",
+                effects: { money: -5, frustration: 20 },
+                result: "You suggest Grauman's Chinese Theatre on Hollywood Boulevard instead - totally accessible by Red Car! Your date pauses. 'Oh. Sure. That works.' That pause haunts you. At the theater, the couple next to you won't stop talking about the drive-in they went to last week and how that was better. Your date says 'that sounds fun' a little too wistfully. Then they casually mentions their ex had a Mercury. Oh no why did they bring up their ex. Singing in the Rain is great, but you're dying inside. Tickets and fare: $5."
+            },
+            {
+                text: "BUY A CAR FOR DATE NIGHT",
+                requiresNoFlag: "hasCarGen1",
+                effects: { money: -1300, monthlyExpenses: 45, frustration: -15, carsOwned: 1 },
+                result: "This date is NOT dying because of the automotive industry. You buy a used '49 Chevy that week - two-tone paint, chrome bumpers, nice new car radio. Friday you pick up your date looking smooth as hell. Cruise to the Sepulveda Drive-In with the windows down. Park among the sea of cars. Your date's genuinely impressed with you and your car. The speaker's crackling, Gene Kelly's on screen, and you're thinking 'worth every penny.' But damn that's a really expensive date! Car and date: $1,300. Monthly costs: $45.",
+                flags: { hasCarGen1: true }
+            },
+            {
+                text: "SKIP THE DATE",
+                effects: { frustration: 45 },
+                result: "You make an excuse. Something about being sick. Your date says 'no worries!' and goes with their friend who has a convertible.  Monday you hear they had an amazing time and this friend is teaching them to parallel park this weekend. Cool. LA's entire social scene is literally parking lots now. Drive-ins, drive-thrus, car culture everywhere - everything requires a car. Oh and you don't talk to your date anymore - they're dating that friend they told you not to worry about."
+            }
+        ]
+    },
+    {
+        year: 1955,
+        title: "Disneyland Opens",
+        narrative: "July 17, 1955. Walt Disney opens Disneyland in Anaheim, 27 miles from downtown. It's all over TV: 'To all who come to this happy place, welcome.' There's one problem: Disney deliberately designed it with NO rail access. Just a massive parking lot. You need a car to enter the Happiest Place on Earth. This is California's future. Are you ready for tomorrowland?",
+        image: "images/disneylandopening.jpg",
+        fact: {
+            text: "Disneyland opened July 17, 1955 with parking for 12,000 cars but zero rail transit access.",
+            link: "https://www.designingdisney.com/parks/disneyland-resort/grand-opening-disneyland/"
+        },
+        choices: [
+            {
+                text: "DRIVE TO THE GRAND OPENING",
+                requiresFlag: "hasCarGen1",
+                effects: { money: -35, frustration: -15 },
+                result: "You drive down the Santa Ana Freeway opening day. The parking lot is ENORMOUS. 28,000 people showed up (double what Disney expected). You walk through those gates into the Happiest Place on Earth. Tomorrowland promises a future of flying cars. Everyone around you drove here. California's future is taking shape in this parking lot. Tickets, gas, and a pair of mickey mouse ears: $35."
+            },
+            {
+                text: "TAKE A BUS AND SUFFER",
+                requiresNoFlag: "hasCarGen1",
+                effects: { money: -25, frustration: 35 },
+                result: "You take multiple buses. Three transfers. Over two hours total travel time. You arrive exhausted. Families are piling out of station wagons, fresh and ready for fun. You're already drained and annoyed. Now it's time for more waiting around as you wait in line for entrance to the park. After six hours at the park you face the two-hour bus journey home. So much for this being the happiest place on earth... Bus, tickets, and a pair of mickey mouse ears: $25."
+            },
+            {
+                text: "BUY A CAR FOR MICKEY MOUSE",
+                requiresNoFlag: "hasCarGen1",
+                effects: { money: -1600, monthlyExpenses: 60, frustration: 5, carsOwned: 1 },
+                result: "Disneyland makes you realize: California's future is cars-only. No rail. No transit. Just parking lots and freeways. You buy a car so you can go to Disneyland and everything else being built for automobiles only. Walt Disney just pushed you into car dependency. Welcome to Tomorrowland. Car and trip: $1,600.",
+                flags: { hasCarGen1: true }
+            },
+            {
+                text: "UH IM A LOONEY TUNES FAN - SKIP DISNEYLAND ENTIRELY",
+                effects: { frustration: 45 },
+                result: "You skip the grand opening. Can't justify the travel nightmare and you think Bugs Bunny is way cooler than Mickey Mouse. Monday at work EVERYONE is talking about the castle, the rides, how magical it was. You have nothing to say except 'sounds super overrated and a big waste of money.' Everyone at work thinks you're a hater now."
+            }
+        ]
+    },
+{
+        year: 1959,
+        title: "World Series at the Coliseum",
+        narrative: "October 1959. The Dodgers are in the World Series against the Chicago White Sox at the Los Angeles Memorial Coliseum! This is the first World Series EVER on the West Coast. Your coworkers are going. Your neighbors scored tickets. Games 3, 4, and 5 are in LA. Over 90,000 fans will pack the Coliseum - a baseball record. This is history. Do you go?",
+        image: "images/dodgers.jpg",
+        fact: {
+            text: "The 1959 World Series was the first ever played on the West Coast. Game 5 drew 92,706 fans to the Memorial Coliseum - still a World Series attendance record. The Dodgers won 4-2, with pitcher Larry Sherry as MVP.",
+            link: "https://thisgreatgame.com/1959-baseball-history/"
+        },
+        choices: [
+            {
+                text: "DRIVE TO THE COLISEUM",
+                requiresFlag: "hasCarGen1",
+                effects: { money: -35, frustration: -30 },
+                result: "You drive to Exposition Park and find parking near the Coliseum. 92,000 people here - the biggest crowd in World Series history! The energy is electric. Larry Sherry on the mound. The roar when the Dodgers score. You're watching the first West Coast World Series game EVER. You drive home hoarse from screaming, radio replaying the highlights. This is LA baseball history. Tickets, parking, and gas: $35. At work the next day you bring your ticket to show off to everyone. You're one of those people..."
+            },
+            {
+            text: "BUY A CAR TO GO TO THE WORLD SERIES",
+            requiresNoFlag: "hasCarGen1",
+            effects: { money: -1235, monthlyExpenses: 55, frustration: -20, carsOwned: 1 },
+            result: "The World Series is HISTORY and you're not missing it. You buy a used Impala off a lot on Van Nuys Boulevard that week specifically so you can drive to the game. You drive to Exposition Park. 92,000 people here - the biggest crowd in World Series history! The energy is ELECTRIC. Larry Sherry on the mound. The roar when the Dodgers score. You're watching the first West Coast World Series game EVER. You drive home hoarse from screaming, radio replaying the highlights. This is LA baseball history. At work the next day you bring your ticket to show off to everyone. Car, tickets, parking, and gas: $1,235. Monthly costs: $55.",
+            flags: { hasCarGen1: true }
+            },
+            {
+            text: "TAKE THE RED CAR TO EXPO PARK",
+            requiresNoFlag: "hasCarGen1",
+            effects: { money: -18, frustration: -45 },
+            result: "You take the Red Car to Exposition Park with thousands of other fans excited to see the game at the Coliseum. The trains are absolutely packed. Everyone's chanting Go Dodgers, Go Dodgers!. You walk into the Coliseum with a sea of blue and white. 92,000 people! The atmosphere is insane. Larry Sherry pitching. The Dodgers WIN! The Red Car ride home is a party - everyone singing, celebrating. The first West Coast World Series and you were THERE. The next day you and your neighnor Frank have a long conversation about how great it was. Tickets, fare, and the dodgers hat you bought on the way there: $45."
+            },
+            {
+                text: "WATCH ON TV AT HOME",
+                effects: { money: -5, frustration: 15 },
+                result: "You watch on your tiny black and white TV. Vin Scully's iconic voice calling the game through the static. It's exciting but you can HEAR the roar of 92,000 fans through the television speaker and it's making you deeply, spiritually jealous. Your neighbor Frank went and keeps 'casually' mentioning it. 'Oh you know, just the biggest crowd in World Series history, no big deal.' You hate him a little bit right now. He can be SUCH a showoff. Snacks: $5."
+            },
+            {
+                text: "NOT INTO BASEBALL - SKIP IT",
+                effects: { frustration: 40 },
+                result: "You're not really a baseball person so you skip it. GRAVE ERROR. Monday morning the office is absolutely insufferable. Everyone's re-enacting plays. Someone brought in their ticket stub and people are TOUCHING IT like it's a religious artifact. Your coworker Janet who doesn't even like sports went and now she's best friends with everyone. This was the first World Series ever played on the West Coast and you feel like you're the only person in Los Angeles who missed it. You try to make conversation about the new movie 'North by Northwest,' and your coworker says 'Yes that was amazing but did you see the Dodgers game last night?'"
+            }
+        ]
+    },
+    {
+        year: 1961,
+        title: "The Last Red Car Runs",
+        narrative: "March 31, 1963. The last Pacific Electric Red Car makes its final run. The system that connected beaches, mountains, and suburbs for 60 years is dead. General Motors, Standard Oil, and Firestone were literally convicted of conspiracy - they bought the streetcar companies just to destroy them. Now LA has freeways and terrible buses. Car ownership just became mandatory for survival.",
+        image: "images/ca-times.brightspotcdn.jpg",
+        fact: {
+            text: "The last Pacific Electric Red Car ran March 31, 1963. GM, Standard Oil, and Firestone were convicted in 1949 of conspiracy to monopolize transit by destroying streetcar systems across America. LA lost 1,000+ miles of rail.",
+            link: "https://www.theguardian.com/cities/2016/apr/25/story-cities-los-angeles-great-american-streetcar-scandal"
+        },
+        choices: [
+            {
+                text: "WATCH FROM YOUR CAR",
+                requiresFlag: "hasCarGen1",
+                effects: { frustration: -10 },
+                result: "You watch history end from your driver's seat, parked along the route. People line the tracks taking photographs. Some are openly crying. A few elderly Angelenos who rode these cars their whole lives look devastated. You're glad you bought a car years ago - the writing was on the wall. Later you cruise up to Mulholland, watching the city lights spread out below. Gas is still cheap. Traffic's still moving. For now."
+            },
+            {
+                text: "RIDE THE FINAL RED CAR ONE LAST TIME",
+                effects: { frustration: 20 },
+                result: "You pack onto the final car with hundreds of nostalgic Angelenos. People are crying. Someone's shooting 8mm film. An old woman tells you about riding to the beach in the '20s for a nickel. This is all history now. Something people will just read about in the future. Now you're stuck with the RTD buses that come whenever they feel like it.",
+                forceNext: true
+            },
+            {
+                text: "BUY A CAR IMMEDIATELY - IT'S OVER",
+                requiresNoFlag: "hasCarGen1",
+                effects: { money: -1200, monthlyExpenses: 55, frustration: 25, carsOwned: 1 },
+                result: "The Red Cars are gone. The RTD replacement buses are a joke - they don't go to Venice, they don't go to the Valley, they're always late. You NEED a car now. Not want. NEED. You buy a used Impala off a lot on Van Nuys Boulevard that same week. Welcome to car-dependent Los Angeles. Monthly costs: $55.",
+                flags: { hasCarGen1: true }
+            }
+        ]
+    },
+    {
+        year: 1963.5,
+        title: "You Need a Car Now",
+        narrative: "The Red Cars are completely gone. The bus system is an absolute disaster - routes don't connect, schedules are unreliable, buses don't reach most of the new suburbs being built. You've been late to work six times this month. Your boss just gave you a final warning. You need a car RIGHT NOW or you're fired.",
+        requiresForced: true,
+        choices: [
+            {
+                text: "BUY A CAR (NO CHOICE)",
+                effects: { money: -1200, monthlyExpenses: 55, frustration: 30, carsOwned: 1 },
+                result: "You drain your savings for a used car. This wasn't a choice. GM and oil companies killed the Red Cars and forced an entire region into car dependency through deliberate corporate conspiracy. They were convicted in court and nobody cared. This is what happens when corporations destroy public infrastructure for profit. Welcome to the new Los Angeles. You're trapped now.",
+                flags: { hasCarGen1: true },
+                forcedChoice: true
+            }
+        ]
+    },
+ {
+        year: 1965,
+        title: "The Watts Rebellion",
+        narrative: "August 11-16, 1965. Watts erupts after police brutality. But the fuel had been building for years. South LA has virtually NO public transit after the Red Cars were eliminated in 1963. Residents can't reach jobs in other parts of the city - unemployment in Watts is 30%, three times the city average. Car ownership costs $1,200+ but has become mandatory for employment. The poorest communities are geographically trapped by infrastructure decisions. The McCone Commission will later identify lack of transportation as a key factor in the uprising.",
+        image: "images/wattsrebellion.jpg",
+        fact: {
+            text: "The 1965 Watts Rebellion was partly fueled by transportation apartheid. After the Red Cars were eliminated, South LA was isolated with minimal bus service. The McCone Commission found that lack of adequate transportation was 'a critical problem' preventing employment access.",
+            link: "https://www.history.com/articles/watts-riots"
+        },
+        choices: [
+            {
+                text: "YOU HAVE A CAR - REFLECT ON YOUR MOBILITY PRIVILEGE",
+                requiresFlag: "hasCarGen1",
+                effects: { frustration: -5 },
+                result: "You watch it unfold on TV from your living room. You can drive to work anywhere in the city. Your neighbors can drive to the beach on weekends. You're completely insulated from the transit crisis. When the Red Cars existed, Watts residents could reach jobs in downtown, Pasadena, Long Beach for pennies. Now? RTD bus service is sparse, expensive, and doesn't connect to job centers. Without a car, people are trapped. Infrastructure determines who gets opportunity. Oil change: $8."
+            },
+            {
+                text: "READ THE REPORTS AND UNDERSTAND THE SYSTEM",
+                effects: { frustration: 20 },
+                result: "You read everything. Before 1961, the Red Cars connected Watts to the entire basin - Long Beach factories, downtown offices, Valley aerospace plants. Then GM, Standard Oil, and Firestone (convicted of conspiracy in 1949) destroyed the system. Now? The replacement RTD buses run infrequently, stop at 6pm, don't reach job centers. A car costs more than most Watts families earn in months. This isn't just transportation failure - it's systematic economic isolation. The freeway system was built THROUGH minority neighborhoods, destroying them, while connecting white suburbs. Urban planning as segregation."
+            },
+            {
+                text: "DONATE TO TRANSIT ADVOCACY",
+                effects: { money: -100, frustration: 15 },
+                result: "You donate to groups fighting to rebuild public transit. They're trying to undo what GM did - restore rail, connect South LA to jobs. But they're fighting billion-dollar oil companies, car manufacturers, tire companies, and a city government that chose freeways over people. Your $100 feels tiny. The Red Cars had 1,000+ miles of track. All gone. It will take decades to rebuild what was destroyed in years. Donation: $100."
+            }
+        ]
+    },
+    {
+        year: 1969,
+        title: "Job Scenario",
+        narrative: "",
+        image: "",
+        choices: []
+    },
+    {
+        year: 1973,
+        title: "The Gas Crisis Hits Paradise",
+        narrative: "October 1973. OAPEC oil embargo. Gas prices explode overnight from 38¢ to 55¢ per gallon in California. Lines wrap around entire city blocks in LA. Stations run dry by noon. Odd-even rationing by license plate. That convertible freedom dream you bought? Now it's a source of constant anxiety. Car-dependent California is completely vulnerable to Middle East oil politics.",
+        image: "images/scpr.brightspotcdn.jpg",
+        fact: {
+            text: "The 1973 oil embargo hit California especially hard due to complete car dependency. Gas jumped from 38¢ to 55¢ overnight. Lines lasted hours. California had no transit alternatives after the Red Cars were destroyed.",
+            link: "https://www.latimes.com/california/story/2023-10-17/1973-arab-oil-embargo-california-gas-crisis"
+        },
+        choices: [
+            {
+                text: "WAIT IN GAS LINES FOR HOURS (NO CHOICE)",
+                effects: { money: -120, monthlyExpenses: 35, frustration: 55 },
+                result: "You wake up at 5:30am trying to beat the crowds. You don't beat the crowds. You wait 90 minutes in the California sun on Sepulveda Boulevard for eight gallons of gas. The engine idles. You're burning gas waiting to buy gas. This happens three times per week. Your monthly costs nearly doubled. That California dream doesn't feel free anymore. You really miss the red cars. Crisis costs: $120, monthly increase: $35.",
+                forcedChoice: true
             }
         ]
     }
 ];
+
+const jobSpecificScenariosLA = {
+    factory: {
+        year: 1969,
+        title: "The Aerospace Plant Moves to Palmdale",
+        narrative: "Management calls an all-hands meeting. The aerospace factory is relocating to Palmdale in the high desert - 60 miles north. Cheaper land, room for runway testing, away from 'urban problems.' No transit goes there. Zero. It's car-only access in the middle of nowhere. You HAVE a car but this is a 120-mile daily commute through the desert or moving to tumbleweeds. Cool cool cool.",
+        image: "images/LAspace.jpg",
+        choices: [
+            {
+                text: "COMMUTE TO THE DESERT DAILY",
+                effects: { money: -95, frustration: 20 },
+                result: "Your commute is now 120 miles round trip through the desert. DAILY. You leave at 5:30am. You get home at 7pm. You're spending 3 hours a day staring at the Antelope Valley Freeway wondering where your life went wrong. Gas costs are eating you alive. Your car has become a mobile prison. This is what car-dependent infrastructure created - jobs you can only reach by driving for HOURS. Monthly gas increase: $95."
+            },
+            {
+                text: "MOVE TO PALMDALE - FOLLOW THE WORK",
+                effects: { money: -1000, monthlyExpenses: -50, frustration: 30 },
+                result: "You move to Palmdale. It's 110 degrees in summer and there's NOTHING out here except aerospace workers and tumbleweeds. Rent's cheaper but you're in the DESERT. No beach. No Sunset Strip. No nothing. And even HERE you need your car for EVERYTHING - the grocery store is 8 miles away. Car dependency followed you to the middle of nowhere. This is your life now. Moving costs: $1000.",
+                flags: { movedToSuburbs: true }
+            },
+            {
+                text: "QUIT AND FIND NEW WORK IN LA",
+                effects: { money: -600, frustration: 35 },
+                result: "You quit rather than commute to the desert or live in the desert. Seemed reasonable at the time. Three months of job hunting later you realize aerospace was the highest-paying work you could get. You find a warehouse job in Vernon for significantly less money. Your friends who moved to Palmdale are buying houses. You're eating ramen. Job search and lost wages: $600."
+            }
+        ]
+    },
+    teacher: {
+        year: 1969,
+        title: "School District Consolidation to the Valley",
+        narrative: "LAUSD is restructuring. Your school in downtown LA is overcrowded and underfunded. They're transferring teachers to brand new schools in the San Fernando Valley - Reseda, Van Nuys, Northridge. Modern facilities, air conditioning (!), massive parking lots. Your current downtown school is 10 minutes from your apartment. The Valley schools? 20+ miles and 45 minutes in traffic each way. You have a car but this commute is ROUGH.",
+        image: "images/LAschool.jpg",
+        choices: [
+            {
+                text: "TRANSFER TO VALLEY SCHOOL",
+                effects: { money: -80, frustration: 25 },
+                result: "You transfer to Reseda. The facilities are objectively AMAZING - everything's new, there's air conditioning, the resources are better. But you're now spending 90 minutes a day in your car to teach fifth graders. You leave in the dark, come home in the dark during winter. Car-dependent urban planning means your teaching career now requires burning 2 hours daily in traffic. Is this worth it? Extra gas and wear: $80."
+            },
+            {
+                text: "STAY AT YOUR DOWNTOWN SCHOOL",
+                effects: { money: -75, frustration: 25 },
+                result: "You stay downtown with your 10-minute commute. But enrollment's dropping FAST as white families flee to the Valley. The school's underfunded, the building's falling apart, and there's serious talk it might close within five years. Meanwhile your friends teaching in the Valley have air conditioning and new textbooks. You kept your short commute but you're watching your school die in real time. School supplies out of pocket: $75."
+            },
+            {
+                text: "LOOK FOR SUBURBAN HOUSING NEAR THE VALLEY SCHOOL",
+                effects: { money: -1000, frustration: 30 },
+                result: "You transfer to Van Nuys AND start apartment hunting in the Valley to cut the commute. Rent's actually MORE expensive out here than you expected, and you STILL need your car for everything - there's no walking to anything. Apartment hunting and moving costs: $1000."
+            }
+        ]
+    },
+    public: {
+        year: 1969,
+        title: "Budget Showdown: Freeway vs Transit",
+        narrative: "You're at a city council budget meeting. LA must choose: complete the Century Freeway (helps thousands of drivers daily, including you) OR restore the bus system funding that got slashed (helps transit riders who are increasingly poor and Black). The auto industry and oil companies are lobbying HARD with briefcases full of money. Transit advocates showed up with a petition. The city only has budget for one. Your vote matters, theoretically.",
+        image: "images/LAbuses.jpg",
+        choices: [
+            {
+                text: "VOTE TO SAVE THE BUSES",
+                effects: { money: -10, frustration: 35 },
+                result: "You vote for buses even though you drive everywhere now. You get absolutely DEMOLISHED 11-1. The freeway wins in a LANDSLIDE. Oil companies and car manufacturers outspent transit advocates 100-to-1. You tried to save transit you don't even use anymore. You failed spectacularly. The system is rigged and you just watched it happen in real time. The bus system will continue its slow death. Meeting lunch: $10."
+            },
+            {
+                text: "VOTE FOR THE FREEWAY - YOU USE IT",
+                effects: { money: -10, frustration: 20 },
+                result: "You vote for the freeway because honestly... your commute will improve. You drive every day. The buses are for other people now. The freeway passes easily. You drive home on the half-built Century Freeway feeling guilty but also relieved your commute might get shorter. You're complicit in why transit died but car dependency already swallowed you whole. Meeting lunch: $10."
+            },
+            {
+                text: "ABSTAIN - THIS CHOICE SUCKS",
+                effects: { money: -10, frustration: 30 },
+                result: "You abstain because this whole thing is RIGGED. The freeway wins anyway in a landslide. You drive home on the half-built Century Freeway, passing people waiting at crappy bus stops in 90-degree heat. You're part of the problem now - you NEED the freeway. Corporate lobbying killed public transit and turned you into someone who benefits from its death. Your abstention changed absolutely nothing. Meeting lunch: $10."
+            }
+        ]
+    }
+};
+
+const laGen2Scenarios = [
+    {
+        year: 1980,
+        title: "Generation 2: Welcome to Smog City",
+        narrative: "Your parents left you a city choked by smog and strangled by freeways. It's 1980 and LA has the worst air quality in America. The brown haze sits over the basin like a curse. You can't see the mountains most days. Your eyes burn. The Red Cars are a distant memory. Everyone drives everywhere. This is the Los Angeles you inherited.",
+        image: "images/smog.jpg",
+        fact: {
+            text: "In 1980, Los Angeles had the worst air pollution in America. Stage 1 smog alerts were common, meaning unhealthy air quality. The city was completely car-dependent.",
+            link: "https://waterandpower.org/museum/Smog_in_Early_Los_Angeles.html#:~:text=In%20the%201970s%20and%20'80s,on%20the%20smoggiest%20summer%20days."
+        },
+        choices: [
+            {
+                text: "START GENERATION 2",
+                effects: { monthlySalary: 1200, monthlyExpenses: 700 },
+                result: "You're starting adult life in the smog-choked, freeway-dominated city your parents built. The air hurts to breathe. Traffic is legendary. But it's still LA. The beach is still there. The dream persists. Time to see what choices you have left."
+            }
+        ]
+    },
+    {
+        year: 1980,
+        title: "Your First Baby",
+        narrative: "Congratulations - you just had your first baby! Pediatrician is in Santa Monica. Daycare is in Culver City. Your parents are in the Valley. Everything is 15-25 miles apart. You inherited your parents' old car - it's 18 years old, gets 8 miles per gallon, and the smog check inspector gives you a look that says 'this thing is a hazard.' You're about to strap your newborn into it tomorrow.",
+        image: "images/girl-car.gif",
+        choices: [
+            {
+                text: "BUY A SAFER, MORE RELIABLE CAR",
+                effects: { money: -9000, monthlyExpenses: 380, frustration: -15, carsOwned: 1 },
+                result: "You buy a '78 Honda Accord. Better gas mileage. Actually passes smog check. The car seat clicks in. When the engine starts reliably, you feel like a responsible parent. Monthly costs: payment $155, insurance $120, gas $105. The payments hurt but your baby deserves safe transportation in this car-only city."
+            },
+            {
+                text: "KEEP THE OLD BEATER AND PRAY",
+                effects: { money: -180, monthlyExpenses: 240, frustration: 25 },
+                result: "You strap the car seat into the rust bucket and hope for the best. Every weird engine noise makes your stomach drop. Every time someone cuts you off on the 405, you grip the wheel tighter. The thing barely passes smog check. But you can't afford a new car right now. Monthly costs: insurance $90, gas $150 (it's a gas guzzler)."
+            },
+            {
+                text: "BUY A USED CAR - MIDDLE GROUND",
+                effects: { money: -5500, monthlyExpenses: 290, frustration: 5, carsOwned: 1 },
+                result: "You find a '76 Toyota with 85,000 miles. Not perfect but way safer than what you had. It actually has working seat belts. Monthly costs: payment $110, insurance $95, gas $85. The baby will probably be fine. Probably."
+            }
+        ]
+    },
+    {
+        year: 1984,
+        title: "The Olympics Are Coming",
+        narrative: "LA is hosting the 1984 Summer Olympics and the city is PUMPED. They're widening freeways, building the 105, promising it'll all work perfectly with cars. No new rail transit though - that would be too expensive. The city is betting everything on automobiles handling Olympic crowds. This seems... optimistic?",
+        image: "images/LAolympics.jpg",
+        fact: {
+            text: "The 1984 LA Olympics were car-dependent with no rail transit. The city widened freeways and relied on buses. Somehow it worked due to many locals leaving town, but it reinforced car dependency.",
+            link: "https://metroprimaryresources.info/hub/los-angeles-and-the-1984-olympics/"
+        },
+        choices: [
+            {
+                text: "VOLUNTEER AT THE OLYMPICS",
+                effects: { money: -150, frustration: -20 },
+                result: "You volunteer at the Coliseum. The opening ceremony is INCREDIBLE. The whole world is watching LA shine. Carl Lewis wins four gold medals. Mary Lou Retton sticks the landing. The traffic actually isn't terrible because half of LA left town to avoid the crowds. You drive home on empty freeways feeling proud of your city. Gas and parking: $150."
+            },
+            {
+                text: "LEAVE TOWN TO AVOID THE CHAOS",
+                effects: { money: -400, frustration: -15 },
+                result: "You take two weeks off work and drive up to Big Sur listening to the new Bruce Springsteen album 'Born in the USA' wow that album is good. You stay in Big Sur for two weeks to escape Olympic chaos. The coast is beautiful and you needed this vacation. You return to find out the Olympics went fine and traffic was actually BETTER because everyone had the same idea you did. Big Sur was cool though Trip costs: $400."
+            },
+            {
+                text: "STAY HOME AND WATCH ON TV",
+                effects: { money: -50, frustration: 5 },
+                result: "You watch from your living room. Safer this way. ABC coverage is actually great. You avoid all the crowds and traffic. But you kind of wish you'd experienced it in person. Your coworkers keep talking about being there, being able to see different events. TV dinners: $50."
+            }
+        ]
+    },
+        {
+        year: 1986,
+        title: "Soccer Practice",
+        narrative: "Your 6-year-old wants to play soccer. Great! Healthy! The soccer field is in Culver City - 8 miles away. Practice is Tuesday and Thursday at 4pm. There's no bus. There's no train. There's no carpool organized yet. You work until 5pm. Your partner works until 6pm. American youth sports just became a TRANSPORTATION CRISIS.",
+        image: "images/giphy.gif",
+        fact: {
+            text: "Youth sports in car-dependent suburbs required extensive parent driving. Unlike walkable cities where kids could bike or take transit to activities, American kids needed chauffeurs.",
+            link: "https://www.strongtowns.org/journal/2019/9/6/how-our-transportation-system-robs-children-of-independence"
+        },
+        choices: [
+            {
+                text: "LEAVE WORK EARLY TWICE A WEEK",
+                effects: { money: -200, frustration: 30 },
+                result: "You leave work at 3:30pm on Tuesdays and Thursdays to drive your kid to soccer. Your boss is NOT HAPPY. You're losing hours and income. But what choice do you have? Your 6-year-old can't drive themselves. You're a chauffeur now. Lost wages: $200/month."
+            },
+            {
+                text: "HIRE SOMEONE TO DRIVE YOUR KID",
+                effects: { money: -300, frustration: 20 },
+                result: "You hire a neighbor's teenager to pick up your kid from school and drive them to soccer. They drive your kid around in their new ford mustang, dang they have a nicer car than you. For Christmas your 6 year old asks you for the new Metallica 'Masters of Puppets' CD. You like Metallica, but you don't remember playing them around your kid. Who's been playing them Metallica.... Teen driver: $300/month."
+            },
+            {
+                text: "NO TO SOCCER",
+                effects: { money: 0, frustration: 40 },
+                result: "You tell your kid they can't do soccer. They're devastated and tell you that they hate you. All their friends play soccer. But you CAN'T MAKE IT WORK. They'll remember this forever. You feel like a failure. Your kid resents you. This sucks."
+            },
+            {
+                text: "ORGANIZE A CARPOOL - BECOME A PROJECT MANAGER",
+                effects: { money: -100, frustration: 25 },
+                result: "You organize a carpool with other parents. This requires FORTY-SEVEN emails, a group chat that never stops, and a shared Google calendar. You drive one day a week. Other parents drive the other days. It WORKS but coordinating it is EXHAUSTING. You're managing logistics like a military operation for children's soccer. Your gas share: $100/month."
+            }
+        ]
+    },
+    {
+        year: 1987,
+        title: "The 405 is a Parking Lot",
+        narrative: "Remember when the 405 opened in 1969 and it was glorious? Empty lanes? Fast speeds? Yeah, that's over. It's now one of the most congested freeways in America. Your commute that used to take 30 minutes now takes 90 minutes. You spend 15 hours per week sitting in traffic. This is your life now.",
+        image: "images/405.jpg",
+        fact: {
+            text: "By the late 1980s, the 405 had become one of America's most congested freeways. What was built as a solution became part of the problem - induced demand meant more lanes created more traffic.",
+            link: "https://la.curbed.com/2017/2/24/14713510/405-freeway-history-los-angeles"
+        },
+        choices: [
+            {
+                text: "JUST ACCEPT THE TRAFFIC HELL",
+                effects: { money: -180, frustration: 40 },
+                result: "You sit in traffic every single day. 405 southbound at 5pm. Brake lights forever. You've memorized every billboard. You calculate you spend 780 hours per year in traffic - that's 32.5 DAYS of your life sitting in a car not moving. You have 5 albums in your car and you've listened to them all probably 15 times at this point. You too feel like you're living on a prayer. Extra gas from idling: $180/month."
+            },
+            {
+                text: "LEAVE FOR WORK AT 6AM TO BEAT TRAFFIC",
+                effects: { money: -120, frustration: 35 },
+                result: "You wake up at 5:30am to beat traffic. It works! Your commute is only 35 minutes. But you're exhausted. You're at work by 6:45am with nothing to do until your coworkers arrive at 9am. You're sacrificing sleep for traffic avoidance. This is not sustainable. Coffee habit: $120/month."
+            },
+            {
+                text: "MOVE CLOSER TO WORK",
+                effects: { money: -3800, monthlyExpenses: 400, frustration: -20 },
+                result: "You move closer to work to escape the 405 nightmare. Rent is way higher but your commute drops to 15 minutes. You gain back 12.5 hours per week. That's time with your family. That's your life back. Moving costs and rent increase: $3,800 upfront, $400/month."
+            },
+            {
+                text: "BECOME A MORNING PERSON WHO WORKS OUT BEFORE WORK I GUESS???",
+                effects: { money: -600, frustration: -10 },
+                result: "You join a gym near work and start going at 6am. Beat traffic, get fit, arrive at work energized by 8:30am. You're a morning person! You also have a caffine addiction, but don't most of us an you escaped the 405. Gym membership and the red bulls you drink everyday: $600/year."
+            }
+        ]
+    },
+   {
+    year: 1990,
+    title: "Rail Returns After 29 Years!",
+    narrative: "July 14, 1990. The Metro Blue Line opens from downtown LA to Long Beach. It's the first rail line in LA since the Red Cars died in 1961. TWENTY-NINE YEARS without rail transit. The stations are clean and shiny. The trains are new. People are crying tears of joy. Maybe LA is finally learning? But it's only one line and it goes to Long Beach. Your job is in Century City. Cool.",
+    image: "images/blueline.jpg",
+    fact: {
+        text: "The Metro Blue Line opened July 14, 1990 - LA's first rail transit in 29 years. It connected downtown to Long Beach, partially following old Red Car routes. A symbolic return after decades of car-only policy.",
+        link: "https://thesource.metro.net/the-a-line-blue-turns-30/"
+    },
+    choices: [
+        {
+            text: "RIDE THE BLUE LINE OPENING DAY",
+            effects: { money: -15, frustration: -20 },
+            result: "You ride on opening day. The train is smooth! Fast! CLEAN! Your parents told you about the Red Cars that went nearly EVERYWHERE for a couple of cents. 29 years later that idea is back... but it only goes to Long Beach. It doesn't go to your job. It doesn't go to the beach. It doesn't go to the Valley. It doesn't go to the airport. But hey - it EXISTS! This city might actually learn. In like 30 years. Maybe. Fare and celebration lunch: $15."
+        },
+        {
+            text: "I HAVEN'T USED PUBLIC TRANSIT IN YEARS...I'M NOT STARTING NOW",
+            effects: { money: 0, frustration: 10 },
+            result: "The Blue Line is objectively great but completely USELESS to you. Your job is in Century City. Your house is in Silverlake. The train goes from downtown to Long Beach. That's it. That's the whole line. Cool for the 47 people whose commute is exactly that route. You're still stuck on the 405 every single day. One rail line connecting two places doesn't fix 30 years of car-only infrastructure. You'd need like 50 more lines before you could ditch your car. See you in 30 years in 2025 maybe...(not)"
+        },
+        {
+            text: "HOPE THIS IS THE START OF SOMETHING BIGGER",
+            effects: { money: -50, frustration: -15 },
+            result: "You donate $50 to transit advocacy groups who are FIGHTING. The Blue Line proves rail can work in LA! Maybe they'll build the Red Line next. Then the Gold Line. Then the Green Line. Then the Purple Line. Maybe in 30 years there'll be enough coverage that you can actually ditch your car? MAYBE? You're cautiously optimistic . Your friend laughs at you: 'You really think LA will build more trains? After all the money that was poured into the freeways' You choose to believe, but you're not getting rid of your car anytime soon. Donation: $50."
+        }
+    ]
+},
+{
+    year: 1993,
+    title: "Your Partner Needs Their Own Car",
+    narrative: "Your partner just got a job offer in Pasadena - way better pay, actual career advancement, benefits that don't suck. It's 18 miles from your house. You work in Century City - opposite direction. You have ONE car between you. Someone's leaving at 7am, someone's leaving at 8:30am. Someone needs to pick up groceries. Someone needs to get the kids. The math doesn't work anymore. LA's sprawl just made two-car households mandatory.",
+    image: "images/tenor-1.gif",
+    choices: [
+        {
+            text: "BUY A SECOND CAR",
+            effects: { money: -8500, monthlyExpenses: 320, frustration: 20, carsOwned: 1 },
+            result: "You buy a second car. A used '89 Toyota Camry. Two insurance payments. Two registrations. Two smog checks. Two cars to maintain. But you both keep your jobs and your sanity. This is what car-dependent sprawl demands - multiple vehicles per household just to function. You're officially a two-car family because LA's infrastructure gave you no choice. At least you don't have to keep fighting over whether to play the new Cranberries album or the new Counting Crows album. Second car: $8,500, monthly costs: $320.",
+            flags: { partnerHasCar: true }
+        },
+        {
+            text: "SHARE ONE CAR",
+            effects: { money: -150, frustration: 50 },
+            result: "You try sharing one car. Wake up at 6:30am to drive your partner to Pasadena, drive back to Century City, work, leave early to pick them up, drive home. You're spending THREE HOURS per day just doing car logistics. Your boss is annoyed you keep leaving early. You're exhausted. You fight constantly about whose job is more important. This is absolutely not sustainable. Extra gas from all the driving: $150/month.",
+            forceNext: true
+        },
+        {
+            text: "PARTNER TURNS DOWN THE JOB",
+            effects: { money: 0, frustration: 45 },
+            result: "Your partner turns down Pasadena to avoid the car nightmare. Better pay, better benefits, better opportunity - all gone because you can't solve the two-job-one-car problem. They're quietly resentful. You're quietly guilty. Car-dependent LA just killed your partner's career advancement because you couldn't afford a second vehicle."
+        },
+        {
+            text: "PARTNER CARPOOLS WITH COWORKER",
+            effects: { money: -80, frustration: 30 },
+            result: "Your partner carpools with a coworker from Glendale. It works but now they're completely dependent on someone else's schedule. Can't stay late. Can't leave early. Can't take a day off without finding a backup ride. They come home stressed every day. 'My coworker only listens to AM talk radio.' This is barely better than nothing. Monthly gas contribution: $80."
+        }
+    ]
+},
+{
+    year: 1993.5,
+    title: "One Car Doesn't Work Anymore",
+    narrative: "Three months of car-sharing hell. You're late to work constantly. Your partner's exhausted from the 6:30am wake-ups. Last week you had a screaming match in the driveway about whose meeting was more important. The neighbor called to check if you were okay. You're not okay. You need a second car immediately or someone's quitting their job.",
+    image: "images/kermit.gif",
+    requiresForced: true,
+    choices: [
+        {
+            text: "BUY A SECOND CAR (NO CHOICE)",
+            effects: { money: -8500, monthlyExpenses: 320, frustration: 35, carsOwned: 1 },
+            result: "You drain your savings for a second car. Now you're a two-car household whether you planned for it or not. Two payments. Two insurance bills. Two gas tanks. LA's car-dependent sprawl just forced you into mandatory multi-car ownership. This is the only way dual-income families survive in Los Angeles. The system has you trapped. Second car: $8,500, monthly costs: $320.",
+            flags: { partnerHasCar: true },
+            forcedChoice: true
+        }
+    ]
+},
+{
+    year: 1994,
+    title: "The Northridge Earthquake Destroys Freeways",
+    narrative: "January 17, 1994. 4:31am. You're asleep. The Northridge earthquake hits - 6.7 magnitude. You wake up to your entire apartment SHAKING. Books flying off shelves. Car alarms screaming. When the sun comes up, you turn on the news: freeway overpasses COLLAPSED. The 10. The 5. The 14. Sections of freeway are just GONE. Crumpled like paper. The car-dependent city's entire infrastructure is shattered. Your one-hour commute now takes FOUR HOURS on surface streets. The whole city is paralyzed. KTLA is showing the collapsed freeway on loop.",
+    image: "images/earthquake.jpg",
+    fact: {
+        text: "The 1994 Northridge earthquake collapsed multiple freeway sections including the I-10 and I-5. LA's complete car dependency meant total paralysis. Repairs cost billions and took over a year.",
+        link: "https://metroprimaryresources.info/why-the-northridge-quake-was-a-defining-moment-for-transit/16368/"
+    },
+    choices: [
+        {
+            text: "SUFFER THROUGH COMMUTES DAILY",
+            effects: { money: -250, frustration: 60 },
+            result: "You drive THREE HOURS each way on surface streets for SIX MONTHS while they rebuild the freeways. Eight hours a day in your car. Your ENTIRE LIFE is traffic now. You leave at 6am in darkness. You get home at 8pm in darkness. You see your family for 45 minutes before bed. You're ashamed of how many times you've listened to Weezer by Weezer. `Say it ain't so, ${gameState.character.firstName}...`Your back hurts. Your soul hurts. LA's car dependency just became a waking nightmare with no escape. Extra gas from idling in traffic: $250/month."
+        },
+        {
+            text: "CARPOOL WITH COWORKERS",
+            effects: { money: -150, frustration: 50 },
+            result: "You organize a carpool with three coworkers to split gas costs and use the carpool lane. It helps a LITTLE - you're down to three hours each way instead of four. But now you're trapped in a car with Brad who won't stop talking about his new Gateway 2000 computer. And Susan who insists on listening to Hootie and the Blowfish on repeat. And Mike who brings tuna sandwiches. You're losing your mind. The carpool lane is still a parking lot. Your gas share: $150/month."
+        },
+        {
+            text: "QUIT AND FIND A JOB CLOSER TO HOME",
+            effects: { money: -1200, frustration: 30 },
+            result: "The earthquake breaks you completely. You quit after two weeks of four-hour commutes and start job hunting. Takes two months to find something within five miles of home. The pay is less but you can get there in 15 minutes even WITHOUT freeways. You can see your family again! You can eat dinner at a normal hour! The earthquake taught you that LA's car infrastructure is one disaster away from total collapse. Job search costs: $1,200."
+        },
+        {
+            text: "MOVE CLOSER TO WORK IMMEDIATELY",
+            effects: { money: -4500, monthlyExpenses: 350, frustration: -15 },
+            result: "You move within three miles of work within a MONTH. Can't do this anymore. Rent is $350/month higher but you can make it on surface streets in 15 minutes. You're FREE from the freeway nightmare. The earthquake taught you that LA built everything on a fragile system that can collapse literally overnight. You're hedging against the next earthquake. Or fire. Or riot. Or whatever infrastructure hell comes next. Moving costs: $4,500, rent increase: $350/month."
+        }
+    ]
+},
+ {
+    year: 1998,
+    title: "Your Teenager Needs a Car for Their Job",
+    narrative: "Your 16-year-old just got their license and landed a part-time job at the Glendale Galleria - 14 miles away. They need to work Tuesday and Thursday nights plus weekends. You work until 6pm. Your partner works until 7pm. The mall is car-only access with zero bus service that goes there. Your teenager literally cannot have a job without a car. They keep playing that Fastball song 'The Way' on repeat in their room. American teenage employment just became a transportation crisis.",
+    image: "images/clueless.gif",
+    choices: [
+        {
+            text: "BUY THEM A USED CAR",
+            effects: { money: -6500, monthlyExpenses: 280, frustration: -10, carsOwned: 1 },
+            result: "You buy them a baby blue '95 Nissan Maxima with 35,000 miles. They're THRILLED. They immediately take it for a spin and blast 'Everybody (Backstreet's Back)' at full volume. They can get to work at RadioShack, see friends at the Third Street Promenade, have actual independence. But now you're paying teen insurance rates ($230/month - OUCH) plus their gas money. Your household just became a multi-car family because LA infrastructure demanded it. Your teen names the car 'Bubbles' after the Powderpuff Girls. Car: $6,500, monthly costs: $280.",
+            flags: { teenHasCar: true }
+        },
+        {
+            text: "BECOME THEIR PERSONAL CHAUFFEUR",
+            effects: { money: -150, frustration: 45 },
+            result: "You become your teenager's personal driver. Leave work early Tuesdays and Thursdays. Drive them to the Galleria. Pick them up at 9pm. Your boss is NOT HAPPY. You're exhausted. Your teen is HUMILIATED getting dropped off while their friends pull up in their own cars blasting TLC. They won't even let you park near the entrance. You have to drop them off around the corner. This isn't sustainable. Extra gas from chauffeur duty: $150/month.",
+            forceNext: true
+        },
+        {
+            text: "THEY QUIT THE JOB",
+            effects: { money: 0, frustration: 40 },
+            result: "They quit the job. Can't make the transportation work. All their friends have cars from their parents AND jobs at the mall. Your kid is the only one stuck at home watching TRL on MTV because they can't drive themselves anywhere. They wanted to save up for the new iMac. Now they're broke and carless and FURIOUS at you. Car-dependent LA just robbed your teenager of employment and independence. They blast Alanis Morissette's 'You Oughta Know' passive-aggressively through their bedroom door."
+        },
+        {
+            text: "SHARE YOUR CAR",
+            effects: { money: -120, monthlyExpenses: 120, frustration: 50 },
+            result: "You try sharing ONE car between the two of you. The scheduling is IMPOSSIBLE. Constant screaming matches in the driveway about whose needs are more important. Every single morning you turn on the car and Third Eye Blind's 'Semi-Charmed Life' EXPLODES at full volume because your teen left it blasting. You're having a heart attack at 7am to 'DOO DOO DOO, DOO DOO-DOO DOO.' At least they have good music taste. Gas increase: $120/month."
+        }
+    ]
+},
+{
+    year: 1998.5,
+    title: "The Chauffeur Schedule Failed",
+    narrative: "Three months of being your teenager's personal taxi service. Your boss is DONE with you leaving early. Your teen refuses to be seen with you anymore - last week you tried to wave at them in the parking lot and they literally pretended not to know you. You're completely exhausted. Last night you fell asleep at 8:30pm during Seinfeld. There's no other option anymore. You HAVE to buy them a car.",
+    image: "images/annoyedparent.gif",
+    requiresForced: true,
+    choices: [
+        {
+            text: "BUY THEM A CAR (NO CHOICE)",
+            effects: { money: -6500, monthlyExpenses: 280, frustration: 30, carsOwned: 1 },
+            result: "You scrape together money for a beater. A '94 Toyota Corolla with a tape deck. Your teenager can FINALLY get to work independently. They immediately drive to Tower Records and buy the Titanic soundtrack. But you just became a multi-car household because LA's car-dependent infrastructure gave you absolutely no alternative. Teen employment literally requires car ownership in Los Angeles. That's just the reality of sprawl. Car: $6,500, monthly costs: $280.",
+            flags: { teenHasCar: true },
+            forcedChoice: true
+        }
+    ]
+}
+];
+
+const laGen3Scenarios = [
+ {
+    year: 2004,
+    title: "You Need a Car Immediately",
+    narrative: "Your job starts Monday in Century City. You're crashing with a friend in Echo Park temporarily. That's 12 miles. The bus takes 90 minutes with two transfers. You literally cannot function in LA without a car. This isn't a lifestyle choice - it's infrastructure forcing your hand. Time to drain your savings.",
+    image: "images/needcar.jpg",
+    choices: [
+        {
+            text: "BUY A USED CAR",
+            effects: { money: -14000, monthlyExpenses: 520, frustration: -10, carsOwned: 1 },
+            result: "You buy a used 2001 Honda Civic with 80,000 miles. The previous owner left a Usher 'Confessions' CD stuck in the player. 'Yeah!' plays every time you start the car. Down payment drains $4,000 of your savings. Monthly costs: payment $250, insurance $380 (under 25 in LA is BRUTAL), gas $140. You just spent $14,000 you didn't have on something you need to participate in basic life. Your friend from college calls - they're taking the T in Boston to work - and you have to explain that LA doesn't work that way. Welcome to mandatory car dependency. Car: $14,000.",
+            flags: { hasCarGen3: true }
+        },
+        {
+            text: "LEASE A NEW CAR",
+            effects: { money: -3000, monthlyExpenses: 680, frustration: -5, carsOwned: 1 },
+            result: "You lease a brand new 2004 Civic at the dealership. The salesman's playing Outkast's 'Hey Ya!' and you're shaking it like a Polaroid picture. That new car smell hits different. Down payment: $3,000. Monthly: lease payment $380, insurance $450, gas $150. You're locked into payments but the car is RELIABLE. You just entered the infinite car payment cycle that traps Americans for life. Lease: $3,000 down.",
+            flags: { hasCarGen3: true }
+        },
+        {
+            text: "TRY PUBLIC TRANSIT",
+            effects: { money: -75, monthlyExpenses: 75, frustration: 45 },
+            result: "You take the bus. 90 minutes each way. THREE HOURS of your day evaporated. You're reading 'The Da Vinci Code' on the bus because what else are you gonna do. You're late to work three times in two weeks because buses just don't show up. Your boss is losing patience. Your friend keeps asking when you're moving out because you're always home late eating their Hot Pockets and watching Arrested Development. Dating? Impossible - everything is too far. This isn't sustainable. Monthly bus pass: $75.",
+            forceNext: true
+        }
+    ]
+},
+{
+    year: 2004.5,
+    title: "Public Transit Failed - You Need a Car",
+    narrative: "Three months of bus hell. You've been late to work constantly. You missed a friend's birthday in Manhattan Beach because the bus doesn't go there. Someone cute suggested drinks in Pasadena and you had to decline because the transit logistics were impossible. You're buying a car TODAY. LA's infrastructure just forced your hand.",
+    requiresForced: true,
+    choices: [
+        {
+            text: "BUY A CAR (NO CHOICE LEFT)",
+            effects: { money: -14000, monthlyExpenses: 520, frustration: 30, carsOwned: 1 },
+            result: "You buy a used car with money you don't have. The dealer's playing Maroon 5's 'This Love' and honestly it feels appropriate because you do NOT love this situation. LA's infrastructure just forced you into car ownership and debt. The lack of functional transit isn't consumer choice - it's policy failure creating mandatory expenses. Welcome to car-dependent Los Angeles. You're trapped in the system now. Your boss sees you pull up in your new car and goes 'FINALLY.' Car: $14,000.",
+            flags: { hasCarGen3: true },
+            forcedChoice: true
+        }
+    ]
+},
+{
+    year: 2009,
+    title: "Lakers NBA Finals while the Dodgers play too",
+    narrative: "June 14, 2009. Lakers are playing Game 5 of the NBA Finals at Staples (6pm). Dodgers playing at Chavez Ravine (7:10pm). Everyone is driving to both stadiums at the same time. Downtown to Echo Park. The 110 is a parking lot. Sunset Boulevard isn't moving. Even surface streets are gridlocked. This is what happens when a city has zero transit alternatives and two major sporting events happen 3 miles apart.",
+    image: "images/kobe.gif",
+    choices: [
+        {
+            text: "DRIVE TO THE LAKERS GAME",
+            effects: { money: -280, frustration: 65 },
+            result: "You leave at 4:30pm for a 6pm tipoff. You sit on the highway for AN HOUR not moving. You're blasting 'I Gotta Feeling' by the Black Eyed Peas trying to manifest a good time. You're sweating. Screaming at no one. The guy next to you is honking like that helps ANYTHING. You finally run into Staples Center at 6:45pm - missed the ENTIRE first quarter. Kobe already has 15 points and you saw NONE of it. Tickets, parking, gas: $280."
+        },
+        {
+            text: "TAKE METRO TO STAPLES",
+            effects: { money: -95, frustration: 45 },
+            result: "You take the Red Line to Staples! It actually WORKS! The game is incredible! Lakers WIN🏆 You're celebrating! Then you want to hit up a bar in Los Feliz with friends to keep celebrating. Metro doesn't go there. Last train already left anyway. You Uber for $35. Transit got you 90% of the way there. The last-mile problem absolutely destroyed you. You're home by 1am spending way more than if you'd just driven. Uber, ticket, and beers: $95."
+        },
+        {
+            text: "WATCH AT HOME",
+            effects: { money: -60, frustration: 30 },
+            result: "You watch from your couch. Lakers win! Kobe! Pau! You want to celebrate downtown where thousands of people are going CRAZY. But the traffic... You stay home ordering Domino's and watching the celebrations on TV while texting your friends who are actually there. You missed a once-in-a-lifetime championship celebration happening 8 miles from your apartment. Food delivery: $60."
+        },
+        {
+            text: "GO TO A SPORTS BAR",
+            effects: { money: -75, frustration: -10 },
+            result: "You walk to a sports bar in your neighborhood. When the Lakers win, the ENTIRE BAR ERUPTS. Beer flying. People jumping. You're hugging complete strangers. Someone starts blasting 'We Are the Champions.' You walk home at midnight happy and slightly drunk. Sometimes the local option is the BEST option. You didn't sit in traffic and you still celebrated. Bar tab: $75."
+        }
+    ]
+},
+{
+    year: 2011,
+    title: "Carmageddon - The 405 Closes",
+    narrative: "July 15-17, 2011. They're closing a 10-mile stretch of the 405 for 53 hours to demolish the Mulholland Bridge. The media dubs it 'CARMAGEDDON.' Mayor Villaraigosa warns everyone: STAY HOME or the city will be completely gridlocked. JetBlue literally offers $4 flights from Burbank to Long Beach to avoid driving through the closure. This is what happens when you build a city with zero transit alternatives - one freeway closure becomes an apocalyptic event.",
+    image: "images/carmagedon.jpg",
+    fact: {
+        text: "Carmageddon (July 2011) closed 10 miles of the 405 for 53 hours. The city feared total gridlock. JetBlue offered $4 flights across the closure. LA's car dependency made a single freeway closure sound like the end times.",
+        link: "https://www.theguardian.com/world/2011/jul/17/carmageddon-los-angeles-freeway-demolition"
+    },
+    choices: [
+        {
+            text: "STAY HOME ALL WEEKEND",
+            effects: { money: -90, frustration: -10 },
+            result: "You stock up on groceries Friday and don't leave your neighborhood for 53 HOURS. You're imprisoned by car infrastructure failure. Your friend's birthday party in Venice? Can't go - 405 is closed. Beach day? Impossible. You drive to your local Walmart and rent 4 DVDs from the Redbox: 'Bridesmaids,''Scott Pilgrim vs The World,' 'Black Swan', and 'Despicable Me' a very random quartet. One freeway closure trapped you in your house. Groceries and Redbox DVDs: $90."
+        },
+        {
+            text: "TAKE THE $4 JETBLUE FLIGHT ",
+            effects: { money: -55, frustration: -5 },
+            result: "You actually buy JetBlue's $4 publicity stunt ticket from Burbank to Long Beach to visit your friend. Thirty miles by car. Twenty minutes by plane. The ABSURDITY. You're FLYING over a freeway closure. You post it on Facebook and everyone thinks it's hilarious. The fact that FLYING is more practical than driving proves how catastrophically broken LA infrastructure is. This is dystopian comedy. Flight, Uber to friend's place, and In-N-Out: $55."
+        },
+        {
+            text: "BIKE ACROSS THE EMPTY 405",
+            effects: { money: -25, frustration: -25 },
+            result: "You bike across the closed 405. It's MAGICAL. No cars. Just people. Families. Kids on scooters. Dogs everywhere. Someone's playing 'Party Rock Anthem' on a speaker. You see what the freeway STOLE - this 10-mile stretch could have been a park or a trail. For 53 hours you glimpse what LA could be without car dependency. It's really nice actually. Then Monday morning it reopens and you're back in traffic. You'll never forget this moment. Bike rental and water: $25."
+        },
+        {
+            text: "DRIVE SURFACE STREETS",
+            effects: { money: -70, frustration: 60 },
+            result: "You ignore the warnings and try to drive to the Westside anyway. What should be a 25-minute drive takes THREE HOURS. You're listening to Adele's '21' album on repeat and crying along. 'We could have had it alllll.' One freeway closure paralyzed 10 million people because there's NO transit alternative. This is what car dependency looks like when it breaks. Gas and your sanity: $70."
+        }
+    ]
+},
+{
+    year: 2013,
+    title: "Your Best Friend's Vegas Wedding",
+    narrative: "Your college best friend is getting married in Las Vegas. You're invited! It's 270 miles away - basically the same distance as NYC to Boston. But there's NO TRAIN. Like actually zero passenger rail service. Your options: drive 4-5 hours through the desert (gas + hotel), fly for 1 hour ($200+), or take a Greyhound for 6 hours ($80). American infrastructure is so broken that visiting a city 270 miles away requires either driving or flying. Europe is laughing at us.",
+    image: "images/vegasladriving.png",
+    fact: {
+        text: "LA to Vegas is 270 miles with zero passenger rail service. Amtrak's Desert Wind was discontinued in 1997. Despite decades of proposals, there's still no train connection as of 2025. Brightline West finally broke ground in 2024 but won't open until 2028-2029.",
+        link: "https://www.brightlinewest.com/"
+    },
+    choices: [
+        {
+            text: "DRIVE TO VEGAS",
+            effects: { money: -350, frustration: 25 },
+            result: "You drive through the Mojave Desert for 5 hours listening to the 'Frozen' soundtrack because your niece left it in your car. 'Let it gooooo' on repeat through Barstow. The wedding is fun! Sunday you drive 5 hours back. You spent 10 hours of your weekend behind a wheel for a wedding. In Europe, you'd take a 2-hour train. In America, you burn $100 in gas and destroy your lower back. Gas, hotel, and wedding gift: $350."
+        },
+        {
+            text: "FLY TO VEGAS",
+            effects: { money: -420, frustration: 20 },
+            result: "You fly from LAX. The flight is 50 minutes but between getting to LAX early, security, waiting, and getting from Vegas airport to the Strip, it's basically 4 hours anyway. You're literally flying to a city that's the same distance as a decent train ride. The wedding is great! You fly home Sunday. American infrastructure failure turned a 270-mile trip into a $420 flight. Flight, Uber, and gift: $420."
+        },
+        {
+            text: "TAKE THE GREYHOUND BUS",
+            effects: { money: -180, frustration: 50 },
+            result: "You take Greyhound to save money. SIX HOURS on a bus. The AC is broken. Someone's eating an entire rotisserie chicken next to you. You're watching 'The Hunger Games: Catching Fire' on your iphone 5 to escape reality. The wedding is lovely! The bus ride back Sunday is THE SAME HELL. Twelve hours on Greyhound for a weekend wedding. Bus, hotel, and gift: $180."
+        },
+        {
+            text: "SKIP THE WEDDING",
+            effects: { money: -100, frustration: 60 },
+            result: "You skip it. The transportation options are ALL terrible. You send a generous gift and apologetic text. Your friend is hurt you're not coming. Monday you see all the wedding photos on Facebook. Everyone had an amazing time. You weren't there for your best friend's wedding. What kind of friend are you... Gift that won't make your absense any better: $100."
+        }
+    ]
+},
+{
+    year: 2016,
+    title: "Dating in LA: A Geography Problem",
+    narrative: "You matched on Hinge. Great conversation. Real chemistry happening through the screen. They suggest dinner in Venice Beach. You live in Los Feliz. That's 18 miles - could be 35 minutes, could be 90 minutes depending on traffic. It's Friday night so definitely 90 minutes. They have a car obviously because everyone does. In LA, dating compatibility is literally: chemistry × (distance ÷ traffic) = relationship viability. You're doing math on potential love.",
+    image: "images/hinge.gif",
+    choices: [
+        {
+            text: "DRIVE TO VENICE",
+            effects: { money: -85, frustration: 25 },
+            result: "You leave at 6:30pm for 8pm dinner. Sit in traffic for 75 minutes listening to Beyoncé's 'Lemonade' album. Finally arrive. The date is AMAZING. They're funny, hot, extremely into you. You stay until midnight talking. Drive home takes only 35 minutes - LUCKY! But then they mention they love hiking in Malibu on weekends and their favorite brunch spot is in Pasadena. Every future date requires traffic calculus and GPS coordination. Is this sustainable? TBD. Dinner, parking, gas: $85."
+        },
+        {
+            text: "SUGGEST SILVER LAKE",
+            effects: { money: -50, frustration: 5 },
+            result: "You counter-propose a cafe in Silver Lake. Equal-ish drive time for both of you! They agree! The date is genuinely great. The food is perfect. Then they casually mention 'yeah all my favorite spots are on the Westside' and you see the future: one of you will ALWAYS be in traffic for this relationship. Maybe it works. Maybe geography wins. You're not sure yet. At least the pasta was good. Dinner: $50."
+        },
+        {
+            text: "CANCEL",
+            effects: { frustration: 55 },
+            result: "You cancel. Ninety minutes of Friday night traffic for a first date with a stranger? ABSOLUTELY NOT. They seem annoyed by your cancellation text. You watch their Instagram stories all weekend having fun without you. Car-dependent LA geography just murdered another potential relationship before it even started. You order Postmates Thai food and watch 'Stranger Things' alone instead. You're fine. Everything's fine."
+        },
+        {
+            text: "SUGGEST COFFEE FIRST",
+            effects: { money: -18, frustration: 10 },
+            result: "You suggest coffee in WeHo first - 20 minutes from both of you. Test the vibe before committing to Venice traffic! They agree. The coffee date is good! You schedule dinner for next week. SMART MOVE. Never commit to Venice Friday night traffic for someone you haven't met in person. This is LA Dating Strategy 101. Coffee and parking: $18."
+        }
+    ]
+},
+{
+    year: 2018,
+    title: "Your Car is Your Second Home",
+    narrative: "You just did the depressing math: 15 hours per week in your car. That's 780 hours per year. 32.5 DAYS of your entire life annually just sitting in traffic not moving. Your car has snacks, phone chargers, deodorant, a full change of clothes, breath mints, sunscreen, a blanket. You've eaten full meals in it. Taken work calls. Cried. Had revelations. Your car isn't transportation anymore - it's a $720/month second home you're forced to maintain just to participate in LA life.",
+    image: "images/worsttraffic.jpg",
+    fact: {
+        text: "LA drivers average 119 hours per year stuck in traffic - the most in America.",
+        link: "https://www.cnbc.com/2019/09/04/commuters-in-this-city-spend-119-hours-a-year-stuck-in-traffic.html"
+    },
+    choices: [
+        {
+            text: "UPGRADE THE SETUP IN YOUR CAR",
+            effects: { money: -850, frustration: -10 },
+            result: "You buy a premium phone mount, lumbar support seat cushion, Spotify Premium subscription, and better speakers. If you're spending 32.5 DAYS per year here, might as well be comfortable right? You make a 'Car Jams' playlist. You listen to 'This American Life' podcasts in traffic and become very informed. You listen to everything. You know the lyrics to every Ariana Grande song ever. Even the stuff from 'Victorious.' Car upgrades: $850."
+        },
+        {
+            text: "MOVE CLOSER TO WORK",
+            effects: { money: -5200, monthlyExpenses: 600, frustration: -30 },
+            result: "You move within 3 miles of work. Rent jumps $600/month but your commute drops to 8 minutes. You get 13 hours per week BACK. That's 676 hours per year - 28 DAYS OF YOUR LIFE recovered. You can go to the gym now. Cook dinner. See friends. Read books. You're literally paying rent money to buy your TIME back from car dependency. Your life is yours again. Worth every penny. Moving costs and deposit: $5,200."
+        },
+        {
+            text: "JUST ACCEPT IT - THIS IS JUST LA",
+            effects: { money: 0, frustration: 10 },
+            result: "This is just LA. Everyone lives like this. You listen to every podcast. You know every KROQ DJ personally at this point. You've consumed every episode of 'Welcome to Night Vale.' You're slowly going insane but you keep telling yourself 'it could be worse.' Could it...? As we've just established LA drivers spend the MOST time in traffic."
+        }
+    ]
+},
+{
+    year: 2020,
+    title: "COVID",
+    narrative: "March 2020. The world stops. LA goes completely silent. The 405 at rush hour is EMPTY. You can see the San Gabriel Mountains from downtown for the first time in your entire life. The smog is just GONE. People are skateboarding down the middle of the 110 freeway. The air smells... clean? What is this smell? This is what LA looks like without car dependency. It's absolutely beautiful. It's haunting. This is what was stolen from you and you didn't even know it until now.",
+    image: "images/lacovid.jpg",
+    fact: {
+        text: "During COVID lockdown, LA air quality improved dramatically. PM2.5 pollution dropped 31%. The San Gabriel Mountains were clearly visible from downtown for the first time in decades.",
+        link: "https://newsroom.ucla.edu/releases/air-quality-a-year-after-covid-lockdowns"
+    },
+    choices: [
+        {
+            text: "DRIVE THE EMPTY FREEWAYS",
+            effects: { money: -45, frustration: -35 },
+            result: "You drive the 10 from Santa Monica to downtown at 5pm. NO TRAFFIC. You're going 75mph. You're CRYING. This is what the freeways were SUPPOSED to be in 1952. This is the California dream they promised your grandparents. For three beautiful months you experience what was stolen from you by car dependency. You're listening to 'The Weeknd' and watching the mountains and you're thinking 'oh my god THIS is what it was supposed to be.' Then everyone comes back and it's over. Gas: $45."
+        },
+        {
+            text: "REALIZE YOU DON'T NEED THE CAR - SELL IT",
+            effects: { money: 8000, monthlyExpenses: -720, frustration: -25, carsOwned: -1 },
+            result: "You haven't driven in two months. Everything's DoorDash delivered. You're working from home watching 'Tiger King' with everyone else in America. The car sits completely unused in your parking spot collecting dust. You sell it for $8,000 and immediately save $720/month. You're FREE! You can breathe! Maybe when the world reopens you can stay car-free? (You absolutely could not. This was a HUGE mistake and you're about to learn that very soon.) Sold: $8,000.",
+            flags: { soldCarGen3: true, hasCarGen3: false }
+        },
+        {
+            text: "ESCAPE TO JOSHUA TREE",
+            effects: { money: -3600, frustration: -30 },
+            result: "You rent an Airbnb in Joshua Tree for three months. Remote work means you can be ANYWHERE! You hike every morning watching the sunrise. The stars at night are INSANE. You're making sourdough bread and posting it on Instagram like everyone else in quarantine. You see the desert your grandparents saw before LA sprawled across the entire basin. You're using your car to escape car culture. The irony is not lost on you. Three months in the desert: $3,600."
+        },
+        {
+            text: "STAY IN LA AND WATCH THE CITY BREATHE",
+            effects: { money: -2400, frustration: -20 },
+            result: "You stay home in LA. You watch from your balcony as the city BREATHES for the first time in 60 years. The mountains are visible EVERY SINGLE DAY. You bike down the middle of completely empty streets. This is what the city could be without cars. You're baking banana bread and doing Chloe Ting workouts and learning TikTok dances. When cars return in a few months, you'll never forget what you saw. Rent and groceries: $2,400."
+        }
+    ]
+},
+{
+    year: 2021,
+    title: "Return to Office",
+    narrative: "Your company announces return to office. You sold your car during COVID thinking remote work was THE FUTURE FOREVER. Oops! Used car prices are UP 42% from pre-pandemic. That car you sold for $8,000 in 2020? Now costs $13,000+ for something similar. You need a car IMMEDIATELY or you literally can't get to work. The car dependency trap you escaped for 18 beautiful months just snapped shut again. Welcome back to hell.",
+    image: "images/returntooffice.jpg",
+    requiresFlag: "soldCarGen3",
+    choices: [
+        {
+            text: "BUY AN OVERPRICED CAR",
+            effects: { money: -18000, monthlyExpenses: 740, frustration: 50, carsOwned: 1 },
+            result: "You buy a used 2018 model at inflated pandemic prices. The dealer is playing Olivia Rodrigo's 'drivers license' and you want to scream. Down payment: $5,000. That car you sold for $8,000 in 2020? Now costs $13,000 for something WORSE. You LOST $5,000 by selling during COVID. Monthly: payment $360, insurance $480 (still brutal), gas $180. You're trapped in the car dependency system forever now. There's literally no escape. Car: $18,000.",
+            flags: { hasCarGen3: true }
+        },
+        {
+            text: "LEASE A NEW CAR",
+            effects: { money: -4000, monthlyExpenses: 780, frustration: 45, carsOwned: 1 },
+            result: "You lease a new 2021 Toyota since used prices are completely INSANE. Down payment: $4,000. Monthly: lease $450, insurance $480, gas $180. You're locked into car payments for LIFE now. You're trapped in the system that destroyed public transit decades ago and forces car ownership forever. The American Dream is a monthly payment trap you can never escape. Lease: $4,000.",
+            flags: { hasCarGen3: true }
+        }
+    ]
+},
+{
+    year: 2023,
+    title: "Taylor Swift Eras Tour at SoFi = The City STOPS",
+    narrative: "August 2023. Taylor Swift's Eras Tour at SoFi Stadium in Inglewood. SIX sold-out nights. 70,000 Swifties per show descending on Inglewood. The 405 is a parking lot from LAX to the Valley. The 10 isn't moving. Surface streets completely gridlocked. People are spending 3+ HOURS driving 15 miles in their best sparkly outfits. Taylor starts at 7pm. Fans are still stuck in traffic at 8:30pm missing 'Cruel Summer.' This is what car dependency looks like when it collapses under glitter and friendship bracelets.",
+    image: "images/erastour.gif",
+    choices: [
+        {
+            text: "DRIVE TO SOFI - MISS 'LOVER' ERA ENTIRELY",
+            effects: { money: -650, frustration: 70 },
+            result: "You leave at 4:30pm for a 7pm show wearing your carefully planned Reputation-era outfit. You're blasting '1989' getting HYPED. You sit on the 405 for TWO AND A HALF HOURS. NOT. MOVING. You switch albums to 'Folklore' because now your crying. You finally sprint into SoFi at 8:00pm - Taylor's ALREADY performed 'Cruel Summer' AND 'Lover' AND 'The Man.' You spent $200 on tickets to miss the first half hour of TAYLOR SWIFT. Your outfit is wrinkled from sitting. Car dependency just ruined the Eras Tour for you. Tickets, parking, gas, and your themed outfit: $350."
+        },
+        {
+            text: "UBER THERE",
+            effects: { money: -525, frustration: 65 },
+            result: "You Uber from Echo Park. SURGE PRICING MASSACRE: $80 each way because EVERYONE had your same idea. You're sitting in the SAME traffic as the cars but at least you can make friendship bracelets in the backseat. Your driver is playing 'Anti-Hero' and you're living it. Still miss the first 30 minutes. After the show, Uber wants $100 to get home because 70,000 people are leaving simultaneously. You pay it. This single concert cost you $525 total. You could've bought SO MUCH merch. Instead you funded Uber's executive bonuses. Uber, tickets, and a much needed drink: $525."
+        },
+        {
+            text: "TAKE METRO THEN SHUTTLE",
+            effects: { money: -615, frustration: 55 },
+            result: "You take Metro to Expo/Crenshaw in your full 'Midnights' era outfit then the official SoFi shuttle. The shuttle sits in the EXACT SAME TRAFFIC. You're on a bus for 90 minutes going 12 miles while Swifties around you are freaking out about missing 'You Belong With Me.' You miss 'Cruel Summer' AND 'Lover.' After the show, the shuttle line is TWO HOURS long. People are trading friendship bracelets in line. You give up and Uber home for $85. Transit tried its best. Metro, shuttle, Uber, and ticket: $515."
+        },
+        {
+            text: "WATCH LIVESTREAM AT HOME",
+            effects: { money: -40, frustration: 75 },
+            result: "You can't do it. The traffic reports are showing APOCALYPTIC scenes. You watch a blurry TikTok livestream from your apartment. TAYLOR SWIFT is performing 12 miles away but might as well be in space like Katy Perry. You're watching your friends' Instagram stories from inside SoFi - they're singing 'All Too Well (10 Minute Version)' - while you sit home alone eating ice cream. You know these are 'champagne problems' but you still 'knew LA would be trouble' and you two 'are never ever getting back together'. Multiple pints of ice cream: $40."
+        }
+    ]
+},
+{
+    year: 2024,
+    title: "The K Line Opens - Too Late For You",
+    narrative: "October 2024. The K Line (Crenshaw/LAX) FINALLY opens after years of delays and cost overruns. It connects Expo Line to SoFi Stadium and LAX! This would have been LIFE-CHANGING for Beyoncé last year! Except... it doesn't go where YOU actually need to go. Your job is in Century City. Your apartment is in Los Feliz. The K Line goes from Crenshaw to Inglewood. Cool for those people. You're still spending $740/month on your car for a commute the train doesn't serve.",
+    image: "images/kline.jpg",
+    fact: {
+        text: "The K Line opened October 2024, connecting Expo Line to SoFi and LAX. While a major expansion, LA's rail still doesn't serve most commute patterns - only 10% of LA trips are accessible by Metro.",
+        link: "https://www.latimes.com/california/story/2024-10-24/l-a-waited-so-long-it-seemed-like-a-fantasy-but-its-actually-coming-a-rail-connection-to-lax"
+    },
+    choices: [
+        {
+            text: "RIDE THE K LINE OPENING DAY",
+            effects: { money: -60, frustration: -15 },
+            result: "You ride the K Line opening day with thousands of hopeful Angelenos. The trains are CLEAN. They're fast! They go to LAX finally! Maybe LA is actually learning from 70 years of mistakes? Maybe in 20 more years there'll be enough rail coverage that you can ditch your car? MAYBE? You're cautiously optimistic for the first time in a while. But tomorrow morning you're still driving to work. Nothing actually changed for you personally. Day trip and lunch: $60."
+        },
+        {
+            text: "IT DOESN'T HELP YOU",
+            effects: { money: -740, frustration: 25 },
+            result: "The K Line is objectively great but completely USELESS for your actual life. Your daily commute from Los Feliz to Century City still requires driving. More transit is good for LA but the city built car dependency SO DEEP that a few rail lines can't undo 60 years of car-only infrastructure. You're still spending $740/month on car ownership. The system has you trapped. Probably forever. Monthly car costs: $740."
+        },
+        {
+            text: "MOVE TO K-TOWN AND TRY CAR-FREE LIFE",
+            effects: { money: -6500, monthlyExpenses: 400, frustration: 25, carsOwned: -1 },
+            result: "You move to Koreatown near Purple/Red Lines and SELL YOUR CAR. Rent increases $500/month but you save $740/month on car costs. You're net POSITIVE $240/month! You're living car-free in LOS ANGELES! You post about it on Twitter and people think you're either brave or insane. Except... your job is still far. Dating is way harder. Costco is completely impossible. Visiting friends requires Uber. You're playing life on hard mode. You knew this going in. Moving costs: $6,500.",
+            flags: { soldCarGen3: true, hasCarGen3: false }
+        }
+    ]
+},
+{
+    year: 2025,
+    title: "75 Years: Was It Worth It?",
+    narrative: `Three generations of Los Angeles, ${gameState.character.firstName}. The California Dream evolved. Let's see what it became.`,
+    image: "images/la2025sunset.gif",
+    choices: [
+        {
+            text: "SEE HOW YOUR LA STORY ENDED",
+            effects: {},
+            result: "You completed 75 years in Los Angeles. Your grandparents: rode Red Cars for a dime (Santa Monica to Pasadena to Long Beach!), bought a house for $12,000, saw the San Gabriel Mountains every single day, smelled orange blossoms in the air, went to the first West Coast World Series at the Coliseum, lived in actual paradise. Your parents: sat in 405 traffic listening to KROQ, breathed smog so thick they couldn't see the mountains for years, survived the Northridge earthquake that collapsed freeways, lived through the '92 riots while listening to Dr. Dre and Ice Cube tell the real story, watched the Blue Line open in 1990 and thought 'finally!' (it went to Long Beach, cool), paid for cars their entire lives while the Red Cars rotted in memory. You: spend thousands a year on mandatory car ownership, missed part of Taylor Swift's Eras Tour because of SoFi traffic, spend 32.5 DAYS per year just SITTING in your car not moving listening to Kendrick's entire discography multiple times (you've contemplated your whole life to 'HUMBLE.' in traffic), survived Carmageddon, watched COVID clear the smog and finally saw the mountains your grandparents saw every day. The city destroyed 1,000+ miles of rail and built freeways that immediately jammed. The K Line finally opened in 2024 but doesn't go where you need. Brightline to Vegas won't open until 2028. BUT - In-N-Out is still fire, the tacos from that truck on your corner are ELITE, it's 75° in January while the rest of America freezes, you've got Shohei Ohtani AND Freddie Freeman, LeBron and Luka (Thank you Nico Harrison), the Rams won the Super Bowl at SoFi in 2022, Kendrick won the Pulitzer and multiple Grammys repping Compton, and the beaches are still there. Your grandparents had affordable housing, clean air, functioning transit, and paradise. You have... traffic, debt, perfect weather, and the Dodgers who seem unstopable."
+        }
+    ]
+}
+];
+
 scenarios.nyc = {
     gen1: nycGen1Scenarios,
     gen2: nycGen2Scenarios,
     gen3: nycGen3Scenarios,
 };
-const inflationMultipliers = {
-};
 
-function getInflationMultiplier(year) {
-    const years = Object.keys(inflationMultipliers).map(Number).sort((a, b) => a - b);
-    for (let i = years.length - 1; i >= 0; i--) {
-        if (year >= years[i]) return inflationMultipliers[years[i]];
-    }
-    return 1.0;
-}
+scenarios.la = {
+    gen1: laGen1Scenarios,
+    gen2: laGen2Scenarios,
+    gen3: laGen3Scenarios,
+};
 
 function startCharacterCreation() {
     document.getElementById('front-page').classList.remove('active');
@@ -2684,10 +3584,13 @@ function loadScenario() {
     const genKey = `gen${gameState.currentGeneration}`;
     let cityScenarios = [...scenarios[gameState.city][genKey]];
     
-if (gameState.currentGeneration === 1 && (gameState.city === 'detroit' || gameState.city === 'nyc')) {
+if (gameState.currentGeneration === 1 && (gameState.city === 'detroit' || gameState.city === 'nyc' || gameState.city === 'la')) {
     const jobScenario = gameState.city === 'detroit' ? 
         jobSpecificScenarios[gameState.character.job] : 
-        jobSpecificScenariosNYC[gameState.character.job];
+        gameState.city === 'nyc' ?
+        jobSpecificScenariosNYC[gameState.character.job] :
+        jobSpecificScenariosLA[gameState.character.job];
+    
     const jobIndex = cityScenarios.findIndex(s => s.title === "Job Scenario");
     if (jobIndex !== -1) {
         cityScenarios[jobIndex] = jobScenario;
@@ -2728,32 +3631,26 @@ if (gameState.currentGeneration === 1 && (gameState.city === 'detroit' || gameSt
         return;
     }
     
-    const previousYear = gameState.currentYear;
-    gameState.currentYear = scenario.year;
-    const yearsElapsed = Math.floor(gameState.currentYear - previousYear);
+const previousYear = gameState.currentYear;
+gameState.currentYear = scenario.year;
+const yearsElapsed = Math.floor(gameState.currentYear - previousYear);
+
+if (yearsElapsed > 0 && gameState.currentScenarioIndex > 0) {
+    const annualIncome = gameState.monthlySalary * 12 * yearsElapsed;
+    gameState.money += annualIncome;
     
-    if (yearsElapsed > 0 && gameState.currentScenarioIndex > 0) {
-        const inflationMult = getInflationMultiplier(gameState.currentYear);
-        const oldInflationMult = getInflationMultiplier(previousYear);
-        
-        if (gameState.monthlySalary > 0) {
-            gameState.monthlySalary = (gameState.monthlySalary / oldInflationMult) * inflationMult;
-        }
-        
-        const annualIncome = gameState.monthlySalary * 12 * yearsElapsed;
-        gameState.money += annualIncome;
-        
-        const annualExpenses = gameState.monthlyExpenses * 12 * yearsElapsed;
-        gameState.money -= annualExpenses;
-    }
+    const annualExpenses = gameState.monthlyExpenses * 12 * yearsElapsed;
+    gameState.money -= annualExpenses;
+}
+
+document.getElementById('current-year').textContent = Math.floor(scenario.year);
+document.getElementById('current-generation').textContent = `Generation ${gameState.currentGeneration}`;
+document.getElementById('scenario-title').textContent = scenario.title;
     
-    document.getElementById('current-year').textContent = Math.floor(scenario.year);
-    document.getElementById('current-generation').textContent = `Generation ${gameState.currentGeneration}`;
-    
-    let narrativeText = scenario.narrative;
-    if (scenario.title === "Welcome to Detroit" || scenario.title === "Welcome to New York City") {
+   let narrativeText = scenario.narrative;
+if (scenario.title === "Welcome to Detroit" || scenario.title === "Welcome to New York City" || scenario.title === "Welcome to Los Angeles") {
     narrativeText = `${gameState.character.firstName}, ${scenario.narrative}`;
-    }
+}
     
  const narrativeEl = document.getElementById('narrative');
 
@@ -2798,27 +3695,22 @@ document.getElementById('fact-box').style.display = 'none';
 
 function makeChoice(scenario, choice) {
     const oldMoney = gameState.money;
-    const inflationMult = getInflationMultiplier(gameState.currentYear);
     
-    if (choice.effects.money) {
-        if (choice.effects.jobMultiplier && gameState.character.job === 'factory') {
-            gameState.money += choice.effects.money * 1.5 * inflationMult;
-        } else {
-            gameState.money += choice.effects.money * inflationMult;
-        }
+ if (choice.effects.money) {
+    gameState.money += choice.effects.money;
+}
+
+if (choice.effects.monthlyExpenses) {
+    gameState.monthlyExpenses += choice.effects.monthlyExpenses; 
+}
+
+if (choice.effects.monthlySalary) {
+    if (choice.effects.monthlySalary > 1000) {
+        gameState.monthlySalary = choice.effects.monthlySalary;
+    } else {
+        gameState.monthlySalary += choice.effects.monthlySalary; 
     }
-    
-    if (choice.effects.monthlyExpenses) {
-        gameState.monthlyExpenses += choice.effects.monthlyExpenses * inflationMult;
-    }
-    
-    if (choice.effects.monthlySalary) {
-        if (choice.effects.monthlySalary > 1000) {
-            gameState.monthlySalary = choice.effects.monthlySalary;
-        } else {
-            gameState.monthlySalary += choice.effects.monthlySalary * inflationMult;
-        }
-    }
+}
     
     if (choice.effects.frustration) {
         gameState.frustration = Math.max(0, Math.min(100, gameState.frustration + choice.effects.frustration));
@@ -2884,10 +3776,19 @@ function showResultModal(choice, oldMoney, newMoney) {
 }
 
 function closeResultModal() {
-    document.querySelector('.result-modal')?.remove();
+    const modal = document.querySelector('.result-modal');
+    if (modal) {
+        modal.remove();
+    }
+    updateGameStats();
+
     gameState.currentScenarioIndex++;
-    loadScenario();
+    
+    setTimeout(() => {
+        loadScenario();
+    }, 100);
 }
+
 function showEndScreen() {
     document.getElementById('game-screen').classList.remove('active');
     document.getElementById('game-meters').style.display = 'none';
