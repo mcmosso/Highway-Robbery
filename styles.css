@@ -211,6 +211,13 @@ body {
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.106);
 }
 
+.byline {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin: 10px 0;
+    font-style: italic;
+}
+
 .start-game-btn {
     background: linear-gradient(135deg, #6A1B9A, #8E24AA);
     border: 5px solid #2D1B69;
