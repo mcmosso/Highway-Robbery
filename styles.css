@@ -913,4 +913,12 @@ input[type="radio"] {
     #pixel-canvas {
         max-width: 100%;
     }
+      .scenario-title {
+        top: 80px;
+        left: 20px;
+        font-size: 12px;
+        padding: 6px 12px;
+        border: 2px solid #6A1B9A;
+    }
+}
 }
