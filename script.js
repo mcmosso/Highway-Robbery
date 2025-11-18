@@ -2624,7 +2624,7 @@ const laGen1Scenarios = [
     {
         year: 1955,
         title: "Disneyland Opens",
-        narrative: "July 17, 1955. Walt Disney opens Disneyland in Anaheim, 27 miles from downtown. It's all over TV: 'To all who come to this happy place, welcome.' There's one problem: Disney deliberately designed it with NO rail access. Just a massive parking lot. You need a car to enter the Happiest Place on Earth. This is California's future. Are you ready for tomorrowland?",
+        narrative: "July 17, 1955. Walt Disney opens Disneyland in Anaheim, 27 miles from downtown. It's all over TV: 'To all who come to this happy place, welcome.' There's one problem: there's NO rail access. Just a massive parking lot. You need a car to enter the Happiest Place on Earth. This is California's future. Are you ready for tomorrowland?",
         image: "images/disneylandopening.jpg",
         fact: {
             text: "Disneyland opened July 17, 1955 with parking for 12,000 cars but zero rail transit access.",
