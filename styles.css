@@ -536,14 +536,41 @@ input[type="radio"] {
     display: flex;
     flex-direction: column;
     box-shadow: 8px 8px 0px #4A148C;
+    position: relative; 
 }
 
-.year-display {
-    text-align: center;
-    margin-bottom: 10px;
-    margin-top: -10px;
+.scenario-title {
+    position: absolute;
+    top: 30px; 
+    left: 30px;
+    font-size: 16px;
+    color: #250560;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 2px;
+    border: 3px solid #6A1B9A;
 }
 
+@media (max-width: 768px) {
+    .scenario-title {
+        position: relative;
+        top: auto;
+        left: auto;
+        display: block;
+        margin: 0 auto 10px auto;
+        font-size: 12px;
+        padding: 8px 16px;
+        border: 2px solid #6A1B9A;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .scenario-title {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
+}
 .year {
     background: #6A1B9A;
     color: #F3E5F5;
@@ -573,17 +600,18 @@ input[type="radio"] {
     gap: 20px;
     align-items: start;
 }
+.year-display {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    position: relative; 
+}
 
-.scenario-title {
-    position: absolute;
-    top: 150px;
-    left: 70px;
-    font-size: 16px;
-    color: #250560;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 2px;
-    border: 3px solid #6A1B9A;
+@media (max-width: 480px) {
+    .scenario-title {
+        font-size: 10px;
+        padding: 6px 12px;
+    }
 }
 
 .narrative-copy {
@@ -912,12 +940,5 @@ input[type="radio"] {
     
     #pixel-canvas {
         max-width: 100%;
-    }
-      .scenario-title {
-        top: 80px;
-        left: 20px;
-        font-size: 12px;
-        padding: 6px 12px;
-        border: 2px solid #6A1B9A;
     }
 }
