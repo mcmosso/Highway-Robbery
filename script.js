@@ -191,7 +191,7 @@ const scenarios = {
             result: "Paradise Valley jazz clubs on Friday - Elvin Jones is just incredible. Belle Isle picnics on Saturday. Fox Theatre on Sunday to see All About Eve - AMAZING FILM. The streetcar takes you everywhere for a dime. Detroit's got 1.8 million people right now and the whole city feels alive. You're living in the center of American manufacturing and it RULES."
         },
         {
-            text: "WORK OVERTIME - STACK THAT MONEY",
+            text: "WORK OVERTIME AND STACK THAT MONEY",
             effects: { money: 200, frustration: 25, jobMultiplier: true },
             result: "Time and a half at the plant pays STUPID GOOD. Your savings are exploding. You're also seeing your apartment exclusively between the hours of 11pm and 6am. Your partner asks if you remember what they look like. Trouble in paradise...Your friends went to see the Lions beat the Rams but you were doing a double shift. Think of the money...think of the money..."
         },
@@ -215,14 +215,14 @@ const scenarios = {
                 flags: { hasCarGen1: true }
             },
             {
-                text: "BUY BRAND NEW,
+                text: "BUY BRAND NEW",
                 effects: { money: -1400, monthlyExpenses: 95, frustration: -20, carsOwned: 1 },
                 result: "You walk into the Dodge dealership on Woodward and the salesman practically CARRIES you to a shiny new Coronet. That new car smell hits different. You drive it to work Monday and three guys stop you in the parking lot to look at it. Frank sees it and goes SILENT. Wednesday morning he's revving his Chevy in the driveway. You rev the Coronet back. LOUDER. Frank revs again. You rev LOUDER. This goes on for five minutes. Your partner yells 'FOR THE LOVE OF GOD WILL BOTH OF YOU STOP' out the window. You and Frank are in a cold war now. Worth every penny. Monthly costs: $55.",
                 flags: { hasCarGen1: true }
             },
             {
                 text: "STICK WITH STREETCAR",
-                effects: { money: 0, frustration: 15 },
+                effects: { money: 100, frustration: 15 },
                 result: "Streetcars still run perfectly fine! You're saving HUNDREDS. But literally every lunch break is car talk now. Your partner says their sister and their partner took their new Buick up to Mt.Mancelona to ski. You respond 'Well that's like a three hour drive and I hate skiiing so sounds like an awful day that I would hate' Jeez simmer down... Also, Frank honks at you when he drives past you at the streetcar stop. You roll your eyes at him. He can be such an asshole."
             }
         ]
@@ -262,7 +262,7 @@ const scenarios = {
             {
             text: "CALL THE EXPENSIVE AMBULANCE",
             effects: { money: -450, frustration: 50 },
-            result: "You call. The ambulance takes 18 MINUTES to arrive. Your partner's screaming and crying the entire time. You're both crying. Surgery's successful but those 18 minutes aged you 10 years. If you'd had a car you could've been GONE. Your partner says from the hospital bed 'we're getting a car' and you nod because YEAH. NO KIDDING. Ambulance: $450."
+            result: "You call 911. The ambulance takes 18 MINUTES to arrive. Your partner's screaming and crying the entire time. You're both crying. Surgery's successful but those 18 minutes aged you 10 years. If you'd had a car you could've been GONE. Your partner says from the hospital bed 'we're getting a car' and you nod because YEAH. NO KIDDING. Ambulance: $450."
             },
         {
             text: "WAKE UP A NEIGHBOR TO DRIVE YOU",
@@ -505,7 +505,7 @@ const scenarios = {
                     choices: [
                     {
                         text: "Start Generation 2",
-                        effects: { monthlySalary: 2000, monthlyExpenses: 900 },
+                        effects: { monthlySalary: 2000, monthlyExpenses: 800 },
                         result: "You're starting adult life in the car-designed world your parents built. Time to see what choices you have left."
                     }
         ]
@@ -753,7 +753,7 @@ const scenarios = {
                 choices: [
                     {
                         text: "Start Generation 3",
-                        effects: { monthlySalary: 3500, monthlyExpenses: 1500 },
+                        effects: { monthlySalary: 3500, monthlyExpenses: 1100 },
                         result: "You're 22 years old with a college degree, a mountain of debt, and some big decisions ahead of you. Time to figure out where to live and how you're going to get around in the city your grandparents built."
                     }
             ]
@@ -845,8 +845,8 @@ const scenarios = {
 },
 {
     year: 2007,
-    title: "Pistons Playoff Game at The Palace",
-    narrative: `The Pistons are in the playoffs, ${gameState.character.firstName}! Your friend scored tickets to a game at The Palace of Auburn Hills. Chauncey Billups! Rasheed Wallace! The Palace is 35 miles north in the suburbs. You have a car so getting there is easy. But after the game, everyone wants to hit different bars in different suburbs and you're all driving separately. Metro Detroit's sprawl means even hanging out with friends requires complex driving logistics.`,
+    title: "Pistons Playoff Game",
+    narrative: `The Pistons are in the playoffs! Your friend scored tickets to a game at The Palace of Auburn Hills. Chauncey Billups! Rasheed Wallace! The Palace is 35 miles north in the suburbs. You have a car so getting there is easy. But after the game, everyone wants to hit different bars in different suburbs and you're all driving separately. Metro Detroit's sprawl means even hanging out with friends requires complex driving logistics.`,
     image: "images/billups.gif",
     fact: {
         text: "The Palace of Auburn Hills (1988-2017) was located 35 miles from downtown Detroit with zero public transit access. The Pistons didn't return to playing IN Detroit until 2017.",
@@ -1957,10 +1957,10 @@ const nycGen2Scenarios = [
 },
 {
     year: 2001,
-    title: "Your Car Dies on the BQE",
+    title: "Your Car Literally Dies on the BQE",
     narrative: "Brooklyn-Queens Expressway. Rush hour. Your car makes a horrible grinding noise and just... stops. Dead. Traffic backs up behind you for MILES. People are screaming. Honking. Calling you terrible names...You're mortified. Tow truck: $95. Mechanic: 'Yeah, transmission is completely shot. $2,900 to fix.' The car is 13 years old. You could junk it for $900, buy something newer, lease something reliable, or say screw it. What now?",
     requiresFlag: "hasCarGen2",
-    image: "image/cardies.gif",
+    image: "images/cardies.gif",
     choices: [
         {
             text: "FIX IT",
@@ -1996,7 +1996,7 @@ const nycGen2Scenarios = [
 const nycGen3Scenarios = [
     {
         year: 2002,
-        title: "Generation 3: Out of College",
+        title: "Generation 3: Fresh Out of College",
         narrative: "You just graduated with $28,000 in student loans. First job offer: $42,000/year in Manhattan. Your grandparents paid $60/month rent here ($784 today). You're looking at $1,200/month for a studio. The city survived the fiscal crisis. It's safer now. The subway works. But can you afford it on entry-level pay?",
         image: "images/nyc2002.jpg",
         fact: {
@@ -2572,7 +2572,7 @@ const laGen1Scenarios = [
     {
         year: 1950,
         title: "Welcome to Los Angeles",
-        narrative: `Welcome to Los Angeles, ${gameState.character.firstName}. It's 1950 and the Pacific Electric Red Cars still connect beaches, mountains, downtown, and suburbs across Southern California. It's sunny and warm. The San Gabriel Mountains are visible from downtown. The ocean is just a Red Car ride away. This is paradise on rails.`,
+        narrative: `Welcome to Los Angeles! It's 1950 and the Pacific Electric Red Cars still connect beaches, mountains, downtown, and suburbs across Southern California. It's sunny and warm. The San Gabriel Mountains are visible from downtown. The ocean is just a Red Car ride away. This is paradise on rails.`,
         image: "images/redcars.jpg",
         fact: {
             text: "Pacific Electric operated over 1,000 miles of interurban track in 1950 - one of the world's largest electric railway systems.",
