@@ -193,7 +193,7 @@ const scenarios = {
         {
             text: "WORK OVERTIME AND STACK THAT MONEY",
             effects: { money: 200, frustration: 25, jobMultiplier: true },
-            result: "Time and a half at the plant pays STUPID GOOD. Your savings are exploding. You're also seeing your apartment exclusively between the hours of 11pm and 6am. Your partner asks if you remember what they look like. Trouble in paradise...Your friends went to see the Lions beat the Rams but you were doing a double shift. Think of the money...think of the money..."
+            result: "Time and a half pays SUPER GOOD. Your savings are exploding. You're also seeing your apartment exclusively between the hours of 11pm and 6am. Your partner asks if you remember what they look like. Trouble in paradise...Your friends went to see the Lions beat the Rams but you were doing a double shift. Think of the money...think of the money..."
         },
         {
             text: "BALANCE WORK AND LIFE",
@@ -205,7 +205,7 @@ const scenarios = {
     {
         year: 1952,
         title: "Everyone's Buying Cars",
-        narrative: "Cars are EVERYWHERE in your neighborhood now. Your neighbor Frank bought a new Chevy and won't shut UP about it - he's selling his old '48 Plymouth for $700. Everyone at the plant talks about their weekend drives up north. Your partner mentions their sister just bought one. Frank keeps revving his engine in the driveway at 7am. Frank, we GET IT.",
+        narrative: "Cars are EVERYWHERE in your neighborhood now. Your neighbor Frank bought a new Chevy and won't shut UP about it - he's selling his old '48 Plymouth for $700. Everyone talks about their weekend drives up north. Your partner mentions their sister just bought one. Frank keeps revving his engine in the driveway at 7am. Frank, we GET IT.",
         image: "images/chrome.jpg",
         choices: [
             {
