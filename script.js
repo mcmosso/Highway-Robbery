@@ -3075,7 +3075,7 @@ const laGen2Scenarios = [
 },
 {
     year: 1994,
-    title: "The Northridge Earthquake Destroys Freeways",
+    title: "The Northridge Earthquake",
     narrative: "January 17, 1994. 4:31am. You're asleep. The Northridge earthquake hits - 6.7 magnitude. You wake up to your entire apartment SHAKING. Books flying off shelves. Car alarms screaming. When the sun comes up, you turn on the news: freeway overpasses COLLAPSED. The 10. The 5. The 14. Sections of freeway are just GONE. Crumpled like paper. The car-dependent city's entire infrastructure is shattered. Your one-hour commute now takes FOUR HOURS on surface streets. The whole city is paralyzed. KTLA is showing the collapsed freeway on loop.",
     image: "images/earthquake.jpg",
     fact: {
@@ -3107,7 +3107,7 @@ const laGen2Scenarios = [
 },
  {
     year: 1998,
-    title: "Your Teenager Needs a Car for Their Job",
+    title: "Teenager Needs Car for Their Job",
     narrative: "Your 16-year-old just got their license and landed a part-time job at the Glendale Galleria - 14 miles away. They need to work Tuesday and Thursday nights plus weekends. You work until 6pm. Your partner works until 7pm. The mall is car-only access with zero bus service that goes there. Your teenager literally cannot have a job without a car. They keep playing that Fastball song 'The Way' on repeat in their room. American teenage employment just became a transportation crisis.",
     image: "images/clueless.gif",
     choices: [
@@ -3197,7 +3197,7 @@ const laGen3Scenarios = [
 },
 {
     year: 2009,
-    title: "Lakers NBA Finals while the Dodgers play too",
+    title: "Lakers NBA Finals",
     narrative: "June 14, 2009. Lakers are playing Game 5 of the NBA Finals at Staples (6pm). Dodgers playing at Chavez Ravine (7:10pm). Everyone is driving to both stadiums at the same time. Downtown to Echo Park. The 110 is a parking lot. Sunset Boulevard isn't moving. Even surface streets are gridlocked. This is what happens when a city has zero transit alternatives and two major sporting events happen 3 miles apart.",
     image: "images/kobe.gif",
     choices: [
@@ -3225,7 +3225,7 @@ const laGen3Scenarios = [
 },
 {
     year: 2011,
-    title: "Carmageddon - The 405 Closes",
+    title: "Carmageddon",
     narrative: "July 15-17, 2011. They're closing a 10-mile stretch of the 405 for 53 hours to demolish the Mulholland Bridge. The media dubs it 'CARMAGEDDON.' Mayor Villaraigosa warns everyone: STAY HOME or the city will be completely gridlocked. JetBlue literally offers $4 flights from Burbank to Long Beach to avoid driving through the closure. This is what happens when you build a city with zero transit alternatives - one freeway closure becomes an apocalyptic event.",
     image: "images/carmagedon.jpg",
     fact: {
@@ -3257,7 +3257,7 @@ const laGen3Scenarios = [
 },
 {
     year: 2013,
-    title: "Your Best Friend's Vegas Wedding",
+    title: "BFF's Vegas Wedding",
     narrative: "Your college best friend is getting married in Las Vegas. You're invited! It's 270 miles away - basically the same distance as NYC to Boston. But there's NO TRAIN. Like actually zero passenger rail service. Your options: drive 4-5 hours through the desert (gas + hotel), fly for 1 hour ($200+), or take a Greyhound for 6 hours ($80). American infrastructure is so broken that visiting a city 270 miles away requires either driving or flying. Europe is laughing at us.",
     image: "images/vegasladriving.png",
     fact: {
@@ -3289,7 +3289,7 @@ const laGen3Scenarios = [
 },
 {
     year: 2016,
-    title: "Dating in LA: A Geography Problem",
+    title: "Dating in LA: Geography Problem",
     narrative: "You matched on Hinge. Great conversation. Real chemistry happening through the screen. They suggest dinner in Venice Beach. You live in Los Feliz. That's 18 miles - could be 35 minutes, could be 90 minutes depending on traffic. It's Friday night so definitely 90 minutes. They have a car obviously because everyone does. In LA, dating compatibility is literally: chemistry × (distance ÷ traffic) = relationship viability. You're doing math on potential love.",
     image: "images/hinge.gif",
     choices: [
@@ -3317,7 +3317,7 @@ const laGen3Scenarios = [
 },
 {
     year: 2018,
-    title: "Your Car is Your Second Home",
+    title: "Car is Your Second Home",
     narrative: "You just did the depressing math: 15 hours per week in your car. That's 780 hours per year. 32.5 DAYS of your entire life annually just sitting in traffic not moving. Your car has snacks, phone chargers, deodorant, a full change of clothes, breath mints, sunscreen, a blanket. You've eaten full meals in it. Taken work calls. Cried. Had revelations. Your car isn't transportation anymore - it's a $720/month second home you're forced to maintain just to participate in LA life.",
     image: "images/worsttraffic.jpg",
     fact: {
@@ -3398,12 +3398,12 @@ const laGen3Scenarios = [
 },
 {
     year: 2023,
-    title: "Taylor Swift Eras Tour at SoFi = The City STOPS",
+    title: "Taylor Swift Eras Tour at SoFi",
     narrative: "August 2023. Taylor Swift's Eras Tour at SoFi Stadium in Inglewood. SIX sold-out nights. 70,000 Swifties per show descending on Inglewood. The 405 is a parking lot from LAX to the Valley. The 10 isn't moving. Surface streets completely gridlocked. People are spending 3+ HOURS driving 15 miles in their best sparkly outfits. Taylor starts at 7pm. Fans are still stuck in traffic at 8:30pm missing 'Cruel Summer.' This is what car dependency looks like when it collapses under glitter and friendship bracelets.",
     image: "images/erastour.gif",
     choices: [
         {
-            text: "DRIVE TO SOFI - MISS 'LOVER' ERA ENTIRELY",
+            text: "DRIVE TO SOFI",
             effects: { money: -650, frustration: 70 },
             result: "You leave at 4:30pm for a 7pm show wearing your carefully planned Reputation-era outfit. You're blasting '1989' getting HYPED. You sit on the 405 for TWO AND A HALF HOURS. NOT. MOVING. You switch albums to 'Folklore' because now your crying. You finally sprint into SoFi at 8:00pm - Taylor's ALREADY performed 'Cruel Summer' AND 'Lover' AND 'The Man.' You spent $200 on tickets to miss the first half hour of TAYLOR SWIFT. Your outfit is wrinkled from sitting. Car dependency just ruined the Eras Tour for you. Tickets, parking, gas, and your themed outfit: $350."
         },
