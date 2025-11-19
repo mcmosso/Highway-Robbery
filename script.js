@@ -2945,10 +2945,6 @@ const laGen2Scenarios = [
         title: "Soccer Practice",
         narrative: "Your 6-year-old wants to play soccer. Great! Healthy! The soccer field is in Culver City - 8 miles away. Practice is Tuesday and Thursday at 4pm. There's no bus. There's no train. There's no carpool organized yet. You work until 5pm. Your partner works until 6pm. American youth sports just became a TRANSPORTATION CRISIS.",
         image: "images/giphy.gif",
-        fact: {
-            text: "Youth sports in car-dependent suburbs required extensive parent driving. Unlike walkable cities where kids could bike or take transit to activities, American kids needed chauffeurs.",
-            link: "https://www.strongtowns.org/journal/2019/9/6/how-our-transportation-system-robs-children-of-independence"
-        },
         choices: [
             {
                 text: "LEAVE WORK EARLY TWICE A WEEK",
