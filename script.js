@@ -2558,7 +2558,7 @@ const nycGen3Scenarios = [
     {
         year: 2025,
         title: "Looking Back at 75 Years in NYC",
-        narrative: "Three generations in the greatest city in the world (Hamilton reference), ${gameState.character.firstName}. Time to see what it all meant.",
+        narrative: "Three generations in the greatest city in the world (Hamilton reference). Time to see what it all meant.",
         image: "images/newyork.gif",
         choices: [
             {
